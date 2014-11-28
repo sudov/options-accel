@@ -51,6 +51,4 @@ black_scholes2 (
          const double T,
          const double gaussian_random_number
          );
-
-
 #endif /* _black_scholes_h */
