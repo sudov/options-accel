@@ -116,7 +116,7 @@ main (int argc, char* argv[])
   for(i = 0;i<M;i++){
       variance += (store[i]-mean)*(store[i]-mean)/(double)M;
   }
-  conf_width = 1.96 * variance / sqrt ((double) M);
+  conf_width = 1.96 * sqrt(variance) / sqrt ((double) M);
 
   /*
    * A fun fact about C string literals (i.e., strings enclosed in
