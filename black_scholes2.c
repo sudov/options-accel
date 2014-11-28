@@ -55,26 +55,30 @@ black_scholes2 (
     double mydata;
     double tmp;
     double tmp2;
+    double tmp3;
+    double tmp4;
 
     tmp = mult2_1(sigma,sigma);
     tmp = div_1(tmp,2.0);
     tmp = expo1(r-tmp);
     tmp = mult2_1(tmp,S);
-    tmp = mult2_1(tmp*T);
+    tmp = mult2_1(tmp,T);
 
     tmp2 = mult2_1(sigma, gaussian_random_number);
     tmp2 = mult2_1(tmp2,sqrt1(T));
-    
+
+    tmp3 = tmp + tmp2;
+    tmp4 = expo1(-r*T);
+    tmp4 = tmp4*((tmp3 - E < 0.0) ? 0.0 : tmp3 - E);
+
+    //current_value = S * exp ( (r - (sigma*sigma) / 2.0) * T + sigma * sqrt (T) * gaussian_random_number );
+    //mydata = exp(-r * T) * ((current_value - E < 0.0) ? 0.0 : current_value - E);
 
 
 
-    current_value = S * exp ( (r - (sigma*sigma) / 2.0) * T + sigma * sqrt (T) * gaussian_random_number );
-    mydata = exp(-r * T) * ((current_value - E < 0.0) ? 0.0 : current_value - E);
 
-
-
-
-    return mydata;
+    //return mydata;
+    return tmp4;
 }
 
 
