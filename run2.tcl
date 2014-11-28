@@ -1,18 +1,19 @@
-open_project hls.prj 
+############################################################
+open_project hls.prj
+set_top black_scholes2
 
-set_top dut
-add_files interface.cpp 
-add_files nearest_neighbor.cpp
+add_files black_scholes2.c
+add_files gaussian.c
+add_files mt19937ar.c
 
-add_files -tb testbench.cpp
-add_files -tb testing_set.dat
+#-cflags "-DBIT_ACCURATE"
+#add_files -tb cordic_test.cpp -cflags "-DBIT_ACCURATE"
 
-open_solution solution1
+open_solution "solution1"
+set_part {xc7z020clg484-1}
+create_clock -period 10
 
-set_part xc7z020clg484-1
-config_rtl -reset state
+#source "./directives.tcl"
 csynth_design
 
-# RTL (VERILOG) CO-SIMULATION
-#cosim_design -rtl verilog -trace_level all
-exit
+#cosim_design

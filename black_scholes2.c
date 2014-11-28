@@ -23,6 +23,21 @@
  * Black-Scholes iterations, and computes the local part of the mean.
  */
 
+double mult2_1(double a, double b){
+  return a*b;
+}
+double div_1(double a, double b){
+  return a/b;
+}
+
+double expo1(double a){
+  return exp(a);
+}
+
+double sqrt1(double a){
+  return sqrt(a);
+}
+
 
 double
 black_scholes2 (
@@ -35,8 +50,22 @@ black_scholes2 (
          )
 {
 
+    #pragma HLS dataflow
     double current_value;
     double mydata;
+    double tmp;
+    double tmp2;
+
+    tmp = mult2_1(sigma,sigma);
+    tmp = div_1(tmp,2.0);
+    tmp = expo1(r-tmp);
+    tmp = mult2_1(tmp,S);
+    tmp = mult2_1(tmp*T);
+
+    tmp2 = mult2_1(sigma, gaussian_random_number);
+    tmp2 = mult2_1(tmp2,sqrt1(T));
+    
+
 
 
     current_value = S * exp ( (r - (sigma*sigma) / 2.0) * T + sigma * sqrt (T) * gaussian_random_number );
@@ -47,5 +76,11 @@ black_scholes2 (
 
     return mydata;
 }
+
+
+
+
+
+
 
 

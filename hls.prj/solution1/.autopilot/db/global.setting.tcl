@@ -1,5 +1,5 @@
 
-set TopModule "black_scholes"
+set TopModule "black_scholes2"
 set ClockPeriod "10.000000"
 set ClockList {ap_clk}
 set multiClockList {}
@@ -35,9 +35,9 @@ set SCTraceFileName "mytrace"
 set SCTraceFileFormat "vcd"
 set SCTraceOption "all"
 set TargetInfo "xc7z020:clg484:-1"
-set SourceFiles {sc {} c {../../mt19937ar.c ../../gaussian.c ../../black_scholes.c}}
-set SourceFlags {sc {} c {{} {} {}}}
-set DirectiveFile {/home/student/cw444/Fall2014/ece5775/test/hls.prj/solution1/solution1.directive}
+set SourceFiles {sc {} c {../../mt19937ar.c ../../gaussian.c ../../black_scholes2.c ../../black_scholes.c}}
+set SourceFlags {sc {} c {{} {} {} {}}}
+set DirectiveFile {/home/student/cw444/Fall2014/ece5775/options-accel/hls.prj/solution1/solution1.directive}
 set TBFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
