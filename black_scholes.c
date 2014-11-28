@@ -72,7 +72,7 @@ double delta = 0.0;
   /* Do the Black-Scholes iterations */
   for (k = 1; k <= MM; k++)
     {
-   //   #pragma HLS pipeline 
+      #pragma HLS pipeline 
      gaussian_random_number = gaussrand2(&gaussrand_state);
     
     current_value = S * exp ( (r - (sigma*sigma) / 2.0) * T + sigma * sqrt (T) * gaussian_random_number );

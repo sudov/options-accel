@@ -4844,8 +4844,8 @@ double delta = 0.0;
   /* Do the Black-Scholes iterations */
   for (k = 1; k <= 100000; k++)
     {
-   //   #pragma HLS pipeline 
-     gaussian_random_number = gaussrand2(&gaussrand_state);
+#pragma HLS pipeline
+ gaussian_random_number = gaussrand2(&gaussrand_state);
 #pragma empty_line
     current_value = S * exp ( (r - (sigma*sigma) / 2.0) * T + sigma * sqrt (T) * gaussian_random_number );
     mydata = exp(-r * T) * ((current_value - E < 0.0) ? 0.0 : current_value - E);

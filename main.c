@@ -1,4 +1,7 @@
-#include "black_scholes.h"
+#include "black_scholes2.h"
+
+#include "gaussian.h"
+
 #include "parser.h"
 #include "timer.h"
 
@@ -27,16 +30,25 @@
  * code which we supply to you doesn't use this argument; your code
  * will.
  */
+
+
+
 int
 main (int argc, char* argv[])
 {
-  confidence_interval_t interval;
+
   double S, E, r, sigma, T;
   int M = 0;
   char* filename = NULL;
   int nthreads = 1;
   double t1, t2;
   
+
+  //------Design 2
+  int i;
+
+
+
   if (argc < 3)
     {
       fprintf (stderr, 
@@ -48,8 +60,21 @@ main (int argc, char* argv[])
   parse_parameters (&S, &E, &r, &sigma, &T, &M, filename);
 
 
+  //------Design 2
+  double store[M];
+  double sum = 0.0;
+  double mean = 0.0;
+  double variance = 0.0;
+  double conf_width;
+  double rand_number;
+  //double result;
+
+
+  gaussrand_state_t gaussrand_state;
   // Init mt19937ar random number generator
-  
+  unsigned long init[4]={0x123, 0x234, 0x345, 0x456}, length=4; //***Mod
+  init_gaussrand_state (&gaussrand_state);
+  init_by_array(init, length);        //***Mod
 
 
 
@@ -70,8 +95,28 @@ main (int argc, char* argv[])
 
 
   t1 = get_seconds ();
-  black_scholes (&interval, S, E, r, sigma, T, M);
+
+//--------------------------------Design 1----------------------
+//black_scholes (&interval, S, E, r, sigma, T, M);
+
+  for(i = 0;i<M;i++){
+      rand_number = gaussrand2(&gaussrand_state);
+      store[i] = black_scholes2 (S, E, r, sigma, T, rand_number);
+      sum += store[i];
+  }
+
+  if(M==0){
+    printf("Divide by 0\n");
+  }else{
+    mean = sum/M;
+  }
+
+
   t2 = get_seconds ();
+  for(i = 0;i<M;i++){
+      variance += (store[i]-mean)*(store[i]-mean)/(double)M;
+  }
+  conf_width = 1.96 * variance / sqrt ((double) M);
 
   /*
    * A fun fact about C string literals (i.e., strings enclosed in
@@ -87,7 +132,7 @@ main (int argc, char* argv[])
 	  "T        %g\n"
 	  "M        %d\n",
 	  S, E, r, sigma, T, M);
-  printf ("Confidence interval: (%g, %g)\n", interval.min, interval.max);
+  printf ("Confidence interval: (%g, %g)\n", mean-conf_width, mean+conf_width);
   printf ("Total simulation time: %g seconds\n", t2 - t1);
 
   return 0;

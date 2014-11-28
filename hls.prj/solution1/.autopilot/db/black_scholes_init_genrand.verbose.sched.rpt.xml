@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'black_scholes_init_genrand'" level="0">
-<item name = "Date">Sat Nov 22 03:15:28 2014
+<item name = "Date">Tue Nov 25 16:47:01 2014
 </item>
 <item name = "Version">2014.2 (Build 932637 on Wed Jun 11 12:38:34 PM 2014)</item>
 <item name = "Project">hls.prj</item>

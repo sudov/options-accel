@@ -4843,9 +4843,9 @@ double delta = 0.0;
 #pragma empty_line
   /* Do the Black-Scholes iterations */
   for (k = 1; k <= 100000; k++)
-    {
-   //   #pragma HLS pipeline 
-     gaussian_random_number = gaussrand2(&gaussrand_state);
+    {_ssdm_RegionBegin("hls_label_0");
+#pragma HLS pipeline
+ gaussian_random_number = gaussrand2(&gaussrand_state);
 #pragma empty_line
     current_value = S * exp ( (r - (sigma*sigma) / 2.0) * T + sigma * sqrt (T) * gaussian_random_number );
     mydata = exp(-r * T) * ((current_value - E < 0.0) ? 0.0 : current_value - E);
@@ -4875,7 +4875,7 @@ double delta = 0.0;
        * element of trials[0 .. M-1].
        */
       //mean += trials[k] / (double) M;
-    }
+    _ssdm_RegionEnd("hls_label_0");}
 #pragma empty_line
 /*
     //Calculate STDV

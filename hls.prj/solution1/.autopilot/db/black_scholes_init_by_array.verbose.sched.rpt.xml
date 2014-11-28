@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'black_scholes_init_by_array'" level="0">
-<item name = "Date">Sat Nov 22 14:31:22 2014
+<item name = "Date">Tue Nov 25 16:53:43 2014
 </item>
 <item name = "Version">2014.2 (Build 932637 on Wed Jun 11 12:38:34 PM 2014)</item>
 <item name = "Project">hls.prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="default">10.00, 8.52, 1.25</column>
+<column name="default">10.00, 8.59, 1.25</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">18704, 19951, 18704, 19951, none</column>
+<column name="">16222, 18093, 16222, 18093, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,9 +35,8 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">5607, 5607, 9, -, -, 623, no</column>
-<column name="- Loop 2">6864, 7488, 11 ~ 12, -, -, 624, no</column>
-<column name="- Loop 3">6230, 6853, 10 ~ 11, -, -, 623, no</column>
+<column name="- Loop 1">6240, 7488, 10 ~ 12, -, -, 624, no</column>
+<column name="- Loop 2">6230, 6853, 10 ~ 11, -, -, 623, no</column>
 </table>
 </item>
 </section>

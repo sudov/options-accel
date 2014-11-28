@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'black_scholes_init_genrand'
 ================================================================
-* Date:           Sat Nov 22 03:15:28 2014
+* Date:           Tue Nov 25 16:47:01 2014
 
 * Version:        2014.2 (Build 932637 on Wed Jun 11 12:38:34 PM 2014)
 * Project:        hls.prj
@@ -7643,11 +7643,11 @@ ST_1: stg_3755 [1/1] 2.39ns
 ST_1: tmp_1928 [1/1] 0.00ns
 :4  %tmp_1928 = call i1 @_ssdm_op_BitSelect.i1.i26.i32(i26 %s_read, i32 25)
 
-ST_1: tmp_72 [1/1] 1.37ns
-:5  %tmp_72 = select i1 %tmp_1928, i2 -1, i2 0
+ST_1: tmp_74 [1/1] 1.37ns
+:5  %tmp_74 = select i1 %tmp_1928, i2 -1, i2 0
 
 ST_1: tmp_5 [1/1] 0.00ns
-:6  %tmp_5 = zext i2 %tmp_72 to i32
+:6  %tmp_5 = zext i2 %tmp_74 to i32
 
 ST_1: tmp_6 [1/1] 1.37ns
 :7  %tmp_6 = xor i32 %tmp_5, %s_cast
@@ -7693,11 +7693,11 @@ ST_7: tmp_5_1 [1/1] 0.00ns
 
 
  <State 8>: 7.45ns
-ST_8: tmp_cast_112 [1/1] 0.00ns
-:10  %tmp_cast_112 = zext i32 %tmp_9 to i64
+ST_8: tmp_cast_109 [1/1] 0.00ns
+:10  %tmp_cast_109 = zext i32 %tmp_9 to i64
 
 ST_8: stg_3770 [1/1] 2.39ns
-:11  store i64 %tmp_cast_112, i64* getelementptr inbounds ([624 x i64]* @mt, i64 0, i64 1), align 8
+:11  store i64 %tmp_cast_109, i64* getelementptr inbounds ([624 x i64]* @mt, i64 0, i64 1), align 8
 
 ST_8: tmp [1/1] 0.00ns
 :13  %tmp = zext i2 %tmp_5_1 to i32
@@ -8173,11 +8173,11 @@ ST_67: tmp_5_10 [1/1] 0.00ns
 
 
  <State 68>: 7.45ns
-ST_68: tmp_cast_113 [1/1] 0.00ns
-:80  %tmp_cast_113 = zext i32 %tmp_9_s to i64
+ST_68: tmp_cast_110 [1/1] 0.00ns
+:80  %tmp_cast_110 = zext i32 %tmp_9_s to i64
 
 ST_68: stg_3890 [1/1] 2.39ns
-:81  store i64 %tmp_cast_113, i64* getelementptr inbounds ([624 x i64]* @mt, i64 0, i64 11), align 8
+:81  store i64 %tmp_cast_110, i64* getelementptr inbounds ([624 x i64]* @mt, i64 0, i64 11), align 8
 
 ST_68: tmp_1305 [1/1] 0.00ns
 :83  %tmp_1305 = zext i2 %tmp_5_10 to i32

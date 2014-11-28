@@ -1,5 +1,5 @@
-# 1 "/home/student/cw444/Fall2014/ece5775/test/hls.prj/solution1/.autopilot/db/black_scholes.pragma.1.c"
-# 1 "/home/student/cw444/Fall2014/ece5775/test/hls.prj/solution1/.autopilot/db/black_scholes.pragma.1.c" 1
+# 1 "/home/student/cw444/Fall2014/ece5775/options-accel/hls.prj/solution1/.autopilot/db/black_scholes.pragma.1.c"
+# 1 "/home/student/cw444/Fall2014/ece5775/options-accel/hls.prj/solution1/.autopilot/db/black_scholes.pragma.1.c" 1
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 149 "<built-in>" 3
@@ -191,7 +191,7 @@
 #define _ssdm_op_Delayed(X) X */
 # 8 "<command line>" 2
 # 1 "<built-in>" 2
-# 1 "/home/student/cw444/Fall2014/ece5775/test/hls.prj/solution1/.autopilot/db/black_scholes.pragma.1.c" 2
+# 1 "/home/student/cw444/Fall2014/ece5775/options-accel/hls.prj/solution1/.autopilot/db/black_scholes.pragma.1.c" 2
 # 1 "black_scholes.c"
 # 1 "black_scholes.c" 1
 # 1 "<built-in>" 1
@@ -5057,9 +5057,9 @@ double delta = 0.0;
 
   /* Do the Black-Scholes iterations */
   for (k = 1; k <= 100000; k++)
-    {
-   //   #pragma HLS pipeline 
-     gaussian_random_number = gaussrand2(&gaussrand_state);
+    {_ssdm_RegionBegin("hls_label_0");
+_ssdm_op_SpecPipeline(1, 1, 1, 0, "");
+ gaussian_random_number = gaussrand2(&gaussrand_state);
 
     current_value = S * exp ( (r - (sigma*sigma) / 2.0) * T + sigma * sqrt (T) * gaussian_random_number );
     mydata = exp(-r * T) * ((current_value - E < 0.0) ? 0.0 : current_value - E);
@@ -5089,7 +5089,7 @@ double delta = 0.0;
        * element of trials[0 .. M-1].
        */
       //mean += trials[k] / (double) M;
-    }
+    _ssdm_RegionEnd("hls_label_0");}
 
 /*
     //Calculate STDV
