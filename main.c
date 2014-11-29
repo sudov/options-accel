@@ -67,6 +67,13 @@ main (int argc, char* argv[])
   double variance = 0.0;
   double conf_width;
   double rand_number;
+  double sqrt_T;
+  double rT;
+
+
+  double A;
+  double B;
+  double C;
   //double result;
 
 
@@ -94,11 +101,19 @@ main (int argc, char* argv[])
   t1 = get_seconds ();
 
 //--------------------------------Design 1----------------------
+  
+  //sqrt_T = sqrt(T);
+  rT = exp(-r*T);
+  A = (r - (sigma*sigma) / 2.0) * T;
+  B = sigma * sqrt (T);
+
+
   for(i = 0;i<M;i++){
       // #pragma HLS pipeline
       // #pragma HLS unroll
       rand_number = gaussrand2(&gaussrand_state);
-      store[i] = black_scholes2 (S, E, r, sigma, T, rand_number);
+	  //store[i] = black_scholes2 (S, E, r, sigma, sqrt_T, rand_number,rT);
+      store[i] = black_scholes3 (S, E, A,B,rT, rand_number);
       sum += store[i];
   }
 

@@ -49,6 +49,19 @@ black_scholes2 (
          const double r,
          const double sigma,
          const double T,
+         const double gaussian_random_number,
+         const double rT
+		 );
+
+double
+black_scholes3 (
+         const double S,
+         const double E,
+        const double A,
+        const double B,
+        const double rT,
          const double gaussian_random_number
          );
+
+
 #endif /* _black_scholes_h */
