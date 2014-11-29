@@ -86,7 +86,7 @@ main (int argc, char* argv[])
   //     sum += store[i];
   // }
   
-  printf("sum is: %f\n", sum);
+  printf("sum af: %f\n", sum);
 
   if(M==0){
     printf("Divide by 0\n");
