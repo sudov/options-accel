@@ -32,7 +32,7 @@ int
 main (int argc, char* argv[])
 {
 
-  double S, E, r, sigma, T, t1, t2;
+  double S, E, r, sigma, T, t1, t2, A, B, rT;
   int M = 0;
   int i;
   char* filename = NULL;
@@ -74,24 +74,26 @@ main (int argc, char* argv[])
 
   t1 = get_seconds ();
   int j = 0;
-//--------------------------------Design 1----------------------
+
   for(i = 0;i<M;i++){
       rand_number[i] = gaussrand2(&gaussrand_state);
   }
 
-  printf("\n");
-  sum = black_scholes2_loop(S, E, r, sigma, T, rand_number, store, M);
-  // for(i = 0;i<M;i++){
-  //     store[i] = black_scholes2 (S, E, r, sigma, T, rand_number[i]);
-  //     sum += store[i];
-  // }
- sum = 0.0;
- for(i = 0;i<M;i++){
- 	sum += store[i];
-// 	printf("store %d:%f\n",i,store[i]);
- }
-  
-  printf("sum af: %f\n", sum);
+//--------------------------------Design 2----------------------
+  // sum = black_scholes2_loop(S, E, r, sigma, T, rand_number, store, M);
+
+//--------------------------------Design 3----------------------
+  rT = exp(-r*T);
+  A = (r - (sigma*sigma) / 2.0) * T;
+  B = sigma * sqrt (T);
+  black_scholes3_loop(S, E, A, B, rT, rand_number, store, M, &sum);
+  printf("store_aft %f\n", store[5000]);
+  printf("sum_aft %f\n", sum);
+
+  sum = 0;
+  for(i = 0;i<M;i++){
+  	sum += store[i];
+  }
 
   if(M==0){
     printf("Divide by 0\n");

@@ -19,16 +19,35 @@ black_scholes2_loop (
 {
   int i;
   double sum = 0.0;
-  printf("sum init %f\n", sum);
 
   for (i = 0; i < M; i++){
-      //store[i] = black_scholes2 (S, E, r, sigma, T, rand_number[i]);
       black_scholes2 (S, E, r, sigma, T, rand_number[i],&store[i]);
       sum += store[i];
-      //printf("%f\n", store[i]);
   }
 
-  printf("sum bef %f\n", sum);
-
   return sum;
+}
+
+void
+black_scholes3_loop (
+        double S,
+        double E,
+        double A,
+        double B,
+        double rT,
+        double *rand_number,
+        double *store,
+        int M,
+        double *sum
+        )
+{
+  int i;
+
+  for(i = 0; i < M; i++){
+      black_scholes3 (S, E, A,B,rT, rand_number[i],&store[i]);
+      *sum += store[i];
+  }
+
+  // printf("store_bef %f\n", store[5000]);
+  // printf("sum_bef %f\n", sum);
 }

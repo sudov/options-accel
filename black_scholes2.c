@@ -105,7 +105,7 @@ black_scholes3 (
          )
 {
     #pragma HLS dataflow
-    #pragma HLS pipeline
+    // #pragma HLS pipeline
     double tmp;
     double tmp2;
     double tmp3;
@@ -116,9 +116,6 @@ black_scholes3 (
     tmp2 = expo1(A+tmp);
     tmp3 = S*tmp2;
     tmp4 = rT*((tmp3 - E < 0.0) ? 0.0 : tmp3 - E);
-
-
-
 
     //current_value = S * expo1 ( (r - (sigma*sigma) / 2.0) * T + sigma * sqrt (T) * gaussian_random_number );
     //mydata = expo1(-r * T) * ((current_value - E < 0.0) ? 0.0 : current_value - E);

@@ -24,4 +24,16 @@ black_scholes2_loop (
         double* store,
         int M
         );
+double
+black_scholes3_loop (
+        double S,
+        double E,
+        double A,
+        double B,
+        double rT,
+        double *rand_number,
+        double *store,
+        int M,
+        double *sum
+        );
 #endif /* _black_scholes2_loop_h */
