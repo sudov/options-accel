@@ -5,6 +5,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#define Mm 10000
 //#include "mt19937ar.h"
 
 /**
@@ -34,44 +35,6 @@ double expo1(double a){
 double sqrt1(double a){
   return sqrt(a);
 }
-
-//double
-// void black_scholes2 (
-//         const double S,
-//         const double E,
-//         const double r,
-//         const double sigma,
-//         const double T,
-//         const double gaussian_random_number,
-//         double store[]
-//         )
-// {
-//     #pragma HLS dataflow
-//     #pragma HLS pipeline
-//     double current_value;
-//     double mydata;
-//     double tmp;
-//     double tmp2;
-//     double tmp3;
-//     double tmp4;
-//     double tmp5;
-//     double tmp6;
-
-//     tmp = mult2_1(sigma,sigma);
-//     tmp = div_1(tmp,2.0);
-
-//     tmp = mult2_1(r-tmp,T);
-//     tmp2 = mult2_2(sigma, gaussian_random_number);
-//     tmp2 = mult2_3(tmp2,T);
-//     tmp3 = tmp + tmp2;
-//     tmp3 = expo1(tmp3);
-//     tmp3 = mult2_1(tmp3,S);
-
-//     tmp4 = mult2_2(r, T);
-//     tmp4 = tmp4*((tmp3 - E < 0.0) ? 0.0 : tmp3 - E);
-//     *store = tmp4;
-// }
-
 
 void black_scholes2 (
         const double S,
@@ -124,7 +87,7 @@ void black_scholes3 (
         const double B,
         const double rT,
         const double gaussian_random_number,
-        double store[]
+        double store[Mm]
         )
 {
     #pragma HLS dataflow
