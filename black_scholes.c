@@ -58,7 +58,7 @@ black_scholes_iterate (black_scholes_args_t* the_args)
   double M2 = 0.0;
   double Q1 = 0.0;
   double Q2 = 0.0;
-double delta = 0.0;
+  double delta = 0.0;
   double mydata = 0.0;
   double sum = 0.0;
   /* Spawn a random number generator */

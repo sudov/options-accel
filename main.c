@@ -1,4 +1,5 @@
 #include "black_scholes2.h"
+#include "current_var.h"
 
 #include "gaussian.h"
 
@@ -90,16 +91,13 @@ main (int argc, char* argv[])
   /*
    * Run the benchmark and time it.
    */
-
-
-
-
+   
   t1 = get_seconds ();
 
 //--------------------------------Design 1----------------------
-//black_scholes (&interval, S, E, r, sigma, T, M);
-
   for(i = 0;i<M;i++){
+      // #pragma HLS pipeline
+      // #pragma HLS unroll
       rand_number = gaussrand2(&gaussrand_state);
       store[i] = black_scholes2 (S, E, r, sigma, T, rand_number);
       sum += store[i];
@@ -111,11 +109,15 @@ main (int argc, char* argv[])
     mean = sum/M;
   }
 
-
   t2 = get_seconds ();
+  
   for(i = 0;i<M;i++){
-      variance += (store[i]-mean)*(store[i]-mean)/(double)M;
+    variance += (store[i]-mean)*(store[i]-mean)/(double)M;
   }
+
+  // for(i = 0;i<M;i++){
+  //     variance += (store[i]-mean)*(store[i]-mean)/(double)M;
+  // }
   conf_width = 1.96 * sqrt(variance) / sqrt ((double) M);
 
   /*

@@ -3,11 +3,12 @@ open_project hls.prj
 set_top black_scholes2
 
 add_files black_scholes2.c
+add_files current_var.c
 add_files gaussian.c
 add_files mt19937ar.c
 
-#-cflags "-DBIT_ACCURATE"
-#add_files -tb cordic_test.cpp -cflags "-DBIT_ACCURATE"
+set_directive_dataflow black_scholes2
+# set_directive_dataflow current_var
 
 open_solution "solution1"
 set_part {xc7z020clg484-1}

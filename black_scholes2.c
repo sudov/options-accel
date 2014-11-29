@@ -49,7 +49,6 @@ black_scholes2 (
          const double gaussian_random_number
          )
 {
-
     #pragma HLS dataflow
   
     double current_value;
@@ -58,6 +57,8 @@ black_scholes2 (
     double tmp2;
     double tmp3;
     double tmp4;
+    double tmp5;
+    double tmp6;
 
     tmp = mult2_1(sigma,sigma);
     tmp = div_1(tmp,2.0);
@@ -74,14 +75,10 @@ black_scholes2 (
     tmp4 = expo1(-r*T);
     tmp4 = tmp4*((tmp3 - E < 0.0) ? 0.0 : tmp3 - E);
 
-    //current_value = S * exp ( (r - (sigma*sigma) / 2.0) * T + sigma * sqrt (T) * gaussian_random_number );
-    //mydata = exp(-r * T) * ((current_value - E < 0.0) ? 0.0 : current_value - E);
+    current_value = S * expo1 ( (r - (sigma*sigma) / 2.0) * T + sigma * sqrt (T) * gaussian_random_number );
+    mydata = expo1(-r * T) * ((current_value - E < 0.0) ? 0.0 : current_value - E);
 
-
-
-
-    //return mydata;
-    return tmp4;
+    return mydata;
 }
 
 
