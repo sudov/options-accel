@@ -1,5 +1,5 @@
-#ifndef _black_scholes2_loop_H
-#define _black_scholes2_loop_H
+#ifndef _black_scholes3_loop_H
+#define _black_scholes3_loop_H
 #include <assert.h>
 #include <math.h>
 #include <stdio.h>

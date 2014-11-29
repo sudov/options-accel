@@ -1,3 +1,5 @@
+#ifndef _black_scholes2_H
+#define _black_scholes2_H
 #include "black_scholes2.h"
 #include "gaussian.h"
 #include "util.h"
@@ -104,3 +106,4 @@ void black_scholes3 (
 
     *store = tmp4;
 }
+#endif
