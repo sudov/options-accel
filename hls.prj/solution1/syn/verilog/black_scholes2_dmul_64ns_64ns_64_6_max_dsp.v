@@ -10,7 +10,7 @@
 
 module black_scholes2_dmul_64ns_64ns_64_6_max_dsp
 #(parameter
-    ID         = 2,
+    ID         = 1,
     NUM_STAGE  = 6,
     din0_WIDTH = 64,
     din1_WIDTH = 64,

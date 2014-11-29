@@ -10,7 +10,7 @@
 
 module black_scholes2_dexp_64ns_64ns_64_18_full_dsp
 #(parameter
-    ID         = 7,
+    ID         = 34,
     NUM_STAGE  = 18,
     din0_WIDTH = 64,
     din1_WIDTH = 64,

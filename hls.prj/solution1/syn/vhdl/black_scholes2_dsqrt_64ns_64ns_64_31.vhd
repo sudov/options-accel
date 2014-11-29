@@ -10,7 +10,7 @@ use ieee.std_logic_1164.all;
 
 entity black_scholes2_dsqrt_64ns_64ns_64_31 is
     generic (
-        ID         : integer := 6;
+        ID         : integer := 22;
         NUM_STAGE  : integer := 31;
         din0_WIDTH : integer := 64;
         din1_WIDTH : integer := 64;

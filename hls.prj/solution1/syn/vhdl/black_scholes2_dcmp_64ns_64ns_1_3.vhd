@@ -10,7 +10,7 @@ use ieee.std_logic_1164.all;
 
 entity black_scholes2_dcmp_64ns_64ns_1_3 is
     generic (
-        ID         : integer := 5;
+        ID         : integer := 50;
         NUM_STAGE  : integer := 3;
         din0_WIDTH : integer := 64;
         din1_WIDTH : integer := 64;

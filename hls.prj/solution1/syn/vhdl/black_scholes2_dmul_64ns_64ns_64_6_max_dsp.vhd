@@ -10,7 +10,7 @@ use ieee.std_logic_1164.all;
 
 entity black_scholes2_dmul_64ns_64ns_64_6_max_dsp is
     generic (
-        ID         : integer := 2;
+        ID         : integer := 1;
         NUM_STAGE  : integer := 6;
         din0_WIDTH : integer := 64;
         din1_WIDTH : integer := 64;

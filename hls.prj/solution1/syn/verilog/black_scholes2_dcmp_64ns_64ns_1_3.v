@@ -10,7 +10,7 @@
 
 module black_scholes2_dcmp_64ns_64ns_1_3
 #(parameter
-    ID         = 5,
+    ID         = 50,
     NUM_STAGE  = 3,
     din0_WIDTH = 64,
     din1_WIDTH = 64,

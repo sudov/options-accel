@@ -10,7 +10,7 @@
 
 module black_scholes2_dsqrt_64ns_64ns_64_31
 #(parameter
-    ID         = 6,
+    ID         = 22,
     NUM_STAGE  = 31,
     din0_WIDTH = 64,
     din1_WIDTH = 64,

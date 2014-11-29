@@ -7,853 +7,1392 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="black_scholes2,hls_ip_2014_2,{HLS_INPUT_TYPE=c,HLS_INPUT_FLOAT=1,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020clg484-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.623000,HLS_SYN_LAT=85,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=0,HLS_SYN_LUT=0}" *)
+(* CORE_GENERATION_INFO="black_scholes2,hls_ip_2014_2,{HLS_INPUT_TYPE=c,HLS_INPUT_FLOAT=1,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020clg484-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=8.623000,HLS_SYN_LAT=43,HLS_SYN_TPT=32,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=0,HLS_SYN_LUT=0}" *)
 
 module black_scholes2 (
-        ap_clk,
-        ap_rst,
-        ap_start,
-        ap_done,
-        ap_idle,
-        ap_ready,
         S,
         E,
         r,
         sigma,
         T,
         gaussian_random_number,
-        ap_return
+        ap_clk,
+        ap_rst,
+        ap_return,
+        ap_done,
+        ap_start,
+        ap_idle,
+        ap_ready
 );
 
 parameter    ap_const_logic_1 = 1'b1;
 parameter    ap_const_logic_0 = 1'b0;
-parameter    ap_ST_st1_fsm_0 = 7'b0000000;
-parameter    ap_ST_st2_fsm_1 = 7'b1;
-parameter    ap_ST_st3_fsm_2 = 7'b10;
-parameter    ap_ST_st4_fsm_3 = 7'b11;
-parameter    ap_ST_st5_fsm_4 = 7'b100;
-parameter    ap_ST_st6_fsm_5 = 7'b101;
-parameter    ap_ST_st7_fsm_6 = 7'b110;
-parameter    ap_ST_st8_fsm_7 = 7'b111;
-parameter    ap_ST_st9_fsm_8 = 7'b1000;
-parameter    ap_ST_st10_fsm_9 = 7'b1001;
-parameter    ap_ST_st11_fsm_10 = 7'b1010;
-parameter    ap_ST_st12_fsm_11 = 7'b1011;
-parameter    ap_ST_st13_fsm_12 = 7'b1100;
-parameter    ap_ST_st14_fsm_13 = 7'b1101;
-parameter    ap_ST_st15_fsm_14 = 7'b1110;
-parameter    ap_ST_st16_fsm_15 = 7'b1111;
-parameter    ap_ST_st17_fsm_16 = 7'b10000;
-parameter    ap_ST_st18_fsm_17 = 7'b10001;
-parameter    ap_ST_st19_fsm_18 = 7'b10010;
-parameter    ap_ST_st20_fsm_19 = 7'b10011;
-parameter    ap_ST_st21_fsm_20 = 7'b10100;
-parameter    ap_ST_st22_fsm_21 = 7'b10101;
-parameter    ap_ST_st23_fsm_22 = 7'b10110;
-parameter    ap_ST_st24_fsm_23 = 7'b10111;
-parameter    ap_ST_st25_fsm_24 = 7'b11000;
-parameter    ap_ST_st26_fsm_25 = 7'b11001;
-parameter    ap_ST_st27_fsm_26 = 7'b11010;
-parameter    ap_ST_st28_fsm_27 = 7'b11011;
-parameter    ap_ST_st29_fsm_28 = 7'b11100;
-parameter    ap_ST_st30_fsm_29 = 7'b11101;
-parameter    ap_ST_st31_fsm_30 = 7'b11110;
-parameter    ap_ST_st32_fsm_31 = 7'b11111;
-parameter    ap_ST_st33_fsm_32 = 7'b100000;
-parameter    ap_ST_st34_fsm_33 = 7'b100001;
-parameter    ap_ST_st35_fsm_34 = 7'b100010;
-parameter    ap_ST_st36_fsm_35 = 7'b100011;
-parameter    ap_ST_st37_fsm_36 = 7'b100100;
-parameter    ap_ST_st38_fsm_37 = 7'b100101;
-parameter    ap_ST_st39_fsm_38 = 7'b100110;
-parameter    ap_ST_st40_fsm_39 = 7'b100111;
-parameter    ap_ST_st41_fsm_40 = 7'b101000;
-parameter    ap_ST_st42_fsm_41 = 7'b101001;
-parameter    ap_ST_st43_fsm_42 = 7'b101010;
-parameter    ap_ST_st44_fsm_43 = 7'b101011;
-parameter    ap_ST_st45_fsm_44 = 7'b101100;
-parameter    ap_ST_st46_fsm_45 = 7'b101101;
-parameter    ap_ST_st47_fsm_46 = 7'b101110;
-parameter    ap_ST_st48_fsm_47 = 7'b101111;
-parameter    ap_ST_st49_fsm_48 = 7'b110000;
-parameter    ap_ST_st50_fsm_49 = 7'b110001;
-parameter    ap_ST_st51_fsm_50 = 7'b110010;
-parameter    ap_ST_st52_fsm_51 = 7'b110011;
-parameter    ap_ST_st53_fsm_52 = 7'b110100;
-parameter    ap_ST_st54_fsm_53 = 7'b110101;
-parameter    ap_ST_st55_fsm_54 = 7'b110110;
-parameter    ap_ST_st56_fsm_55 = 7'b110111;
-parameter    ap_ST_st57_fsm_56 = 7'b111000;
-parameter    ap_ST_st58_fsm_57 = 7'b111001;
-parameter    ap_ST_st59_fsm_58 = 7'b111010;
-parameter    ap_ST_st60_fsm_59 = 7'b111011;
-parameter    ap_ST_st61_fsm_60 = 7'b111100;
-parameter    ap_ST_st62_fsm_61 = 7'b111101;
-parameter    ap_ST_st63_fsm_62 = 7'b111110;
-parameter    ap_ST_st64_fsm_63 = 7'b111111;
-parameter    ap_ST_st65_fsm_64 = 7'b1000000;
-parameter    ap_ST_st66_fsm_65 = 7'b1000001;
-parameter    ap_ST_st67_fsm_66 = 7'b1000010;
-parameter    ap_ST_st68_fsm_67 = 7'b1000011;
-parameter    ap_ST_st69_fsm_68 = 7'b1000100;
-parameter    ap_ST_st70_fsm_69 = 7'b1000101;
-parameter    ap_ST_st71_fsm_70 = 7'b1000110;
-parameter    ap_ST_st72_fsm_71 = 7'b1000111;
-parameter    ap_ST_st73_fsm_72 = 7'b1001000;
-parameter    ap_ST_st74_fsm_73 = 7'b1001001;
-parameter    ap_ST_st75_fsm_74 = 7'b1001010;
-parameter    ap_ST_st76_fsm_75 = 7'b1001011;
-parameter    ap_ST_st77_fsm_76 = 7'b1001100;
-parameter    ap_ST_st78_fsm_77 = 7'b1001101;
-parameter    ap_ST_st79_fsm_78 = 7'b1001110;
-parameter    ap_ST_st80_fsm_79 = 7'b1001111;
-parameter    ap_ST_st81_fsm_80 = 7'b1010000;
-parameter    ap_ST_st82_fsm_81 = 7'b1010001;
-parameter    ap_ST_st83_fsm_82 = 7'b1010010;
-parameter    ap_ST_st84_fsm_83 = 7'b1010011;
-parameter    ap_ST_st85_fsm_84 = 7'b1010100;
-parameter    ap_ST_st86_fsm_85 = 7'b1010101;
-parameter    ap_const_lv64_3FE0000000000000 = 64'b11111111100000000000000000000000000000000000000000000000000000;
-parameter    ap_const_lv64_0 = 64'b0000000000000000000000000000000000000000000000000000000000000000;
-parameter    ap_const_lv64_8000000000000000 = 64'b1000000000000000000000000000000000000000000000000000000000000000;
-parameter    ap_const_lv2_0 = 2'b00;
-parameter    ap_const_lv2_1 = 2'b1;
-parameter    ap_const_lv5_4 = 5'b100;
 parameter    ap_true = 1'b1;
 
-input   ap_clk;
-input   ap_rst;
-input   ap_start;
-output   ap_done;
-output   ap_idle;
-output   ap_ready;
 input  [63:0] S;
 input  [63:0] E;
 input  [63:0] r;
 input  [63:0] sigma;
 input  [63:0] T;
 input  [63:0] gaussian_random_number;
+input   ap_clk;
+input   ap_rst;
 output  [63:0] ap_return;
+output   ap_done;
+input   ap_start;
+output   ap_idle;
+output   ap_ready;
 
-reg ap_done;
 reg ap_idle;
-reg ap_ready;
-reg   [6:0] ap_CS_fsm = 7'b0000000;
-wire   [63:0] grp_fu_73_p2;
-reg   [63:0] reg_106;
-wire   [63:0] grp_fu_67_p2;
-reg   [63:0] reg_114;
-wire   [63:0] grp_fu_101_p2;
-reg   [63:0] reg_121;
-wire   [63:0] grp_fu_95_p2;
-reg   [63:0] tmp_4_reg_160;
-wire   [63:0] tmp_9_neg_fu_129_p2;
-reg   [63:0] tmp_9_neg_reg_171;
-wire   [63:0] grp_fu_80_p2;
-reg   [63:0] tmp_6_reg_186;
-wire   [63:0] grp_fu_85_p2;
-reg   [63:0] tmp_s_reg_191;
-wire   [63:0] tmp_13_fu_139_p3;
-reg   [63:0] tmp_13_reg_206;
-reg   [63:0] grp_fu_67_p0;
-reg   [63:0] grp_fu_67_p1;
-reg   [63:0] grp_fu_73_p0;
-reg   [63:0] grp_fu_73_p1;
-wire   [63:0] grp_fu_80_p0;
-wire   [63:0] grp_fu_80_p1;
-wire   [63:0] grp_fu_85_p0;
-wire   [63:0] grp_fu_85_p1;
-wire   [63:0] grp_fu_90_p0;
-wire   [63:0] grp_fu_90_p1;
-wire   [63:0] grp_fu_95_p1;
-reg   [63:0] grp_fu_101_p1;
-wire   [63:0] tmp_9_to_int_fu_126_p1;
-wire   [0:0] grp_fu_90_p2;
-reg   [1:0] grp_fu_67_opcode;
-wire    grp_fu_67_ce;
-wire    grp_fu_73_ce;
-wire    grp_fu_80_ce;
-wire    grp_fu_85_ce;
-wire    grp_fu_90_ce;
-wire   [4:0] grp_fu_90_opcode;
-wire   [63:0] grp_fu_95_p0;
-wire    grp_fu_95_ce;
-wire   [63:0] grp_fu_101_p0;
-wire    grp_fu_101_ce;
-reg   [6:0] ap_NS_fsm;
+wire    black_scholes2_mult2_11_U0_ap_start;
+wire    black_scholes2_mult2_11_U0_ap_done;
+wire    black_scholes2_mult2_11_U0_ap_continue;
+wire    black_scholes2_mult2_11_U0_ap_idle;
+wire    black_scholes2_mult2_11_U0_ap_ready;
+wire   [63:0] black_scholes2_mult2_11_U0_return_r;
+wire    black_scholes2_mult2_11_U0_return_r_ap_vld;
+wire   [63:0] black_scholes2_mult2_11_U0_a;
+wire   [63:0] black_scholes2_mult2_11_U0_b;
+wire   [63:0] black_scholes2_mult2_11_U0_a_out_din;
+wire    black_scholes2_mult2_11_U0_a_out_full_n;
+wire    black_scholes2_mult2_11_U0_a_out_write;
+wire    ap_chn_write_black_scholes2_mult2_11_U0_p_channel35;
+wire    p_channel35_full_n;
+wire    black_scholes2_div_1_U0_ap_start;
+wire    black_scholes2_div_1_U0_ap_done;
+wire    black_scholes2_div_1_U0_ap_continue;
+wire    black_scholes2_div_1_U0_ap_idle;
+wire    black_scholes2_div_1_U0_ap_ready;
+wire   [63:0] black_scholes2_div_1_U0_a_2;
+wire    black_scholes2_div_1_U0_a_2_ap_vld;
+wire   [63:0] black_scholes2_div_1_U0_a;
+wire    ap_chn_write_black_scholes2_div_1_U0_tmp_1_channel;
+wire    tmp_1_channel_full_n;
+wire    black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_start;
+wire    black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_done;
+wire    black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_continue;
+wire    black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_idle;
+wire    black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_ready;
+wire   [63:0] black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_r;
+wire   [63:0] black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_tmp_1;
+wire   [63:0] black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_r_out_din;
+wire    black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_r_out_full_n;
+wire    black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_r_out_write;
+wire   [63:0] black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_return;
+wire    ap_chn_write_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_tmp_2_loc_channel;
+wire    tmp_2_loc_channel_full_n;
+wire    black_scholes2_mult2_12_U0_ap_start;
+wire    black_scholes2_mult2_12_U0_ap_done;
+wire    black_scholes2_mult2_12_U0_ap_continue;
+wire    black_scholes2_mult2_12_U0_ap_idle;
+wire    black_scholes2_mult2_12_U0_ap_ready;
+wire   [63:0] black_scholes2_mult2_12_U0_return_r;
+wire    black_scholes2_mult2_12_U0_return_r_ap_vld;
+wire   [63:0] black_scholes2_mult2_12_U0_p_read;
+wire   [63:0] black_scholes2_mult2_12_U0_b;
+wire   [63:0] black_scholes2_mult2_12_U0_b_out_din;
+wire    black_scholes2_mult2_12_U0_b_out_full_n;
+wire    black_scholes2_mult2_12_U0_b_out_write;
+wire    ap_chn_write_black_scholes2_mult2_12_U0_p_channel36;
+wire    p_channel36_full_n;
+wire    black_scholes2_mult2_11_1_U0_ap_start;
+wire    black_scholes2_mult2_11_1_U0_ap_done;
+wire    black_scholes2_mult2_11_1_U0_ap_continue;
+wire    black_scholes2_mult2_11_1_U0_ap_idle;
+wire    black_scholes2_mult2_11_1_U0_ap_ready;
+wire   [63:0] black_scholes2_mult2_11_1_U0_return_r;
+wire    black_scholes2_mult2_11_1_U0_return_r_ap_vld;
+wire   [63:0] black_scholes2_mult2_11_1_U0_a_dout;
+wire    black_scholes2_mult2_11_1_U0_a_empty_n;
+wire    black_scholes2_mult2_11_1_U0_a_read;
+wire   [63:0] black_scholes2_mult2_11_1_U0_b;
+wire    ap_chn_write_black_scholes2_mult2_11_1_U0_p_channel37;
+wire    p_channel37_full_n;
+reg    black_scholes2_sqrt1_U0_ap_start = 1'b0;
+wire    black_scholes2_sqrt1_U0_ap_done;
+wire    black_scholes2_sqrt1_U0_ap_continue;
+wire    black_scholes2_sqrt1_U0_ap_idle;
+wire    black_scholes2_sqrt1_U0_ap_ready;
+wire   [63:0] black_scholes2_sqrt1_U0_return_r;
+wire    black_scholes2_sqrt1_U0_return_r_ap_vld;
+wire   [63:0] black_scholes2_sqrt1_U0_a_dout;
+wire    black_scholes2_sqrt1_U0_a_empty_n;
+wire    black_scholes2_sqrt1_U0_a_read;
+wire   [63:0] black_scholes2_sqrt1_U0_a_out_din;
+wire    black_scholes2_sqrt1_U0_a_out_full_n;
+wire    black_scholes2_sqrt1_U0_a_out_write;
+wire    ap_chn_write_black_scholes2_sqrt1_U0_p_channel38;
+wire    p_channel38_full_n;
+wire    black_scholes2_mult2_11_2_U0_ap_start;
+wire    black_scholes2_mult2_11_2_U0_ap_done;
+wire    black_scholes2_mult2_11_2_U0_ap_continue;
+wire    black_scholes2_mult2_11_2_U0_ap_idle;
+wire    black_scholes2_mult2_11_2_U0_ap_ready;
+wire   [63:0] black_scholes2_mult2_11_2_U0_return_r;
+wire    black_scholes2_mult2_11_2_U0_return_r_ap_vld;
+wire   [63:0] black_scholes2_mult2_11_2_U0_a;
+wire   [63:0] black_scholes2_mult2_11_2_U0_b;
+wire   [63:0] black_scholes2_mult2_11_2_U0_a_out_din;
+wire    black_scholes2_mult2_11_2_U0_a_out_full_n;
+wire    black_scholes2_mult2_11_2_U0_a_out_write;
+wire    ap_chn_write_black_scholes2_mult2_11_2_U0_p_channel39;
+wire    p_channel39_full_n;
+wire    black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_ap_start;
+wire    black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_ap_done;
+wire    black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_ap_continue;
+wire    black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_ap_idle;
+wire    black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_ap_ready;
+wire   [63:0] black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_tmp_3;
+wire   [63:0] black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_tmp2_1;
+wire   [63:0] black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_ap_return;
+wire    ap_chn_write_black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_tmp3_loc_channel;
+wire    tmp3_loc_channel_full_n;
+wire    black_scholes2_expo11_U0_ap_start;
+wire    black_scholes2_expo11_U0_ap_done;
+wire    black_scholes2_expo11_U0_ap_continue;
+wire    black_scholes2_expo11_U0_ap_idle;
+wire    black_scholes2_expo11_U0_ap_ready;
+wire   [63:0] black_scholes2_expo11_U0_return_r;
+wire    black_scholes2_expo11_U0_return_r_ap_vld;
+wire   [63:0] black_scholes2_expo11_U0_p_read;
+wire    ap_chn_write_black_scholes2_expo11_U0_p_channel40;
+wire    p_channel40_full_n;
+wire    black_scholes2_mult2_11_3_U0_ap_start;
+wire    black_scholes2_mult2_11_3_U0_ap_done;
+wire    black_scholes2_mult2_11_3_U0_ap_continue;
+wire    black_scholes2_mult2_11_3_U0_ap_idle;
+wire    black_scholes2_mult2_11_3_U0_ap_ready;
+wire   [63:0] black_scholes2_mult2_11_3_U0_return_r;
+wire    black_scholes2_mult2_11_3_U0_return_r_ap_vld;
+wire   [63:0] black_scholes2_mult2_11_3_U0_a;
+wire   [63:0] black_scholes2_mult2_11_3_U0_b;
+wire   [63:0] black_scholes2_mult2_11_3_U0_a_out_din;
+wire    black_scholes2_mult2_11_3_U0_a_out_full_n;
+wire    black_scholes2_mult2_11_3_U0_a_out_write;
+wire    ap_chn_write_black_scholes2_mult2_11_3_U0_p_channel41;
+wire    p_channel41_full_n;
+reg    black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_ap_start = 1'b0;
+wire    black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_ap_done;
+wire    black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_ap_continue;
+wire    black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_ap_idle;
+wire    black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_ap_ready;
+wire   [63:0] black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_r_dout;
+wire    black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_r_empty_n;
+wire    black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_r_read;
+wire   [63:0] black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_T_dout;
+wire    black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_T_empty_n;
+wire    black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_T_read;
+wire   [63:0] black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_ap_return;
+wire    ap_chn_write_black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_call_ret;
+wire    call_ret_full_n;
+wire    black_scholes2_expo12_U0_ap_start;
+wire    black_scholes2_expo12_U0_ap_done;
+wire    black_scholes2_expo12_U0_ap_continue;
+wire    black_scholes2_expo12_U0_ap_idle;
+wire    black_scholes2_expo12_U0_ap_ready;
+wire   [63:0] black_scholes2_expo12_U0_return_r;
+wire    black_scholes2_expo12_U0_return_r_ap_vld;
+wire   [63:0] black_scholes2_expo12_U0_p_read;
+wire    ap_chn_write_black_scholes2_expo12_U0_p_channel42;
+wire    p_channel42_full_n;
+wire    black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_start;
+wire    black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_done;
+wire    black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_continue;
+wire    black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_idle;
+wire    black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready;
+wire   [63:0] black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_tmp3_2;
+wire   [63:0] black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_E;
+wire   [63:0] black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_tmp4;
+wire   [63:0] black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_return;
+wire    ap_chn_write_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_tmp4_1_loc_channel;
+wire    tmp4_1_loc_channel_full_n;
+wire    black_scholes2_black_scholes2_Block_crit_edge_proc_U0_ap_start;
+wire    black_scholes2_black_scholes2_Block_crit_edge_proc_U0_ap_done;
+wire    black_scholes2_black_scholes2_Block_crit_edge_proc_U0_ap_continue;
+wire    black_scholes2_black_scholes2_Block_crit_edge_proc_U0_ap_idle;
+wire    black_scholes2_black_scholes2_Block_crit_edge_proc_U0_ap_ready;
+wire   [63:0] black_scholes2_black_scholes2_Block_crit_edge_proc_U0_p_read;
+wire   [63:0] black_scholes2_black_scholes2_Block_crit_edge_proc_U0_ap_return;
+wire    ap_sig_hs_continue;
+wire    p_channel35_U_ap_dummy_ce;
+wire   [63:0] p_channel35_din;
+wire    p_channel35_write;
+wire   [63:0] p_channel35_dout;
+wire    p_channel35_empty_n;
+wire    p_channel35_read;
+wire    sigma_channel_channel_U_ap_dummy_ce;
+wire   [63:0] sigma_channel_channel_din;
+wire    sigma_channel_channel_full_n;
+wire    sigma_channel_channel_write;
+wire   [63:0] sigma_channel_channel_dout;
+wire    sigma_channel_channel_empty_n;
+wire    sigma_channel_channel_read;
+wire    tmp_1_channel_U_ap_dummy_ce;
+wire   [63:0] tmp_1_channel_din;
+wire    tmp_1_channel_write;
+wire   [63:0] tmp_1_channel_dout;
+wire    tmp_1_channel_empty_n;
+wire    tmp_1_channel_read;
+wire    r_channel_channel_U_ap_dummy_ce;
+wire   [63:0] r_channel_channel_din;
+wire    r_channel_channel_full_n;
+wire    r_channel_channel_write;
+wire   [63:0] r_channel_channel_dout;
+wire    r_channel_channel_empty_n;
+wire    r_channel_channel_read;
+wire    tmp_2_loc_channel_U_ap_dummy_ce;
+wire   [63:0] tmp_2_loc_channel_din;
+wire    tmp_2_loc_channel_write;
+wire   [63:0] tmp_2_loc_channel_dout;
+wire    tmp_2_loc_channel_empty_n;
+wire    tmp_2_loc_channel_read;
+wire    p_channel36_U_ap_dummy_ce;
+wire   [63:0] p_channel36_din;
+wire    p_channel36_write;
+wire   [63:0] p_channel36_dout;
+wire    p_channel36_empty_n;
+wire    p_channel36_read;
+wire    T_channel_channel_U_ap_dummy_ce;
+wire   [63:0] T_channel_channel_din;
+wire    T_channel_channel_full_n;
+wire    T_channel_channel_write;
+wire   [63:0] T_channel_channel_dout;
+wire    T_channel_channel_empty_n;
+wire    T_channel_channel_read;
+wire    p_channel37_U_ap_dummy_ce;
+wire   [63:0] p_channel37_din;
+wire    p_channel37_write;
+wire   [63:0] p_channel37_dout;
+wire    p_channel37_empty_n;
+wire    p_channel37_read;
+wire    p_channel38_U_ap_dummy_ce;
+wire   [63:0] p_channel38_din;
+wire    p_channel38_write;
+wire   [63:0] p_channel38_dout;
+wire    p_channel38_empty_n;
+wire    p_channel38_read;
+wire    T_channel31_channel_U_ap_dummy_ce;
+wire   [63:0] T_channel31_channel_din;
+wire    T_channel31_channel_full_n;
+wire    T_channel31_channel_write;
+wire   [63:0] T_channel31_channel_dout;
+wire    T_channel31_channel_empty_n;
+wire    T_channel31_channel_read;
+wire    p_channel39_U_ap_dummy_ce;
+wire   [63:0] p_channel39_din;
+wire    p_channel39_write;
+wire   [63:0] p_channel39_dout;
+wire    p_channel39_empty_n;
+wire    p_channel39_read;
+wire    tmp3_loc_channel_U_ap_dummy_ce;
+wire   [63:0] tmp3_loc_channel_din;
+wire    tmp3_loc_channel_write;
+wire   [63:0] tmp3_loc_channel_dout;
+wire    tmp3_loc_channel_empty_n;
+wire    tmp3_loc_channel_read;
+wire    p_channel40_U_ap_dummy_ce;
+wire   [63:0] p_channel40_din;
+wire    p_channel40_write;
+wire   [63:0] p_channel40_dout;
+wire    p_channel40_empty_n;
+wire    p_channel40_read;
+wire    p_channel41_U_ap_dummy_ce;
+wire   [63:0] p_channel41_din;
+wire    p_channel41_write;
+wire   [63:0] p_channel41_dout;
+wire    p_channel41_empty_n;
+wire    p_channel41_read;
+wire    call_ret_U_ap_dummy_ce;
+wire   [63:0] call_ret_din;
+wire    call_ret_write;
+wire   [63:0] call_ret_dout;
+wire    call_ret_empty_n;
+wire    call_ret_read;
+wire    p_channel42_U_ap_dummy_ce;
+wire   [63:0] p_channel42_din;
+wire    p_channel42_write;
+wire   [63:0] p_channel42_dout;
+wire    p_channel42_empty_n;
+wire    p_channel42_read;
+wire    tmp4_1_loc_channel_U_ap_dummy_ce;
+wire   [63:0] tmp4_1_loc_channel_din;
+wire    tmp4_1_loc_channel_write;
+wire   [63:0] tmp4_1_loc_channel_dout;
+wire    tmp4_1_loc_channel_empty_n;
+wire    tmp4_1_loc_channel_read;
+reg    ap_reg_procdone_black_scholes2_mult2_11_U0 = 1'b0;
+reg    ap_sig_hs_done;
+reg    ap_reg_procdone_black_scholes2_div_1_U0 = 1'b0;
+reg    ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0 = 1'b0;
+reg    ap_reg_procdone_black_scholes2_mult2_12_U0 = 1'b0;
+reg    ap_reg_procdone_black_scholes2_mult2_11_1_U0 = 1'b0;
+reg    ap_reg_procdone_black_scholes2_sqrt1_U0 = 1'b0;
+reg    ap_reg_procdone_black_scholes2_mult2_11_2_U0 = 1'b0;
+reg    ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge111_proc_U0 = 1'b0;
+reg    ap_reg_procdone_black_scholes2_expo11_U0 = 1'b0;
+reg    ap_reg_procdone_black_scholes2_mult2_11_3_U0 = 1'b0;
+reg    ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge115_proc_U0 = 1'b0;
+reg    ap_reg_procdone_black_scholes2_expo12_U0 = 1'b0;
+reg    ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0 = 1'b0;
+reg    ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge_proc_U0 = 1'b0;
+reg    ap_CS;
+reg    ap_sig_top_allready;
+reg    ap_reg_ready_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_ready = 1'b0;
+reg    ap_sig_ready_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_ready;
+reg    ap_sig_start_in_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_start;
+reg    ap_reg_ready_black_scholes2_mult2_12_U0_ap_ready = 1'b0;
+reg    ap_sig_ready_black_scholes2_mult2_12_U0_ap_ready;
+reg    ap_sig_start_in_black_scholes2_mult2_12_U0_ap_start;
+reg    ap_reg_ready_black_scholes2_mult2_11_3_U0_ap_ready = 1'b0;
+reg    ap_sig_ready_black_scholes2_mult2_11_3_U0_ap_ready;
+reg    ap_sig_start_in_black_scholes2_mult2_11_3_U0_ap_start;
+reg    ap_reg_ready_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready = 1'b0;
+reg    ap_sig_ready_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready;
+reg    ap_sig_start_in_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_start;
+reg    ap_reg_ready_black_scholes2_mult2_11_U0_ap_ready = 1'b0;
+reg    ap_sig_ready_black_scholes2_mult2_11_U0_ap_ready;
+reg    ap_sig_start_in_black_scholes2_mult2_11_U0_ap_start;
+reg    ap_reg_ready_black_scholes2_mult2_11_1_U0_ap_ready = 1'b0;
+reg    ap_sig_ready_black_scholes2_mult2_11_1_U0_ap_ready;
+reg    ap_sig_start_in_black_scholes2_mult2_11_1_U0_ap_start;
 
 
-black_scholes2_dadddsub_64ns_64ns_64_5_full_dsp #(
-    .ID( 1 ),
-    .NUM_STAGE( 5 ),
-    .din0_WIDTH( 64 ),
-    .din1_WIDTH( 64 ),
-    .dout_WIDTH( 64 ))
-black_scholes2_dadddsub_64ns_64ns_64_5_full_dsp_U1(
-    .clk( ap_clk ),
-    .reset( ap_rst ),
-    .din0( grp_fu_67_p0 ),
-    .din1( grp_fu_67_p1 ),
-    .opcode( grp_fu_67_opcode ),
-    .ce( grp_fu_67_ce ),
-    .dout( grp_fu_67_p2 )
+black_scholes2_mult2_11 black_scholes2_mult2_11_U0(
+    .ap_clk( ap_clk ),
+    .ap_rst( ap_rst ),
+    .ap_start( black_scholes2_mult2_11_U0_ap_start ),
+    .ap_done( black_scholes2_mult2_11_U0_ap_done ),
+    .ap_continue( black_scholes2_mult2_11_U0_ap_continue ),
+    .ap_idle( black_scholes2_mult2_11_U0_ap_idle ),
+    .ap_ready( black_scholes2_mult2_11_U0_ap_ready ),
+    .return_r( black_scholes2_mult2_11_U0_return_r ),
+    .return_r_ap_vld( black_scholes2_mult2_11_U0_return_r_ap_vld ),
+    .a( black_scholes2_mult2_11_U0_a ),
+    .b( black_scholes2_mult2_11_U0_b ),
+    .a_out_din( black_scholes2_mult2_11_U0_a_out_din ),
+    .a_out_full_n( black_scholes2_mult2_11_U0_a_out_full_n ),
+    .a_out_write( black_scholes2_mult2_11_U0_a_out_write )
 );
 
-black_scholes2_dmul_64ns_64ns_64_6_max_dsp #(
-    .ID( 2 ),
-    .NUM_STAGE( 6 ),
-    .din0_WIDTH( 64 ),
-    .din1_WIDTH( 64 ),
-    .dout_WIDTH( 64 ))
-black_scholes2_dmul_64ns_64ns_64_6_max_dsp_U2(
-    .clk( ap_clk ),
-    .reset( ap_rst ),
-    .din0( grp_fu_73_p0 ),
-    .din1( grp_fu_73_p1 ),
-    .ce( grp_fu_73_ce ),
-    .dout( grp_fu_73_p2 )
+black_scholes2_div_1 black_scholes2_div_1_U0(
+    .ap_clk( ap_clk ),
+    .ap_rst( ap_rst ),
+    .ap_start( black_scholes2_div_1_U0_ap_start ),
+    .ap_done( black_scholes2_div_1_U0_ap_done ),
+    .ap_continue( black_scholes2_div_1_U0_ap_continue ),
+    .ap_idle( black_scholes2_div_1_U0_ap_idle ),
+    .ap_ready( black_scholes2_div_1_U0_ap_ready ),
+    .a_2( black_scholes2_div_1_U0_a_2 ),
+    .a_2_ap_vld( black_scholes2_div_1_U0_a_2_ap_vld ),
+    .a( black_scholes2_div_1_U0_a )
 );
 
-black_scholes2_dmul_64ns_64ns_64_6_max_dsp #(
-    .ID( 3 ),
-    .NUM_STAGE( 6 ),
-    .din0_WIDTH( 64 ),
-    .din1_WIDTH( 64 ),
-    .dout_WIDTH( 64 ))
-black_scholes2_dmul_64ns_64ns_64_6_max_dsp_U3(
-    .clk( ap_clk ),
-    .reset( ap_rst ),
-    .din0( grp_fu_80_p0 ),
-    .din1( grp_fu_80_p1 ),
-    .ce( grp_fu_80_ce ),
-    .dout( grp_fu_80_p2 )
+black_scholes2_black_scholes2_Block_crit_edge14_proc black_scholes2_black_scholes2_Block_crit_edge14_proc_U0(
+    .ap_clk( ap_clk ),
+    .ap_rst( ap_rst ),
+    .ap_start( black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_start ),
+    .ap_done( black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_done ),
+    .ap_continue( black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_continue ),
+    .ap_idle( black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_idle ),
+    .ap_ready( black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_ready ),
+    .r( black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_r ),
+    .tmp_1( black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_tmp_1 ),
+    .r_out_din( black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_r_out_din ),
+    .r_out_full_n( black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_r_out_full_n ),
+    .r_out_write( black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_r_out_write ),
+    .ap_return( black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_return )
 );
 
-black_scholes2_dmul_64ns_64ns_64_6_max_dsp #(
-    .ID( 4 ),
-    .NUM_STAGE( 6 ),
-    .din0_WIDTH( 64 ),
-    .din1_WIDTH( 64 ),
-    .dout_WIDTH( 64 ))
-black_scholes2_dmul_64ns_64ns_64_6_max_dsp_U4(
-    .clk( ap_clk ),
-    .reset( ap_rst ),
-    .din0( grp_fu_85_p0 ),
-    .din1( grp_fu_85_p1 ),
-    .ce( grp_fu_85_ce ),
-    .dout( grp_fu_85_p2 )
+black_scholes2_mult2_12 black_scholes2_mult2_12_U0(
+    .ap_clk( ap_clk ),
+    .ap_rst( ap_rst ),
+    .ap_start( black_scholes2_mult2_12_U0_ap_start ),
+    .ap_done( black_scholes2_mult2_12_U0_ap_done ),
+    .ap_continue( black_scholes2_mult2_12_U0_ap_continue ),
+    .ap_idle( black_scholes2_mult2_12_U0_ap_idle ),
+    .ap_ready( black_scholes2_mult2_12_U0_ap_ready ),
+    .return_r( black_scholes2_mult2_12_U0_return_r ),
+    .return_r_ap_vld( black_scholes2_mult2_12_U0_return_r_ap_vld ),
+    .p_read( black_scholes2_mult2_12_U0_p_read ),
+    .b( black_scholes2_mult2_12_U0_b ),
+    .b_out_din( black_scholes2_mult2_12_U0_b_out_din ),
+    .b_out_full_n( black_scholes2_mult2_12_U0_b_out_full_n ),
+    .b_out_write( black_scholes2_mult2_12_U0_b_out_write )
 );
 
-black_scholes2_dcmp_64ns_64ns_1_3 #(
-    .ID( 5 ),
-    .NUM_STAGE( 3 ),
-    .din0_WIDTH( 64 ),
-    .din1_WIDTH( 64 ),
-    .dout_WIDTH( 1 ))
-black_scholes2_dcmp_64ns_64ns_1_3_U5(
-    .clk( ap_clk ),
-    .reset( ap_rst ),
-    .din0( grp_fu_90_p0 ),
-    .din1( grp_fu_90_p1 ),
-    .ce( grp_fu_90_ce ),
-    .opcode( grp_fu_90_opcode ),
-    .dout( grp_fu_90_p2 )
+black_scholes2_mult2_11_1 black_scholes2_mult2_11_1_U0(
+    .ap_clk( ap_clk ),
+    .ap_rst( ap_rst ),
+    .ap_start( black_scholes2_mult2_11_1_U0_ap_start ),
+    .ap_done( black_scholes2_mult2_11_1_U0_ap_done ),
+    .ap_continue( black_scholes2_mult2_11_1_U0_ap_continue ),
+    .ap_idle( black_scholes2_mult2_11_1_U0_ap_idle ),
+    .ap_ready( black_scholes2_mult2_11_1_U0_ap_ready ),
+    .return_r( black_scholes2_mult2_11_1_U0_return_r ),
+    .return_r_ap_vld( black_scholes2_mult2_11_1_U0_return_r_ap_vld ),
+    .a_dout( black_scholes2_mult2_11_1_U0_a_dout ),
+    .a_empty_n( black_scholes2_mult2_11_1_U0_a_empty_n ),
+    .a_read( black_scholes2_mult2_11_1_U0_a_read ),
+    .b( black_scholes2_mult2_11_1_U0_b )
 );
 
-black_scholes2_dsqrt_64ns_64ns_64_31 #(
-    .ID( 6 ),
-    .NUM_STAGE( 31 ),
-    .din0_WIDTH( 64 ),
-    .din1_WIDTH( 64 ),
-    .dout_WIDTH( 64 ))
-black_scholes2_dsqrt_64ns_64ns_64_31_U6(
-    .clk( ap_clk ),
-    .reset( ap_rst ),
-    .din0( grp_fu_95_p0 ),
-    .din1( grp_fu_95_p1 ),
-    .ce( grp_fu_95_ce ),
-    .dout( grp_fu_95_p2 )
+black_scholes2_sqrt1 black_scholes2_sqrt1_U0(
+    .ap_clk( ap_clk ),
+    .ap_rst( ap_rst ),
+    .ap_start( black_scholes2_sqrt1_U0_ap_start ),
+    .ap_done( black_scholes2_sqrt1_U0_ap_done ),
+    .ap_continue( black_scholes2_sqrt1_U0_ap_continue ),
+    .ap_idle( black_scholes2_sqrt1_U0_ap_idle ),
+    .ap_ready( black_scholes2_sqrt1_U0_ap_ready ),
+    .return_r( black_scholes2_sqrt1_U0_return_r ),
+    .return_r_ap_vld( black_scholes2_sqrt1_U0_return_r_ap_vld ),
+    .a_dout( black_scholes2_sqrt1_U0_a_dout ),
+    .a_empty_n( black_scholes2_sqrt1_U0_a_empty_n ),
+    .a_read( black_scholes2_sqrt1_U0_a_read ),
+    .a_out_din( black_scholes2_sqrt1_U0_a_out_din ),
+    .a_out_full_n( black_scholes2_sqrt1_U0_a_out_full_n ),
+    .a_out_write( black_scholes2_sqrt1_U0_a_out_write )
 );
 
-black_scholes2_dexp_64ns_64ns_64_18_full_dsp #(
-    .ID( 7 ),
-    .NUM_STAGE( 18 ),
-    .din0_WIDTH( 64 ),
-    .din1_WIDTH( 64 ),
-    .dout_WIDTH( 64 ))
-black_scholes2_dexp_64ns_64ns_64_18_full_dsp_U7(
+black_scholes2_mult2_11_2 black_scholes2_mult2_11_2_U0(
+    .ap_clk( ap_clk ),
+    .ap_rst( ap_rst ),
+    .ap_start( black_scholes2_mult2_11_2_U0_ap_start ),
+    .ap_done( black_scholes2_mult2_11_2_U0_ap_done ),
+    .ap_continue( black_scholes2_mult2_11_2_U0_ap_continue ),
+    .ap_idle( black_scholes2_mult2_11_2_U0_ap_idle ),
+    .ap_ready( black_scholes2_mult2_11_2_U0_ap_ready ),
+    .return_r( black_scholes2_mult2_11_2_U0_return_r ),
+    .return_r_ap_vld( black_scholes2_mult2_11_2_U0_return_r_ap_vld ),
+    .a( black_scholes2_mult2_11_2_U0_a ),
+    .b( black_scholes2_mult2_11_2_U0_b ),
+    .a_out_din( black_scholes2_mult2_11_2_U0_a_out_din ),
+    .a_out_full_n( black_scholes2_mult2_11_2_U0_a_out_full_n ),
+    .a_out_write( black_scholes2_mult2_11_2_U0_a_out_write )
+);
+
+black_scholes2_black_scholes2_Block_crit_edge111_proc black_scholes2_black_scholes2_Block_crit_edge111_proc_U0(
+    .ap_clk( ap_clk ),
+    .ap_rst( ap_rst ),
+    .ap_start( black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_ap_start ),
+    .ap_done( black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_ap_done ),
+    .ap_continue( black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_ap_continue ),
+    .ap_idle( black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_ap_idle ),
+    .ap_ready( black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_ap_ready ),
+    .tmp_3( black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_tmp_3 ),
+    .tmp2_1( black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_tmp2_1 ),
+    .ap_return( black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_ap_return )
+);
+
+black_scholes2_expo11 black_scholes2_expo11_U0(
+    .ap_clk( ap_clk ),
+    .ap_rst( ap_rst ),
+    .ap_start( black_scholes2_expo11_U0_ap_start ),
+    .ap_done( black_scholes2_expo11_U0_ap_done ),
+    .ap_continue( black_scholes2_expo11_U0_ap_continue ),
+    .ap_idle( black_scholes2_expo11_U0_ap_idle ),
+    .ap_ready( black_scholes2_expo11_U0_ap_ready ),
+    .return_r( black_scholes2_expo11_U0_return_r ),
+    .return_r_ap_vld( black_scholes2_expo11_U0_return_r_ap_vld ),
+    .p_read( black_scholes2_expo11_U0_p_read )
+);
+
+black_scholes2_mult2_11_3 black_scholes2_mult2_11_3_U0(
+    .ap_clk( ap_clk ),
+    .ap_rst( ap_rst ),
+    .ap_start( black_scholes2_mult2_11_3_U0_ap_start ),
+    .ap_done( black_scholes2_mult2_11_3_U0_ap_done ),
+    .ap_continue( black_scholes2_mult2_11_3_U0_ap_continue ),
+    .ap_idle( black_scholes2_mult2_11_3_U0_ap_idle ),
+    .ap_ready( black_scholes2_mult2_11_3_U0_ap_ready ),
+    .return_r( black_scholes2_mult2_11_3_U0_return_r ),
+    .return_r_ap_vld( black_scholes2_mult2_11_3_U0_return_r_ap_vld ),
+    .a( black_scholes2_mult2_11_3_U0_a ),
+    .b( black_scholes2_mult2_11_3_U0_b ),
+    .a_out_din( black_scholes2_mult2_11_3_U0_a_out_din ),
+    .a_out_full_n( black_scholes2_mult2_11_3_U0_a_out_full_n ),
+    .a_out_write( black_scholes2_mult2_11_3_U0_a_out_write )
+);
+
+black_scholes2_black_scholes2_Block_crit_edge115_proc black_scholes2_black_scholes2_Block_crit_edge115_proc_U0(
+    .ap_clk( ap_clk ),
+    .ap_rst( ap_rst ),
+    .ap_start( black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_ap_start ),
+    .ap_done( black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_ap_done ),
+    .ap_continue( black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_ap_continue ),
+    .ap_idle( black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_ap_idle ),
+    .ap_ready( black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_ap_ready ),
+    .r_dout( black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_r_dout ),
+    .r_empty_n( black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_r_empty_n ),
+    .r_read( black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_r_read ),
+    .T_dout( black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_T_dout ),
+    .T_empty_n( black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_T_empty_n ),
+    .T_read( black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_T_read ),
+    .ap_return( black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_ap_return )
+);
+
+black_scholes2_expo12 black_scholes2_expo12_U0(
+    .ap_clk( ap_clk ),
+    .ap_rst( ap_rst ),
+    .ap_start( black_scholes2_expo12_U0_ap_start ),
+    .ap_done( black_scholes2_expo12_U0_ap_done ),
+    .ap_continue( black_scholes2_expo12_U0_ap_continue ),
+    .ap_idle( black_scholes2_expo12_U0_ap_idle ),
+    .ap_ready( black_scholes2_expo12_U0_ap_ready ),
+    .return_r( black_scholes2_expo12_U0_return_r ),
+    .return_r_ap_vld( black_scholes2_expo12_U0_return_r_ap_vld ),
+    .p_read( black_scholes2_expo12_U0_p_read )
+);
+
+black_scholes2_black_scholes2_Block_crit_edge117_proc black_scholes2_black_scholes2_Block_crit_edge117_proc_U0(
+    .ap_clk( ap_clk ),
+    .ap_rst( ap_rst ),
+    .ap_start( black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_start ),
+    .ap_done( black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_done ),
+    .ap_continue( black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_continue ),
+    .ap_idle( black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_idle ),
+    .ap_ready( black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready ),
+    .tmp3_2( black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_tmp3_2 ),
+    .E( black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_E ),
+    .tmp4( black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_tmp4 ),
+    .ap_return( black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_return )
+);
+
+black_scholes2_black_scholes2_Block_crit_edge_proc black_scholes2_black_scholes2_Block_crit_edge_proc_U0(
+    .ap_clk( ap_clk ),
+    .ap_rst( ap_rst ),
+    .ap_start( black_scholes2_black_scholes2_Block_crit_edge_proc_U0_ap_start ),
+    .ap_done( black_scholes2_black_scholes2_Block_crit_edge_proc_U0_ap_done ),
+    .ap_continue( black_scholes2_black_scholes2_Block_crit_edge_proc_U0_ap_continue ),
+    .ap_idle( black_scholes2_black_scholes2_Block_crit_edge_proc_U0_ap_idle ),
+    .ap_ready( black_scholes2_black_scholes2_Block_crit_edge_proc_U0_ap_ready ),
+    .p_read( black_scholes2_black_scholes2_Block_crit_edge_proc_U0_p_read ),
+    .ap_return( black_scholes2_black_scholes2_Block_crit_edge_proc_U0_ap_return )
+);
+
+FIFO_black_scholes2_p_channel35 p_channel35_U(
     .clk( ap_clk ),
     .reset( ap_rst ),
-    .din0( grp_fu_101_p0 ),
-    .din1( grp_fu_101_p1 ),
-    .ce( grp_fu_101_ce ),
-    .dout( grp_fu_101_p2 )
+    .if_read_ce( p_channel35_U_ap_dummy_ce ),
+    .if_write_ce( p_channel35_U_ap_dummy_ce ),
+    .if_din( p_channel35_din ),
+    .if_full_n( p_channel35_full_n ),
+    .if_write( p_channel35_write ),
+    .if_dout( p_channel35_dout ),
+    .if_empty_n( p_channel35_empty_n ),
+    .if_read( p_channel35_read )
+);
+
+FIFO_black_scholes2_sigma_channel_channel sigma_channel_channel_U(
+    .clk( ap_clk ),
+    .reset( ap_rst ),
+    .if_read_ce( sigma_channel_channel_U_ap_dummy_ce ),
+    .if_write_ce( sigma_channel_channel_U_ap_dummy_ce ),
+    .if_din( sigma_channel_channel_din ),
+    .if_full_n( sigma_channel_channel_full_n ),
+    .if_write( sigma_channel_channel_write ),
+    .if_dout( sigma_channel_channel_dout ),
+    .if_empty_n( sigma_channel_channel_empty_n ),
+    .if_read( sigma_channel_channel_read )
+);
+
+FIFO_black_scholes2_tmp_1_channel tmp_1_channel_U(
+    .clk( ap_clk ),
+    .reset( ap_rst ),
+    .if_read_ce( tmp_1_channel_U_ap_dummy_ce ),
+    .if_write_ce( tmp_1_channel_U_ap_dummy_ce ),
+    .if_din( tmp_1_channel_din ),
+    .if_full_n( tmp_1_channel_full_n ),
+    .if_write( tmp_1_channel_write ),
+    .if_dout( tmp_1_channel_dout ),
+    .if_empty_n( tmp_1_channel_empty_n ),
+    .if_read( tmp_1_channel_read )
+);
+
+FIFO_black_scholes2_r_channel_channel r_channel_channel_U(
+    .clk( ap_clk ),
+    .reset( ap_rst ),
+    .if_read_ce( r_channel_channel_U_ap_dummy_ce ),
+    .if_write_ce( r_channel_channel_U_ap_dummy_ce ),
+    .if_din( r_channel_channel_din ),
+    .if_full_n( r_channel_channel_full_n ),
+    .if_write( r_channel_channel_write ),
+    .if_dout( r_channel_channel_dout ),
+    .if_empty_n( r_channel_channel_empty_n ),
+    .if_read( r_channel_channel_read )
+);
+
+FIFO_black_scholes2_tmp_2_loc_channel tmp_2_loc_channel_U(
+    .clk( ap_clk ),
+    .reset( ap_rst ),
+    .if_read_ce( tmp_2_loc_channel_U_ap_dummy_ce ),
+    .if_write_ce( tmp_2_loc_channel_U_ap_dummy_ce ),
+    .if_din( tmp_2_loc_channel_din ),
+    .if_full_n( tmp_2_loc_channel_full_n ),
+    .if_write( tmp_2_loc_channel_write ),
+    .if_dout( tmp_2_loc_channel_dout ),
+    .if_empty_n( tmp_2_loc_channel_empty_n ),
+    .if_read( tmp_2_loc_channel_read )
+);
+
+FIFO_black_scholes2_p_channel36 p_channel36_U(
+    .clk( ap_clk ),
+    .reset( ap_rst ),
+    .if_read_ce( p_channel36_U_ap_dummy_ce ),
+    .if_write_ce( p_channel36_U_ap_dummy_ce ),
+    .if_din( p_channel36_din ),
+    .if_full_n( p_channel36_full_n ),
+    .if_write( p_channel36_write ),
+    .if_dout( p_channel36_dout ),
+    .if_empty_n( p_channel36_empty_n ),
+    .if_read( p_channel36_read )
+);
+
+FIFO_black_scholes2_T_channel_channel T_channel_channel_U(
+    .clk( ap_clk ),
+    .reset( ap_rst ),
+    .if_read_ce( T_channel_channel_U_ap_dummy_ce ),
+    .if_write_ce( T_channel_channel_U_ap_dummy_ce ),
+    .if_din( T_channel_channel_din ),
+    .if_full_n( T_channel_channel_full_n ),
+    .if_write( T_channel_channel_write ),
+    .if_dout( T_channel_channel_dout ),
+    .if_empty_n( T_channel_channel_empty_n ),
+    .if_read( T_channel_channel_read )
+);
+
+FIFO_black_scholes2_p_channel37 p_channel37_U(
+    .clk( ap_clk ),
+    .reset( ap_rst ),
+    .if_read_ce( p_channel37_U_ap_dummy_ce ),
+    .if_write_ce( p_channel37_U_ap_dummy_ce ),
+    .if_din( p_channel37_din ),
+    .if_full_n( p_channel37_full_n ),
+    .if_write( p_channel37_write ),
+    .if_dout( p_channel37_dout ),
+    .if_empty_n( p_channel37_empty_n ),
+    .if_read( p_channel37_read )
+);
+
+FIFO_black_scholes2_p_channel38 p_channel38_U(
+    .clk( ap_clk ),
+    .reset( ap_rst ),
+    .if_read_ce( p_channel38_U_ap_dummy_ce ),
+    .if_write_ce( p_channel38_U_ap_dummy_ce ),
+    .if_din( p_channel38_din ),
+    .if_full_n( p_channel38_full_n ),
+    .if_write( p_channel38_write ),
+    .if_dout( p_channel38_dout ),
+    .if_empty_n( p_channel38_empty_n ),
+    .if_read( p_channel38_read )
+);
+
+FIFO_black_scholes2_T_channel31_channel T_channel31_channel_U(
+    .clk( ap_clk ),
+    .reset( ap_rst ),
+    .if_read_ce( T_channel31_channel_U_ap_dummy_ce ),
+    .if_write_ce( T_channel31_channel_U_ap_dummy_ce ),
+    .if_din( T_channel31_channel_din ),
+    .if_full_n( T_channel31_channel_full_n ),
+    .if_write( T_channel31_channel_write ),
+    .if_dout( T_channel31_channel_dout ),
+    .if_empty_n( T_channel31_channel_empty_n ),
+    .if_read( T_channel31_channel_read )
+);
+
+FIFO_black_scholes2_p_channel39 p_channel39_U(
+    .clk( ap_clk ),
+    .reset( ap_rst ),
+    .if_read_ce( p_channel39_U_ap_dummy_ce ),
+    .if_write_ce( p_channel39_U_ap_dummy_ce ),
+    .if_din( p_channel39_din ),
+    .if_full_n( p_channel39_full_n ),
+    .if_write( p_channel39_write ),
+    .if_dout( p_channel39_dout ),
+    .if_empty_n( p_channel39_empty_n ),
+    .if_read( p_channel39_read )
+);
+
+FIFO_black_scholes2_tmp3_loc_channel tmp3_loc_channel_U(
+    .clk( ap_clk ),
+    .reset( ap_rst ),
+    .if_read_ce( tmp3_loc_channel_U_ap_dummy_ce ),
+    .if_write_ce( tmp3_loc_channel_U_ap_dummy_ce ),
+    .if_din( tmp3_loc_channel_din ),
+    .if_full_n( tmp3_loc_channel_full_n ),
+    .if_write( tmp3_loc_channel_write ),
+    .if_dout( tmp3_loc_channel_dout ),
+    .if_empty_n( tmp3_loc_channel_empty_n ),
+    .if_read( tmp3_loc_channel_read )
+);
+
+FIFO_black_scholes2_p_channel40 p_channel40_U(
+    .clk( ap_clk ),
+    .reset( ap_rst ),
+    .if_read_ce( p_channel40_U_ap_dummy_ce ),
+    .if_write_ce( p_channel40_U_ap_dummy_ce ),
+    .if_din( p_channel40_din ),
+    .if_full_n( p_channel40_full_n ),
+    .if_write( p_channel40_write ),
+    .if_dout( p_channel40_dout ),
+    .if_empty_n( p_channel40_empty_n ),
+    .if_read( p_channel40_read )
+);
+
+FIFO_black_scholes2_p_channel41 p_channel41_U(
+    .clk( ap_clk ),
+    .reset( ap_rst ),
+    .if_read_ce( p_channel41_U_ap_dummy_ce ),
+    .if_write_ce( p_channel41_U_ap_dummy_ce ),
+    .if_din( p_channel41_din ),
+    .if_full_n( p_channel41_full_n ),
+    .if_write( p_channel41_write ),
+    .if_dout( p_channel41_dout ),
+    .if_empty_n( p_channel41_empty_n ),
+    .if_read( p_channel41_read )
+);
+
+FIFO_black_scholes2_call_ret call_ret_U(
+    .clk( ap_clk ),
+    .reset( ap_rst ),
+    .if_read_ce( call_ret_U_ap_dummy_ce ),
+    .if_write_ce( call_ret_U_ap_dummy_ce ),
+    .if_din( call_ret_din ),
+    .if_full_n( call_ret_full_n ),
+    .if_write( call_ret_write ),
+    .if_dout( call_ret_dout ),
+    .if_empty_n( call_ret_empty_n ),
+    .if_read( call_ret_read )
+);
+
+FIFO_black_scholes2_p_channel42 p_channel42_U(
+    .clk( ap_clk ),
+    .reset( ap_rst ),
+    .if_read_ce( p_channel42_U_ap_dummy_ce ),
+    .if_write_ce( p_channel42_U_ap_dummy_ce ),
+    .if_din( p_channel42_din ),
+    .if_full_n( p_channel42_full_n ),
+    .if_write( p_channel42_write ),
+    .if_dout( p_channel42_dout ),
+    .if_empty_n( p_channel42_empty_n ),
+    .if_read( p_channel42_read )
+);
+
+FIFO_black_scholes2_tmp4_1_loc_channel tmp4_1_loc_channel_U(
+    .clk( ap_clk ),
+    .reset( ap_rst ),
+    .if_read_ce( tmp4_1_loc_channel_U_ap_dummy_ce ),
+    .if_write_ce( tmp4_1_loc_channel_U_ap_dummy_ce ),
+    .if_din( tmp4_1_loc_channel_din ),
+    .if_full_n( tmp4_1_loc_channel_full_n ),
+    .if_write( tmp4_1_loc_channel_write ),
+    .if_dout( tmp4_1_loc_channel_dout ),
+    .if_empty_n( tmp4_1_loc_channel_empty_n ),
+    .if_read( tmp4_1_loc_channel_read )
 );
 
 
 
-/// the current state (ap_CS_fsm) of the state machine. ///
+/// ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge111_proc_U0 assign process. ///
 always @ (posedge ap_clk)
-begin : ap_ret_ap_CS_fsm
+begin : ap_ret_ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge111_proc_U0
     if (ap_rst == 1'b1) begin
-        ap_CS_fsm <= ap_ST_st1_fsm_0;
+        ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge111_proc_U0 <= ap_const_logic_0;
     end else begin
-        ap_CS_fsm <= ap_NS_fsm;
+        if ((ap_const_logic_1 == ap_sig_hs_done)) begin
+            ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge111_proc_U0 <= ap_const_logic_0;
+        end else if ((ap_const_logic_1 == black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_ap_done)) begin
+            ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge111_proc_U0 <= ap_const_logic_1;
+        end
     end
 end
 
-/// assign process. ///
-always @(posedge ap_clk)
-begin
-    if (((ap_ST_st26_fsm_25 == ap_CS_fsm) | (ap_ST_st32_fsm_31 == ap_CS_fsm) | (ap_ST_st37_fsm_36 == ap_CS_fsm) | (ap_ST_st43_fsm_42 == ap_CS_fsm) | (ap_ST_st72_fsm_71 == ap_CS_fsm))) begin
-        reg_106 <= grp_fu_73_p2;
-    end
-end
-
-/// assign process. ///
-always @(posedge ap_clk)
-begin
-    if (((ap_ST_st37_fsm_36 == ap_CS_fsm) | (ap_ST_st48_fsm_47 == ap_CS_fsm) | (ap_ST_st77_fsm_76 == ap_CS_fsm))) begin
-        reg_114 <= grp_fu_67_p2;
-    end
-end
-
-/// assign process. ///
-always @(posedge ap_clk)
-begin
-    if (((ap_ST_st66_fsm_65 == ap_CS_fsm) | (ap_ST_st80_fsm_79 == ap_CS_fsm))) begin
-        reg_121 <= grp_fu_101_p2;
-    end
-end
-
-/// assign process. ///
-always @(posedge ap_clk)
-begin
-    if ((ap_ST_st80_fsm_79 == ap_CS_fsm)) begin
-        tmp_13_reg_206 <= tmp_13_fu_139_p3;
-    end
-end
-
-/// assign process. ///
-always @(posedge ap_clk)
-begin
-    if ((ap_ST_st31_fsm_30 == ap_CS_fsm)) begin
-        tmp_4_reg_160 <= grp_fu_95_p2;
-    end
-end
-
-/// assign process. ///
-always @(posedge ap_clk)
-begin
-    if ((ap_ST_st43_fsm_42 == ap_CS_fsm)) begin
-        tmp_6_reg_186 <= grp_fu_80_p2;
-        tmp_s_reg_191 <= grp_fu_85_p2;
-    end
-end
-
-/// assign process. ///
-always @(posedge ap_clk)
-begin
-    if ((ap_ST_st37_fsm_36 == ap_CS_fsm)) begin
-        tmp_9_neg_reg_171 <= tmp_9_neg_fu_129_p2;
-    end
-end
-
-/// ap_done assign process. ///
-always @ (ap_CS_fsm)
-begin
-    if ((ap_ST_st86_fsm_85 == ap_CS_fsm)) begin
-        ap_done = ap_const_logic_1;
+/// ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge115_proc_U0 assign process. ///
+always @ (posedge ap_clk)
+begin : ap_ret_ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge115_proc_U0
+    if (ap_rst == 1'b1) begin
+        ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge115_proc_U0 <= ap_const_logic_0;
     end else begin
-        ap_done = ap_const_logic_0;
+        if ((ap_const_logic_1 == ap_sig_hs_done)) begin
+            ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge115_proc_U0 <= ap_const_logic_0;
+        end else if ((ap_const_logic_1 == black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_ap_done)) begin
+            ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge115_proc_U0 <= ap_const_logic_1;
+        end
     end
+end
+
+/// ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0 assign process. ///
+always @ (posedge ap_clk)
+begin : ap_ret_ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0
+    if (ap_rst == 1'b1) begin
+        ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0 <= ap_const_logic_0;
+    end else begin
+        if ((ap_const_logic_1 == ap_sig_hs_done)) begin
+            ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0 <= ap_const_logic_0;
+        end else if ((ap_const_logic_1 == black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_done)) begin
+            ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0 <= ap_const_logic_1;
+        end
+    end
+end
+
+/// ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0 assign process. ///
+always @ (posedge ap_clk)
+begin : ap_ret_ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0
+    if (ap_rst == 1'b1) begin
+        ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0 <= ap_const_logic_0;
+    end else begin
+        if ((ap_const_logic_1 == ap_sig_hs_done)) begin
+            ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0 <= ap_const_logic_0;
+        end else if ((ap_const_logic_1 == black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_done)) begin
+            ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0 <= ap_const_logic_1;
+        end
+    end
+end
+
+/// ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge_proc_U0 assign process. ///
+always @ (posedge ap_clk)
+begin : ap_ret_ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge_proc_U0
+    if (ap_rst == 1'b1) begin
+        ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge_proc_U0 <= ap_const_logic_0;
+    end else begin
+        if ((ap_const_logic_1 == ap_sig_hs_done)) begin
+            ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge_proc_U0 <= ap_const_logic_0;
+        end else if ((ap_const_logic_1 == black_scholes2_black_scholes2_Block_crit_edge_proc_U0_ap_done)) begin
+            ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge_proc_U0 <= ap_const_logic_1;
+        end
+    end
+end
+
+/// ap_reg_procdone_black_scholes2_div_1_U0 assign process. ///
+always @ (posedge ap_clk)
+begin : ap_ret_ap_reg_procdone_black_scholes2_div_1_U0
+    if (ap_rst == 1'b1) begin
+        ap_reg_procdone_black_scholes2_div_1_U0 <= ap_const_logic_0;
+    end else begin
+        if ((ap_const_logic_1 == ap_sig_hs_done)) begin
+            ap_reg_procdone_black_scholes2_div_1_U0 <= ap_const_logic_0;
+        end else if ((ap_const_logic_1 == black_scholes2_div_1_U0_ap_done)) begin
+            ap_reg_procdone_black_scholes2_div_1_U0 <= ap_const_logic_1;
+        end
+    end
+end
+
+/// ap_reg_procdone_black_scholes2_expo11_U0 assign process. ///
+always @ (posedge ap_clk)
+begin : ap_ret_ap_reg_procdone_black_scholes2_expo11_U0
+    if (ap_rst == 1'b1) begin
+        ap_reg_procdone_black_scholes2_expo11_U0 <= ap_const_logic_0;
+    end else begin
+        if ((ap_const_logic_1 == ap_sig_hs_done)) begin
+            ap_reg_procdone_black_scholes2_expo11_U0 <= ap_const_logic_0;
+        end else if ((ap_const_logic_1 == black_scholes2_expo11_U0_ap_done)) begin
+            ap_reg_procdone_black_scholes2_expo11_U0 <= ap_const_logic_1;
+        end
+    end
+end
+
+/// ap_reg_procdone_black_scholes2_expo12_U0 assign process. ///
+always @ (posedge ap_clk)
+begin : ap_ret_ap_reg_procdone_black_scholes2_expo12_U0
+    if (ap_rst == 1'b1) begin
+        ap_reg_procdone_black_scholes2_expo12_U0 <= ap_const_logic_0;
+    end else begin
+        if ((ap_const_logic_1 == ap_sig_hs_done)) begin
+            ap_reg_procdone_black_scholes2_expo12_U0 <= ap_const_logic_0;
+        end else if ((ap_const_logic_1 == black_scholes2_expo12_U0_ap_done)) begin
+            ap_reg_procdone_black_scholes2_expo12_U0 <= ap_const_logic_1;
+        end
+    end
+end
+
+/// ap_reg_procdone_black_scholes2_mult2_11_1_U0 assign process. ///
+always @ (posedge ap_clk)
+begin : ap_ret_ap_reg_procdone_black_scholes2_mult2_11_1_U0
+    if (ap_rst == 1'b1) begin
+        ap_reg_procdone_black_scholes2_mult2_11_1_U0 <= ap_const_logic_0;
+    end else begin
+        if ((ap_const_logic_1 == ap_sig_hs_done)) begin
+            ap_reg_procdone_black_scholes2_mult2_11_1_U0 <= ap_const_logic_0;
+        end else if ((ap_const_logic_1 == black_scholes2_mult2_11_1_U0_ap_done)) begin
+            ap_reg_procdone_black_scholes2_mult2_11_1_U0 <= ap_const_logic_1;
+        end
+    end
+end
+
+/// ap_reg_procdone_black_scholes2_mult2_11_2_U0 assign process. ///
+always @ (posedge ap_clk)
+begin : ap_ret_ap_reg_procdone_black_scholes2_mult2_11_2_U0
+    if (ap_rst == 1'b1) begin
+        ap_reg_procdone_black_scholes2_mult2_11_2_U0 <= ap_const_logic_0;
+    end else begin
+        if ((ap_const_logic_1 == ap_sig_hs_done)) begin
+            ap_reg_procdone_black_scholes2_mult2_11_2_U0 <= ap_const_logic_0;
+        end else if ((ap_const_logic_1 == black_scholes2_mult2_11_2_U0_ap_done)) begin
+            ap_reg_procdone_black_scholes2_mult2_11_2_U0 <= ap_const_logic_1;
+        end
+    end
+end
+
+/// ap_reg_procdone_black_scholes2_mult2_11_3_U0 assign process. ///
+always @ (posedge ap_clk)
+begin : ap_ret_ap_reg_procdone_black_scholes2_mult2_11_3_U0
+    if (ap_rst == 1'b1) begin
+        ap_reg_procdone_black_scholes2_mult2_11_3_U0 <= ap_const_logic_0;
+    end else begin
+        if ((ap_const_logic_1 == ap_sig_hs_done)) begin
+            ap_reg_procdone_black_scholes2_mult2_11_3_U0 <= ap_const_logic_0;
+        end else if ((ap_const_logic_1 == black_scholes2_mult2_11_3_U0_ap_done)) begin
+            ap_reg_procdone_black_scholes2_mult2_11_3_U0 <= ap_const_logic_1;
+        end
+    end
+end
+
+/// ap_reg_procdone_black_scholes2_mult2_11_U0 assign process. ///
+always @ (posedge ap_clk)
+begin : ap_ret_ap_reg_procdone_black_scholes2_mult2_11_U0
+    if (ap_rst == 1'b1) begin
+        ap_reg_procdone_black_scholes2_mult2_11_U0 <= ap_const_logic_0;
+    end else begin
+        if ((ap_const_logic_1 == ap_sig_hs_done)) begin
+            ap_reg_procdone_black_scholes2_mult2_11_U0 <= ap_const_logic_0;
+        end else if ((black_scholes2_mult2_11_U0_ap_done == ap_const_logic_1)) begin
+            ap_reg_procdone_black_scholes2_mult2_11_U0 <= ap_const_logic_1;
+        end
+    end
+end
+
+/// ap_reg_procdone_black_scholes2_mult2_12_U0 assign process. ///
+always @ (posedge ap_clk)
+begin : ap_ret_ap_reg_procdone_black_scholes2_mult2_12_U0
+    if (ap_rst == 1'b1) begin
+        ap_reg_procdone_black_scholes2_mult2_12_U0 <= ap_const_logic_0;
+    end else begin
+        if ((ap_const_logic_1 == ap_sig_hs_done)) begin
+            ap_reg_procdone_black_scholes2_mult2_12_U0 <= ap_const_logic_0;
+        end else if ((ap_const_logic_1 == black_scholes2_mult2_12_U0_ap_done)) begin
+            ap_reg_procdone_black_scholes2_mult2_12_U0 <= ap_const_logic_1;
+        end
+    end
+end
+
+/// ap_reg_procdone_black_scholes2_sqrt1_U0 assign process. ///
+always @ (posedge ap_clk)
+begin : ap_ret_ap_reg_procdone_black_scholes2_sqrt1_U0
+    if (ap_rst == 1'b1) begin
+        ap_reg_procdone_black_scholes2_sqrt1_U0 <= ap_const_logic_0;
+    end else begin
+        if ((ap_const_logic_1 == ap_sig_hs_done)) begin
+            ap_reg_procdone_black_scholes2_sqrt1_U0 <= ap_const_logic_0;
+        end else if ((ap_const_logic_1 == black_scholes2_sqrt1_U0_ap_done)) begin
+            ap_reg_procdone_black_scholes2_sqrt1_U0 <= ap_const_logic_1;
+        end
+    end
+end
+
+/// ap_reg_ready_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready assign process. ///
+always @ (posedge ap_clk)
+begin : ap_ret_ap_reg_ready_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready
+    if (ap_rst == 1'b1) begin
+        ap_reg_ready_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready <= ap_const_logic_0;
+    end else begin
+        if (((ap_const_logic_1 == ap_start) & (ap_const_logic_1 == ap_sig_top_allready))) begin
+            ap_reg_ready_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready <= ap_const_logic_0;
+        end else if ((ap_const_logic_1 == black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready)) begin
+            ap_reg_ready_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready <= ap_const_logic_1;
+        end
+    end
+end
+
+/// ap_reg_ready_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_ready assign process. ///
+always @ (posedge ap_clk)
+begin : ap_ret_ap_reg_ready_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_ready
+    if (ap_rst == 1'b1) begin
+        ap_reg_ready_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_ready <= ap_const_logic_0;
+    end else begin
+        if (((ap_const_logic_1 == ap_start) & (ap_const_logic_1 == ap_sig_top_allready))) begin
+            ap_reg_ready_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_ready <= ap_const_logic_0;
+        end else if ((ap_const_logic_1 == black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_ready)) begin
+            ap_reg_ready_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_ready <= ap_const_logic_1;
+        end
+    end
+end
+
+/// ap_reg_ready_black_scholes2_mult2_11_1_U0_ap_ready assign process. ///
+always @ (posedge ap_clk)
+begin : ap_ret_ap_reg_ready_black_scholes2_mult2_11_1_U0_ap_ready
+    if (ap_rst == 1'b1) begin
+        ap_reg_ready_black_scholes2_mult2_11_1_U0_ap_ready <= ap_const_logic_0;
+    end else begin
+        if (((ap_const_logic_1 == ap_start) & (ap_const_logic_1 == ap_sig_top_allready))) begin
+            ap_reg_ready_black_scholes2_mult2_11_1_U0_ap_ready <= ap_const_logic_0;
+        end else if ((ap_const_logic_1 == black_scholes2_mult2_11_1_U0_ap_ready)) begin
+            ap_reg_ready_black_scholes2_mult2_11_1_U0_ap_ready <= ap_const_logic_1;
+        end
+    end
+end
+
+/// ap_reg_ready_black_scholes2_mult2_11_3_U0_ap_ready assign process. ///
+always @ (posedge ap_clk)
+begin : ap_ret_ap_reg_ready_black_scholes2_mult2_11_3_U0_ap_ready
+    if (ap_rst == 1'b1) begin
+        ap_reg_ready_black_scholes2_mult2_11_3_U0_ap_ready <= ap_const_logic_0;
+    end else begin
+        if (((ap_const_logic_1 == ap_start) & (ap_const_logic_1 == ap_sig_top_allready))) begin
+            ap_reg_ready_black_scholes2_mult2_11_3_U0_ap_ready <= ap_const_logic_0;
+        end else if ((ap_const_logic_1 == black_scholes2_mult2_11_3_U0_ap_ready)) begin
+            ap_reg_ready_black_scholes2_mult2_11_3_U0_ap_ready <= ap_const_logic_1;
+        end
+    end
+end
+
+/// ap_reg_ready_black_scholes2_mult2_11_U0_ap_ready assign process. ///
+always @ (posedge ap_clk)
+begin : ap_ret_ap_reg_ready_black_scholes2_mult2_11_U0_ap_ready
+    if (ap_rst == 1'b1) begin
+        ap_reg_ready_black_scholes2_mult2_11_U0_ap_ready <= ap_const_logic_0;
+    end else begin
+        if (((ap_const_logic_1 == ap_start) & (ap_const_logic_1 == ap_sig_top_allready))) begin
+            ap_reg_ready_black_scholes2_mult2_11_U0_ap_ready <= ap_const_logic_0;
+        end else if ((black_scholes2_mult2_11_U0_ap_ready == ap_const_logic_1)) begin
+            ap_reg_ready_black_scholes2_mult2_11_U0_ap_ready <= ap_const_logic_1;
+        end
+    end
+end
+
+/// ap_reg_ready_black_scholes2_mult2_12_U0_ap_ready assign process. ///
+always @ (posedge ap_clk)
+begin : ap_ret_ap_reg_ready_black_scholes2_mult2_12_U0_ap_ready
+    if (ap_rst == 1'b1) begin
+        ap_reg_ready_black_scholes2_mult2_12_U0_ap_ready <= ap_const_logic_0;
+    end else begin
+        if (((ap_const_logic_1 == ap_start) & (ap_const_logic_1 == ap_sig_top_allready))) begin
+            ap_reg_ready_black_scholes2_mult2_12_U0_ap_ready <= ap_const_logic_0;
+        end else if ((ap_const_logic_1 == black_scholes2_mult2_12_U0_ap_ready)) begin
+            ap_reg_ready_black_scholes2_mult2_12_U0_ap_ready <= ap_const_logic_1;
+        end
+    end
+end
+
+/// black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_ap_start assign process. ///
+always @ (posedge ap_clk)
+begin : ap_ret_black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_ap_start
+    if (ap_rst == 1'b1) begin
+        black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_ap_start <= ap_const_logic_0;
+    end else begin
+        black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_ap_start <= ap_const_logic_1;
+    end
+end
+
+/// black_scholes2_sqrt1_U0_ap_start assign process. ///
+always @ (posedge ap_clk)
+begin : ap_ret_black_scholes2_sqrt1_U0_ap_start
+    if (ap_rst == 1'b1) begin
+        black_scholes2_sqrt1_U0_ap_start <= ap_const_logic_0;
+    end else begin
+        black_scholes2_sqrt1_U0_ap_start <= ap_const_logic_1;
+    end
+end
+
+/// assign process. ///
+always @(posedge ap_clk)
+begin
+    ap_CS <= ap_const_logic_0;
 end
 
 /// ap_idle assign process. ///
-always @ (ap_start or ap_CS_fsm)
+always @ (black_scholes2_mult2_11_U0_ap_idle or black_scholes2_div_1_U0_ap_idle or black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_idle or black_scholes2_mult2_12_U0_ap_idle or black_scholes2_mult2_11_1_U0_ap_idle or black_scholes2_sqrt1_U0_ap_idle or black_scholes2_mult2_11_2_U0_ap_idle or black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_ap_idle or black_scholes2_expo11_U0_ap_idle or black_scholes2_mult2_11_3_U0_ap_idle or black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_ap_idle or black_scholes2_expo12_U0_ap_idle or black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_idle or black_scholes2_black_scholes2_Block_crit_edge_proc_U0_ap_idle or p_channel35_empty_n or tmp_1_channel_empty_n or tmp_2_loc_channel_empty_n or p_channel36_empty_n or p_channel37_empty_n or p_channel38_empty_n or p_channel39_empty_n or tmp3_loc_channel_empty_n or p_channel40_empty_n or p_channel41_empty_n or call_ret_empty_n or p_channel42_empty_n or tmp4_1_loc_channel_empty_n)
 begin
-    if ((~(ap_const_logic_1 == ap_start) & (ap_ST_st1_fsm_0 == ap_CS_fsm))) begin
+    if (((black_scholes2_mult2_11_U0_ap_idle == ap_const_logic_1) & (ap_const_logic_1 == black_scholes2_div_1_U0_ap_idle) & (ap_const_logic_1 == black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_idle) & (ap_const_logic_1 == black_scholes2_mult2_12_U0_ap_idle) & (ap_const_logic_1 == black_scholes2_mult2_11_1_U0_ap_idle) & (ap_const_logic_1 == black_scholes2_sqrt1_U0_ap_idle) & (ap_const_logic_1 == black_scholes2_mult2_11_2_U0_ap_idle) & (ap_const_logic_1 == black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_ap_idle) & (ap_const_logic_1 == black_scholes2_expo11_U0_ap_idle) & (ap_const_logic_1 == black_scholes2_mult2_11_3_U0_ap_idle) & (ap_const_logic_1 == black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_ap_idle) & (ap_const_logic_1 == black_scholes2_expo12_U0_ap_idle) & (ap_const_logic_1 == black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_idle) & (ap_const_logic_1 == black_scholes2_black_scholes2_Block_crit_edge_proc_U0_ap_idle) & (ap_const_logic_0 == p_channel35_empty_n) & (ap_const_logic_0 == tmp_1_channel_empty_n) & (ap_const_logic_0 == tmp_2_loc_channel_empty_n) & (ap_const_logic_0 == p_channel36_empty_n) & (ap_const_logic_0 == p_channel37_empty_n) & (ap_const_logic_0 == p_channel38_empty_n) & (ap_const_logic_0 == p_channel39_empty_n) & (ap_const_logic_0 == tmp3_loc_channel_empty_n) & (ap_const_logic_0 == p_channel40_empty_n) & (ap_const_logic_0 == p_channel41_empty_n) & (ap_const_logic_0 == call_ret_empty_n) & (ap_const_logic_0 == p_channel42_empty_n) & (ap_const_logic_0 == tmp4_1_loc_channel_empty_n))) begin
         ap_idle = ap_const_logic_1;
     end else begin
         ap_idle = ap_const_logic_0;
     end
 end
 
-/// ap_ready assign process. ///
-always @ (ap_CS_fsm)
+/// ap_sig_hs_done assign process. ///
+always @ (black_scholes2_black_scholes2_Block_crit_edge_proc_U0_ap_done or ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge_proc_U0)
 begin
-    if ((ap_ST_st86_fsm_85 == ap_CS_fsm)) begin
-        ap_ready = ap_const_logic_1;
+    if (((ap_const_logic_1 == black_scholes2_black_scholes2_Block_crit_edge_proc_U0_ap_done) | (ap_const_logic_1 == ap_reg_procdone_black_scholes2_black_scholes2_Block_crit_edge_proc_U0))) begin
+        ap_sig_hs_done = ap_const_logic_1;
     end else begin
-        ap_ready = ap_const_logic_0;
+        ap_sig_hs_done = ap_const_logic_0;
     end
 end
 
-/// grp_fu_101_p1 assign process. ///
-always @ (ap_CS_fsm or reg_114 or tmp_s_reg_191)
+/// ap_sig_ready_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready assign process. ///
+always @ (black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready or ap_reg_ready_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready)
 begin
-    if ((ap_ST_st63_fsm_62 == ap_CS_fsm)) begin
-        grp_fu_101_p1 = tmp_s_reg_191;
-    end else if ((ap_ST_st49_fsm_48 == ap_CS_fsm)) begin
-        grp_fu_101_p1 = reg_114;
+    if ((ap_const_logic_0 == ap_reg_ready_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready)) begin
+        ap_sig_ready_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready = black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready;
     end else begin
-        grp_fu_101_p1 = 'bx;
+        ap_sig_ready_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready = ap_const_logic_1;
     end
 end
 
-/// grp_fu_67_opcode assign process. ///
-always @ (ap_CS_fsm)
+/// ap_sig_ready_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_ready assign process. ///
+always @ (black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_ready or ap_reg_ready_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_ready)
 begin
-    if (((ap_ST_st33_fsm_32 == ap_CS_fsm) | (ap_ST_st73_fsm_72 == ap_CS_fsm))) begin
-        grp_fu_67_opcode = ap_const_lv2_1;
-    end else if ((ap_ST_st44_fsm_43 == ap_CS_fsm)) begin
-        grp_fu_67_opcode = ap_const_lv2_0;
+    if ((ap_const_logic_0 == ap_reg_ready_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_ready)) begin
+        ap_sig_ready_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_ready = black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_ready;
     end else begin
-        grp_fu_67_opcode = 'bx;
+        ap_sig_ready_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_ready = ap_const_logic_1;
     end
 end
 
-/// grp_fu_67_p0 assign process. ///
-always @ (ap_CS_fsm or r or reg_106)
+/// ap_sig_ready_black_scholes2_mult2_11_1_U0_ap_ready assign process. ///
+always @ (black_scholes2_mult2_11_1_U0_ap_ready or ap_reg_ready_black_scholes2_mult2_11_1_U0_ap_ready)
 begin
-    if (((ap_ST_st73_fsm_72 == ap_CS_fsm) | (ap_ST_st44_fsm_43 == ap_CS_fsm))) begin
-        grp_fu_67_p0 = reg_106;
-    end else if ((ap_ST_st33_fsm_32 == ap_CS_fsm)) begin
-        grp_fu_67_p0 = r;
+    if ((ap_const_logic_0 == ap_reg_ready_black_scholes2_mult2_11_1_U0_ap_ready)) begin
+        ap_sig_ready_black_scholes2_mult2_11_1_U0_ap_ready = black_scholes2_mult2_11_1_U0_ap_ready;
     end else begin
-        grp_fu_67_p0 = 'bx;
+        ap_sig_ready_black_scholes2_mult2_11_1_U0_ap_ready = ap_const_logic_1;
     end
 end
 
-/// grp_fu_67_p1 assign process. ///
-always @ (ap_CS_fsm or E or reg_106 or tmp_6_reg_186)
+/// ap_sig_ready_black_scholes2_mult2_11_3_U0_ap_ready assign process. ///
+always @ (black_scholes2_mult2_11_3_U0_ap_ready or ap_reg_ready_black_scholes2_mult2_11_3_U0_ap_ready)
 begin
-    if ((ap_ST_st73_fsm_72 == ap_CS_fsm)) begin
-        grp_fu_67_p1 = E;
-    end else if ((ap_ST_st44_fsm_43 == ap_CS_fsm)) begin
-        grp_fu_67_p1 = tmp_6_reg_186;
-    end else if ((ap_ST_st33_fsm_32 == ap_CS_fsm)) begin
-        grp_fu_67_p1 = reg_106;
+    if ((ap_const_logic_0 == ap_reg_ready_black_scholes2_mult2_11_3_U0_ap_ready)) begin
+        ap_sig_ready_black_scholes2_mult2_11_3_U0_ap_ready = black_scholes2_mult2_11_3_U0_ap_ready;
     end else begin
-        grp_fu_67_p1 = 'bx;
+        ap_sig_ready_black_scholes2_mult2_11_3_U0_ap_ready = ap_const_logic_1;
     end
 end
 
-/// grp_fu_73_p0 assign process. ///
-always @ (ap_CS_fsm or sigma or reg_106 or reg_114 or reg_121 or tmp_4_reg_160)
+/// ap_sig_ready_black_scholes2_mult2_11_U0_ap_ready assign process. ///
+always @ (black_scholes2_mult2_11_U0_ap_ready or ap_reg_ready_black_scholes2_mult2_11_U0_ap_ready)
 begin
-    if (((ap_ST_st67_fsm_66 == ap_CS_fsm) | (ap_ST_st81_fsm_80 == ap_CS_fsm))) begin
-        grp_fu_73_p0 = reg_121;
-    end else if ((ap_ST_st38_fsm_37 == ap_CS_fsm)) begin
-        grp_fu_73_p0 = reg_114;
-    end else if ((ap_ST_st32_fsm_31 == ap_CS_fsm)) begin
-        grp_fu_73_p0 = tmp_4_reg_160;
-    end else if ((ap_ST_st27_fsm_26 == ap_CS_fsm)) begin
-        grp_fu_73_p0 = reg_106;
-    end else if ((ap_ST_st21_fsm_20 == ap_CS_fsm)) begin
-        grp_fu_73_p0 = sigma;
+    if ((ap_const_logic_0 == ap_reg_ready_black_scholes2_mult2_11_U0_ap_ready)) begin
+        ap_sig_ready_black_scholes2_mult2_11_U0_ap_ready = black_scholes2_mult2_11_U0_ap_ready;
     end else begin
-        grp_fu_73_p0 = 'bx;
+        ap_sig_ready_black_scholes2_mult2_11_U0_ap_ready = ap_const_logic_1;
     end
 end
 
-/// grp_fu_73_p1 assign process. ///
-always @ (ap_CS_fsm or S or sigma or T or tmp_13_reg_206)
+/// ap_sig_ready_black_scholes2_mult2_12_U0_ap_ready assign process. ///
+always @ (black_scholes2_mult2_12_U0_ap_ready or ap_reg_ready_black_scholes2_mult2_12_U0_ap_ready)
 begin
-    if ((ap_ST_st81_fsm_80 == ap_CS_fsm)) begin
-        grp_fu_73_p1 = tmp_13_reg_206;
-    end else if ((ap_ST_st67_fsm_66 == ap_CS_fsm)) begin
-        grp_fu_73_p1 = S;
-    end else if ((ap_ST_st38_fsm_37 == ap_CS_fsm)) begin
-        grp_fu_73_p1 = T;
-    end else if ((ap_ST_st27_fsm_26 == ap_CS_fsm)) begin
-        grp_fu_73_p1 = ap_const_lv64_3FE0000000000000;
-    end else if (((ap_ST_st32_fsm_31 == ap_CS_fsm) | (ap_ST_st21_fsm_20 == ap_CS_fsm))) begin
-        grp_fu_73_p1 = sigma;
+    if ((ap_const_logic_0 == ap_reg_ready_black_scholes2_mult2_12_U0_ap_ready)) begin
+        ap_sig_ready_black_scholes2_mult2_12_U0_ap_ready = black_scholes2_mult2_12_U0_ap_ready;
     end else begin
-        grp_fu_73_p1 = 'bx;
+        ap_sig_ready_black_scholes2_mult2_12_U0_ap_ready = ap_const_logic_1;
     end
 end
-/// the next state (ap_NS_fsm) of the state machine. ///
-always @ (ap_start or ap_CS_fsm)
+
+/// ap_sig_start_in_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_start assign process. ///
+always @ (ap_start or ap_reg_ready_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready)
 begin
-    case (ap_CS_fsm)
-        ap_ST_st1_fsm_0 : 
-        begin
-            if (~(ap_start == ap_const_logic_0)) begin
-                ap_NS_fsm = ap_ST_st2_fsm_1;
-            end else begin
-                ap_NS_fsm = ap_ST_st1_fsm_0;
-            end
-        end
-        ap_ST_st2_fsm_1 : 
-        begin
-            ap_NS_fsm = ap_ST_st3_fsm_2;
-        end
-        ap_ST_st3_fsm_2 : 
-        begin
-            ap_NS_fsm = ap_ST_st4_fsm_3;
-        end
-        ap_ST_st4_fsm_3 : 
-        begin
-            ap_NS_fsm = ap_ST_st5_fsm_4;
-        end
-        ap_ST_st5_fsm_4 : 
-        begin
-            ap_NS_fsm = ap_ST_st6_fsm_5;
-        end
-        ap_ST_st6_fsm_5 : 
-        begin
-            ap_NS_fsm = ap_ST_st7_fsm_6;
-        end
-        ap_ST_st7_fsm_6 : 
-        begin
-            ap_NS_fsm = ap_ST_st8_fsm_7;
-        end
-        ap_ST_st8_fsm_7 : 
-        begin
-            ap_NS_fsm = ap_ST_st9_fsm_8;
-        end
-        ap_ST_st9_fsm_8 : 
-        begin
-            ap_NS_fsm = ap_ST_st10_fsm_9;
-        end
-        ap_ST_st10_fsm_9 : 
-        begin
-            ap_NS_fsm = ap_ST_st11_fsm_10;
-        end
-        ap_ST_st11_fsm_10 : 
-        begin
-            ap_NS_fsm = ap_ST_st12_fsm_11;
-        end
-        ap_ST_st12_fsm_11 : 
-        begin
-            ap_NS_fsm = ap_ST_st13_fsm_12;
-        end
-        ap_ST_st13_fsm_12 : 
-        begin
-            ap_NS_fsm = ap_ST_st14_fsm_13;
-        end
-        ap_ST_st14_fsm_13 : 
-        begin
-            ap_NS_fsm = ap_ST_st15_fsm_14;
-        end
-        ap_ST_st15_fsm_14 : 
-        begin
-            ap_NS_fsm = ap_ST_st16_fsm_15;
-        end
-        ap_ST_st16_fsm_15 : 
-        begin
-            ap_NS_fsm = ap_ST_st17_fsm_16;
-        end
-        ap_ST_st17_fsm_16 : 
-        begin
-            ap_NS_fsm = ap_ST_st18_fsm_17;
-        end
-        ap_ST_st18_fsm_17 : 
-        begin
-            ap_NS_fsm = ap_ST_st19_fsm_18;
-        end
-        ap_ST_st19_fsm_18 : 
-        begin
-            ap_NS_fsm = ap_ST_st20_fsm_19;
-        end
-        ap_ST_st20_fsm_19 : 
-        begin
-            ap_NS_fsm = ap_ST_st21_fsm_20;
-        end
-        ap_ST_st21_fsm_20 : 
-        begin
-            ap_NS_fsm = ap_ST_st22_fsm_21;
-        end
-        ap_ST_st22_fsm_21 : 
-        begin
-            ap_NS_fsm = ap_ST_st23_fsm_22;
-        end
-        ap_ST_st23_fsm_22 : 
-        begin
-            ap_NS_fsm = ap_ST_st24_fsm_23;
-        end
-        ap_ST_st24_fsm_23 : 
-        begin
-            ap_NS_fsm = ap_ST_st25_fsm_24;
-        end
-        ap_ST_st25_fsm_24 : 
-        begin
-            ap_NS_fsm = ap_ST_st26_fsm_25;
-        end
-        ap_ST_st26_fsm_25 : 
-        begin
-            ap_NS_fsm = ap_ST_st27_fsm_26;
-        end
-        ap_ST_st27_fsm_26 : 
-        begin
-            ap_NS_fsm = ap_ST_st28_fsm_27;
-        end
-        ap_ST_st28_fsm_27 : 
-        begin
-            ap_NS_fsm = ap_ST_st29_fsm_28;
-        end
-        ap_ST_st29_fsm_28 : 
-        begin
-            ap_NS_fsm = ap_ST_st30_fsm_29;
-        end
-        ap_ST_st30_fsm_29 : 
-        begin
-            ap_NS_fsm = ap_ST_st31_fsm_30;
-        end
-        ap_ST_st31_fsm_30 : 
-        begin
-            ap_NS_fsm = ap_ST_st32_fsm_31;
-        end
-        ap_ST_st32_fsm_31 : 
-        begin
-            ap_NS_fsm = ap_ST_st33_fsm_32;
-        end
-        ap_ST_st33_fsm_32 : 
-        begin
-            ap_NS_fsm = ap_ST_st34_fsm_33;
-        end
-        ap_ST_st34_fsm_33 : 
-        begin
-            ap_NS_fsm = ap_ST_st35_fsm_34;
-        end
-        ap_ST_st35_fsm_34 : 
-        begin
-            ap_NS_fsm = ap_ST_st36_fsm_35;
-        end
-        ap_ST_st36_fsm_35 : 
-        begin
-            ap_NS_fsm = ap_ST_st37_fsm_36;
-        end
-        ap_ST_st37_fsm_36 : 
-        begin
-            ap_NS_fsm = ap_ST_st38_fsm_37;
-        end
-        ap_ST_st38_fsm_37 : 
-        begin
-            ap_NS_fsm = ap_ST_st39_fsm_38;
-        end
-        ap_ST_st39_fsm_38 : 
-        begin
-            ap_NS_fsm = ap_ST_st40_fsm_39;
-        end
-        ap_ST_st40_fsm_39 : 
-        begin
-            ap_NS_fsm = ap_ST_st41_fsm_40;
-        end
-        ap_ST_st41_fsm_40 : 
-        begin
-            ap_NS_fsm = ap_ST_st42_fsm_41;
-        end
-        ap_ST_st42_fsm_41 : 
-        begin
-            ap_NS_fsm = ap_ST_st43_fsm_42;
-        end
-        ap_ST_st43_fsm_42 : 
-        begin
-            ap_NS_fsm = ap_ST_st44_fsm_43;
-        end
-        ap_ST_st44_fsm_43 : 
-        begin
-            ap_NS_fsm = ap_ST_st45_fsm_44;
-        end
-        ap_ST_st45_fsm_44 : 
-        begin
-            ap_NS_fsm = ap_ST_st46_fsm_45;
-        end
-        ap_ST_st46_fsm_45 : 
-        begin
-            ap_NS_fsm = ap_ST_st47_fsm_46;
-        end
-        ap_ST_st47_fsm_46 : 
-        begin
-            ap_NS_fsm = ap_ST_st48_fsm_47;
-        end
-        ap_ST_st48_fsm_47 : 
-        begin
-            ap_NS_fsm = ap_ST_st49_fsm_48;
-        end
-        ap_ST_st49_fsm_48 : 
-        begin
-            ap_NS_fsm = ap_ST_st50_fsm_49;
-        end
-        ap_ST_st50_fsm_49 : 
-        begin
-            ap_NS_fsm = ap_ST_st51_fsm_50;
-        end
-        ap_ST_st51_fsm_50 : 
-        begin
-            ap_NS_fsm = ap_ST_st52_fsm_51;
-        end
-        ap_ST_st52_fsm_51 : 
-        begin
-            ap_NS_fsm = ap_ST_st53_fsm_52;
-        end
-        ap_ST_st53_fsm_52 : 
-        begin
-            ap_NS_fsm = ap_ST_st54_fsm_53;
-        end
-        ap_ST_st54_fsm_53 : 
-        begin
-            ap_NS_fsm = ap_ST_st55_fsm_54;
-        end
-        ap_ST_st55_fsm_54 : 
-        begin
-            ap_NS_fsm = ap_ST_st56_fsm_55;
-        end
-        ap_ST_st56_fsm_55 : 
-        begin
-            ap_NS_fsm = ap_ST_st57_fsm_56;
-        end
-        ap_ST_st57_fsm_56 : 
-        begin
-            ap_NS_fsm = ap_ST_st58_fsm_57;
-        end
-        ap_ST_st58_fsm_57 : 
-        begin
-            ap_NS_fsm = ap_ST_st59_fsm_58;
-        end
-        ap_ST_st59_fsm_58 : 
-        begin
-            ap_NS_fsm = ap_ST_st60_fsm_59;
-        end
-        ap_ST_st60_fsm_59 : 
-        begin
-            ap_NS_fsm = ap_ST_st61_fsm_60;
-        end
-        ap_ST_st61_fsm_60 : 
-        begin
-            ap_NS_fsm = ap_ST_st62_fsm_61;
-        end
-        ap_ST_st62_fsm_61 : 
-        begin
-            ap_NS_fsm = ap_ST_st63_fsm_62;
-        end
-        ap_ST_st63_fsm_62 : 
-        begin
-            ap_NS_fsm = ap_ST_st64_fsm_63;
-        end
-        ap_ST_st64_fsm_63 : 
-        begin
-            ap_NS_fsm = ap_ST_st65_fsm_64;
-        end
-        ap_ST_st65_fsm_64 : 
-        begin
-            ap_NS_fsm = ap_ST_st66_fsm_65;
-        end
-        ap_ST_st66_fsm_65 : 
-        begin
-            ap_NS_fsm = ap_ST_st67_fsm_66;
-        end
-        ap_ST_st67_fsm_66 : 
-        begin
-            ap_NS_fsm = ap_ST_st68_fsm_67;
-        end
-        ap_ST_st68_fsm_67 : 
-        begin
-            ap_NS_fsm = ap_ST_st69_fsm_68;
-        end
-        ap_ST_st69_fsm_68 : 
-        begin
-            ap_NS_fsm = ap_ST_st70_fsm_69;
-        end
-        ap_ST_st70_fsm_69 : 
-        begin
-            ap_NS_fsm = ap_ST_st71_fsm_70;
-        end
-        ap_ST_st71_fsm_70 : 
-        begin
-            ap_NS_fsm = ap_ST_st72_fsm_71;
-        end
-        ap_ST_st72_fsm_71 : 
-        begin
-            ap_NS_fsm = ap_ST_st73_fsm_72;
-        end
-        ap_ST_st73_fsm_72 : 
-        begin
-            ap_NS_fsm = ap_ST_st74_fsm_73;
-        end
-        ap_ST_st74_fsm_73 : 
-        begin
-            ap_NS_fsm = ap_ST_st75_fsm_74;
-        end
-        ap_ST_st75_fsm_74 : 
-        begin
-            ap_NS_fsm = ap_ST_st76_fsm_75;
-        end
-        ap_ST_st76_fsm_75 : 
-        begin
-            ap_NS_fsm = ap_ST_st77_fsm_76;
-        end
-        ap_ST_st77_fsm_76 : 
-        begin
-            ap_NS_fsm = ap_ST_st78_fsm_77;
-        end
-        ap_ST_st78_fsm_77 : 
-        begin
-            ap_NS_fsm = ap_ST_st79_fsm_78;
-        end
-        ap_ST_st79_fsm_78 : 
-        begin
-            ap_NS_fsm = ap_ST_st80_fsm_79;
-        end
-        ap_ST_st80_fsm_79 : 
-        begin
-            ap_NS_fsm = ap_ST_st81_fsm_80;
-        end
-        ap_ST_st81_fsm_80 : 
-        begin
-            ap_NS_fsm = ap_ST_st82_fsm_81;
-        end
-        ap_ST_st82_fsm_81 : 
-        begin
-            ap_NS_fsm = ap_ST_st83_fsm_82;
-        end
-        ap_ST_st83_fsm_82 : 
-        begin
-            ap_NS_fsm = ap_ST_st84_fsm_83;
-        end
-        ap_ST_st84_fsm_83 : 
-        begin
-            ap_NS_fsm = ap_ST_st85_fsm_84;
-        end
-        ap_ST_st85_fsm_84 : 
-        begin
-            ap_NS_fsm = ap_ST_st86_fsm_85;
-        end
-        ap_ST_st86_fsm_85 : 
-        begin
-            ap_NS_fsm = ap_ST_st1_fsm_0;
-        end
-        default : 
-        begin
-            ap_NS_fsm = 'bx;
-        end
-    endcase
+    if (((ap_const_logic_1 == ap_start) & (ap_const_logic_0 == ap_reg_ready_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready))) begin
+        ap_sig_start_in_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_start = ap_const_logic_1;
+    end else begin
+        ap_sig_start_in_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_start = ap_const_logic_0;
+    end
 end
 
-assign ap_return = grp_fu_73_p2;
-assign grp_fu_101_ce = ap_const_logic_1;
-assign grp_fu_101_p0 = ap_const_lv64_0;
-assign grp_fu_67_ce = ap_const_logic_1;
-assign grp_fu_73_ce = ap_const_logic_1;
-assign grp_fu_80_ce = ap_const_logic_1;
-assign grp_fu_80_p0 = reg_106;
-assign grp_fu_80_p1 = gaussian_random_number;
-assign grp_fu_85_ce = ap_const_logic_1;
-assign grp_fu_85_p0 = tmp_9_neg_reg_171;
-assign grp_fu_85_p1 = T;
-assign grp_fu_90_ce = ap_const_logic_1;
-assign grp_fu_90_opcode = ap_const_lv5_4;
-assign grp_fu_90_p0 = reg_114;
-assign grp_fu_90_p1 = ap_const_lv64_0;
-assign grp_fu_95_ce = ap_const_logic_1;
-assign grp_fu_95_p0 = ap_const_lv64_0;
-assign grp_fu_95_p1 = T;
-assign tmp_13_fu_139_p3 = ((grp_fu_90_p2)? ap_const_lv64_0: reg_114);
-assign tmp_9_neg_fu_129_p2 = (tmp_9_to_int_fu_126_p1 ^ ap_const_lv64_8000000000000000);
-assign tmp_9_to_int_fu_126_p1 = r;
+/// ap_sig_start_in_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_start assign process. ///
+always @ (ap_start or ap_reg_ready_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_ready)
+begin
+    if (((ap_const_logic_0 == ap_reg_ready_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_ready) & (ap_const_logic_1 == ap_start))) begin
+        ap_sig_start_in_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_start = ap_const_logic_1;
+    end else begin
+        ap_sig_start_in_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_start = ap_const_logic_0;
+    end
+end
+
+/// ap_sig_start_in_black_scholes2_mult2_11_1_U0_ap_start assign process. ///
+always @ (ap_start or ap_reg_ready_black_scholes2_mult2_11_1_U0_ap_ready)
+begin
+    if (((ap_const_logic_1 == ap_start) & (ap_const_logic_0 == ap_reg_ready_black_scholes2_mult2_11_1_U0_ap_ready))) begin
+        ap_sig_start_in_black_scholes2_mult2_11_1_U0_ap_start = ap_const_logic_1;
+    end else begin
+        ap_sig_start_in_black_scholes2_mult2_11_1_U0_ap_start = ap_const_logic_0;
+    end
+end
+
+/// ap_sig_start_in_black_scholes2_mult2_11_3_U0_ap_start assign process. ///
+always @ (ap_start or ap_reg_ready_black_scholes2_mult2_11_3_U0_ap_ready)
+begin
+    if (((ap_const_logic_1 == ap_start) & (ap_const_logic_0 == ap_reg_ready_black_scholes2_mult2_11_3_U0_ap_ready))) begin
+        ap_sig_start_in_black_scholes2_mult2_11_3_U0_ap_start = ap_const_logic_1;
+    end else begin
+        ap_sig_start_in_black_scholes2_mult2_11_3_U0_ap_start = ap_const_logic_0;
+    end
+end
+
+/// ap_sig_start_in_black_scholes2_mult2_11_U0_ap_start assign process. ///
+always @ (ap_start or ap_reg_ready_black_scholes2_mult2_11_U0_ap_ready)
+begin
+    if (((ap_const_logic_1 == ap_start) & (ap_const_logic_0 == ap_reg_ready_black_scholes2_mult2_11_U0_ap_ready))) begin
+        ap_sig_start_in_black_scholes2_mult2_11_U0_ap_start = ap_const_logic_1;
+    end else begin
+        ap_sig_start_in_black_scholes2_mult2_11_U0_ap_start = ap_const_logic_0;
+    end
+end
+
+/// ap_sig_start_in_black_scholes2_mult2_12_U0_ap_start assign process. ///
+always @ (ap_start or ap_reg_ready_black_scholes2_mult2_12_U0_ap_ready)
+begin
+    if (((ap_const_logic_1 == ap_start) & (ap_const_logic_0 == ap_reg_ready_black_scholes2_mult2_12_U0_ap_ready))) begin
+        ap_sig_start_in_black_scholes2_mult2_12_U0_ap_start = ap_const_logic_1;
+    end else begin
+        ap_sig_start_in_black_scholes2_mult2_12_U0_ap_start = ap_const_logic_0;
+    end
+end
+
+/// ap_sig_top_allready assign process. ///
+always @ (ap_sig_ready_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_ready or ap_sig_ready_black_scholes2_mult2_12_U0_ap_ready or ap_sig_ready_black_scholes2_mult2_11_3_U0_ap_ready or ap_sig_ready_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready or ap_sig_ready_black_scholes2_mult2_11_U0_ap_ready or ap_sig_ready_black_scholes2_mult2_11_1_U0_ap_ready)
+begin
+    if (((ap_const_logic_1 == ap_sig_ready_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_ready) & (ap_const_logic_1 == ap_sig_ready_black_scholes2_mult2_12_U0_ap_ready) & (ap_const_logic_1 == ap_sig_ready_black_scholes2_mult2_11_3_U0_ap_ready) & (ap_const_logic_1 == ap_sig_ready_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready) & (ap_const_logic_1 == ap_sig_ready_black_scholes2_mult2_11_U0_ap_ready) & (ap_const_logic_1 == ap_sig_ready_black_scholes2_mult2_11_1_U0_ap_ready))) begin
+        ap_sig_top_allready = ap_const_logic_1;
+    end else begin
+        ap_sig_top_allready = ap_const_logic_0;
+    end
+end
+assign T_channel31_channel_U_ap_dummy_ce = ap_const_logic_1;
+assign T_channel31_channel_din = black_scholes2_sqrt1_U0_a_out_din;
+assign T_channel31_channel_read = black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_T_read;
+assign T_channel31_channel_write = black_scholes2_sqrt1_U0_a_out_write;
+assign T_channel_channel_U_ap_dummy_ce = ap_const_logic_1;
+assign T_channel_channel_din = black_scholes2_mult2_12_U0_b_out_din;
+assign T_channel_channel_read = black_scholes2_sqrt1_U0_a_read;
+assign T_channel_channel_write = black_scholes2_mult2_12_U0_b_out_write;
+assign ap_chn_write_black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_tmp3_loc_channel = black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_ap_done;
+assign ap_chn_write_black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_call_ret = black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_ap_done;
+assign ap_chn_write_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_tmp4_1_loc_channel = black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_done;
+assign ap_chn_write_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_tmp_2_loc_channel = black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_done;
+assign ap_chn_write_black_scholes2_div_1_U0_tmp_1_channel = black_scholes2_div_1_U0_ap_done;
+assign ap_chn_write_black_scholes2_expo11_U0_p_channel40 = black_scholes2_expo11_U0_ap_done;
+assign ap_chn_write_black_scholes2_expo12_U0_p_channel42 = black_scholes2_expo12_U0_ap_done;
+assign ap_chn_write_black_scholes2_mult2_11_1_U0_p_channel37 = black_scholes2_mult2_11_1_U0_ap_done;
+assign ap_chn_write_black_scholes2_mult2_11_2_U0_p_channel39 = black_scholes2_mult2_11_2_U0_ap_done;
+assign ap_chn_write_black_scholes2_mult2_11_3_U0_p_channel41 = black_scholes2_mult2_11_3_U0_ap_done;
+assign ap_chn_write_black_scholes2_mult2_11_U0_p_channel35 = black_scholes2_mult2_11_U0_ap_done;
+assign ap_chn_write_black_scholes2_mult2_12_U0_p_channel36 = black_scholes2_mult2_12_U0_ap_done;
+assign ap_chn_write_black_scholes2_sqrt1_U0_p_channel38 = black_scholes2_sqrt1_U0_ap_done;
+assign ap_done = ap_sig_hs_done;
+assign ap_ready = ap_sig_top_allready;
+assign ap_return = black_scholes2_black_scholes2_Block_crit_edge_proc_U0_ap_return;
+assign ap_sig_hs_continue = ap_const_logic_1;
+assign black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_ap_continue = tmp3_loc_channel_full_n;
+assign black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_ap_start = (p_channel36_empty_n & p_channel39_empty_n);
+assign black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_tmp2_1 = p_channel39_dout;
+assign black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_tmp_3 = p_channel36_dout;
+assign black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_T_dout = T_channel31_channel_dout;
+assign black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_T_empty_n = T_channel31_channel_empty_n;
+assign black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_ap_continue = call_ret_full_n;
+assign black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_r_dout = r_channel_channel_dout;
+assign black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_r_empty_n = r_channel_channel_empty_n;
+assign black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_E = E;
+assign black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_continue = tmp4_1_loc_channel_full_n;
+assign black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_start = (p_channel41_empty_n & p_channel42_empty_n & ap_sig_start_in_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_start);
+assign black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_tmp3_2 = p_channel41_dout;
+assign black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_tmp4 = p_channel42_dout;
+assign black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_continue = tmp_2_loc_channel_full_n;
+assign black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_start = (tmp_1_channel_empty_n & ap_sig_start_in_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_start);
+assign black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_r = r;
+assign black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_r_out_full_n = r_channel_channel_full_n;
+assign black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_tmp_1 = tmp_1_channel_dout;
+assign black_scholes2_black_scholes2_Block_crit_edge_proc_U0_ap_continue = ap_sig_hs_continue;
+assign black_scholes2_black_scholes2_Block_crit_edge_proc_U0_ap_start = tmp4_1_loc_channel_empty_n;
+assign black_scholes2_black_scholes2_Block_crit_edge_proc_U0_p_read = tmp4_1_loc_channel_dout;
+assign black_scholes2_div_1_U0_a = p_channel35_dout;
+assign black_scholes2_div_1_U0_ap_continue = tmp_1_channel_full_n;
+assign black_scholes2_div_1_U0_ap_start = p_channel35_empty_n;
+assign black_scholes2_expo11_U0_ap_continue = p_channel40_full_n;
+assign black_scholes2_expo11_U0_ap_start = tmp3_loc_channel_empty_n;
+assign black_scholes2_expo11_U0_p_read = tmp3_loc_channel_dout;
+assign black_scholes2_expo12_U0_ap_continue = p_channel42_full_n;
+assign black_scholes2_expo12_U0_ap_start = call_ret_empty_n;
+assign black_scholes2_expo12_U0_p_read = call_ret_dout;
+assign black_scholes2_mult2_11_1_U0_a_dout = sigma_channel_channel_dout;
+assign black_scholes2_mult2_11_1_U0_a_empty_n = sigma_channel_channel_empty_n;
+assign black_scholes2_mult2_11_1_U0_ap_continue = p_channel37_full_n;
+assign black_scholes2_mult2_11_1_U0_ap_start = ap_sig_start_in_black_scholes2_mult2_11_1_U0_ap_start;
+assign black_scholes2_mult2_11_1_U0_b = gaussian_random_number;
+assign black_scholes2_mult2_11_2_U0_a = p_channel37_dout;
+assign black_scholes2_mult2_11_2_U0_a_out_full_n = ap_const_logic_1;
+assign black_scholes2_mult2_11_2_U0_ap_continue = p_channel39_full_n;
+assign black_scholes2_mult2_11_2_U0_ap_start = (p_channel37_empty_n & p_channel38_empty_n);
+assign black_scholes2_mult2_11_2_U0_b = p_channel38_dout;
+assign black_scholes2_mult2_11_3_U0_a = p_channel40_dout;
+assign black_scholes2_mult2_11_3_U0_a_out_full_n = ap_const_logic_1;
+assign black_scholes2_mult2_11_3_U0_ap_continue = p_channel41_full_n;
+assign black_scholes2_mult2_11_3_U0_ap_start = (p_channel40_empty_n & ap_sig_start_in_black_scholes2_mult2_11_3_U0_ap_start);
+assign black_scholes2_mult2_11_3_U0_b = S;
+assign black_scholes2_mult2_11_U0_a = sigma;
+assign black_scholes2_mult2_11_U0_a_out_full_n = sigma_channel_channel_full_n;
+assign black_scholes2_mult2_11_U0_ap_continue = p_channel35_full_n;
+assign black_scholes2_mult2_11_U0_ap_start = ap_sig_start_in_black_scholes2_mult2_11_U0_ap_start;
+assign black_scholes2_mult2_11_U0_b = sigma;
+assign black_scholes2_mult2_12_U0_ap_continue = p_channel36_full_n;
+assign black_scholes2_mult2_12_U0_ap_start = (tmp_2_loc_channel_empty_n & ap_sig_start_in_black_scholes2_mult2_12_U0_ap_start);
+assign black_scholes2_mult2_12_U0_b = T;
+assign black_scholes2_mult2_12_U0_b_out_full_n = T_channel_channel_full_n;
+assign black_scholes2_mult2_12_U0_p_read = tmp_2_loc_channel_dout;
+assign black_scholes2_sqrt1_U0_a_dout = T_channel_channel_dout;
+assign black_scholes2_sqrt1_U0_a_empty_n = T_channel_channel_empty_n;
+assign black_scholes2_sqrt1_U0_a_out_full_n = T_channel31_channel_full_n;
+assign black_scholes2_sqrt1_U0_ap_continue = p_channel38_full_n;
+assign call_ret_U_ap_dummy_ce = ap_const_logic_1;
+assign call_ret_din = black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_ap_return;
+assign call_ret_read = black_scholes2_expo12_U0_ap_ready;
+assign call_ret_write = ap_chn_write_black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_call_ret;
+assign p_channel35_U_ap_dummy_ce = ap_const_logic_1;
+assign p_channel35_din = black_scholes2_mult2_11_U0_return_r;
+assign p_channel35_read = black_scholes2_div_1_U0_ap_ready;
+assign p_channel35_write = ap_chn_write_black_scholes2_mult2_11_U0_p_channel35;
+assign p_channel36_U_ap_dummy_ce = ap_const_logic_1;
+assign p_channel36_din = black_scholes2_mult2_12_U0_return_r;
+assign p_channel36_read = black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_ap_ready;
+assign p_channel36_write = ap_chn_write_black_scholes2_mult2_12_U0_p_channel36;
+assign p_channel37_U_ap_dummy_ce = ap_const_logic_1;
+assign p_channel37_din = black_scholes2_mult2_11_1_U0_return_r;
+assign p_channel37_read = black_scholes2_mult2_11_2_U0_ap_ready;
+assign p_channel37_write = ap_chn_write_black_scholes2_mult2_11_1_U0_p_channel37;
+assign p_channel38_U_ap_dummy_ce = ap_const_logic_1;
+assign p_channel38_din = black_scholes2_sqrt1_U0_return_r;
+assign p_channel38_read = black_scholes2_mult2_11_2_U0_ap_ready;
+assign p_channel38_write = ap_chn_write_black_scholes2_sqrt1_U0_p_channel38;
+assign p_channel39_U_ap_dummy_ce = ap_const_logic_1;
+assign p_channel39_din = black_scholes2_mult2_11_2_U0_return_r;
+assign p_channel39_read = black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_ap_ready;
+assign p_channel39_write = ap_chn_write_black_scholes2_mult2_11_2_U0_p_channel39;
+assign p_channel40_U_ap_dummy_ce = ap_const_logic_1;
+assign p_channel40_din = black_scholes2_expo11_U0_return_r;
+assign p_channel40_read = black_scholes2_mult2_11_3_U0_ap_ready;
+assign p_channel40_write = ap_chn_write_black_scholes2_expo11_U0_p_channel40;
+assign p_channel41_U_ap_dummy_ce = ap_const_logic_1;
+assign p_channel41_din = black_scholes2_mult2_11_3_U0_return_r;
+assign p_channel41_read = black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready;
+assign p_channel41_write = ap_chn_write_black_scholes2_mult2_11_3_U0_p_channel41;
+assign p_channel42_U_ap_dummy_ce = ap_const_logic_1;
+assign p_channel42_din = black_scholes2_expo12_U0_return_r;
+assign p_channel42_read = black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_ready;
+assign p_channel42_write = ap_chn_write_black_scholes2_expo12_U0_p_channel42;
+assign r_channel_channel_U_ap_dummy_ce = ap_const_logic_1;
+assign r_channel_channel_din = black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_r_out_din;
+assign r_channel_channel_read = black_scholes2_black_scholes2_Block_crit_edge115_proc_U0_r_read;
+assign r_channel_channel_write = black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_r_out_write;
+assign sigma_channel_channel_U_ap_dummy_ce = ap_const_logic_1;
+assign sigma_channel_channel_din = black_scholes2_mult2_11_U0_a_out_din;
+assign sigma_channel_channel_read = black_scholes2_mult2_11_1_U0_a_read;
+assign sigma_channel_channel_write = black_scholes2_mult2_11_U0_a_out_write;
+assign tmp3_loc_channel_U_ap_dummy_ce = ap_const_logic_1;
+assign tmp3_loc_channel_din = black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_ap_return;
+assign tmp3_loc_channel_read = black_scholes2_expo11_U0_ap_ready;
+assign tmp3_loc_channel_write = ap_chn_write_black_scholes2_black_scholes2_Block_crit_edge111_proc_U0_tmp3_loc_channel;
+assign tmp4_1_loc_channel_U_ap_dummy_ce = ap_const_logic_1;
+assign tmp4_1_loc_channel_din = black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_ap_return;
+assign tmp4_1_loc_channel_read = black_scholes2_black_scholes2_Block_crit_edge_proc_U0_ap_ready;
+assign tmp4_1_loc_channel_write = ap_chn_write_black_scholes2_black_scholes2_Block_crit_edge117_proc_U0_tmp4_1_loc_channel;
+assign tmp_1_channel_U_ap_dummy_ce = ap_const_logic_1;
+assign tmp_1_channel_din = black_scholes2_div_1_U0_a_2;
+assign tmp_1_channel_read = black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_ready;
+assign tmp_1_channel_write = ap_chn_write_black_scholes2_div_1_U0_tmp_1_channel;
+assign tmp_2_loc_channel_U_ap_dummy_ce = ap_const_logic_1;
+assign tmp_2_loc_channel_din = black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_ap_return;
+assign tmp_2_loc_channel_read = black_scholes2_mult2_12_U0_ap_ready;
+assign tmp_2_loc_channel_write = ap_chn_write_black_scholes2_black_scholes2_Block_crit_edge14_proc_U0_tmp_2_loc_channel;
 
 
 endmodule //black_scholes2

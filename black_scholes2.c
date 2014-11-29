@@ -51,6 +51,7 @@ black_scholes2 (
 {
 
     #pragma HLS dataflow
+  
     double current_value;
     double mydata;
     double tmp;
@@ -60,14 +61,16 @@ black_scholes2 (
 
     tmp = mult2_1(sigma,sigma);
     tmp = div_1(tmp,2.0);
-    tmp = expo1(r-tmp);
-    tmp = mult2_1(tmp,S);
-    tmp = mult2_1(tmp,T);
 
+    //tmp = expo1(r-tmp);
+    tmp = mult2_1(r-tmp,T);
     tmp2 = mult2_1(sigma, gaussian_random_number);
     tmp2 = mult2_1(tmp2,sqrt1(T));
-
     tmp3 = tmp + tmp2;
+    tmp3 = expo1(tmp3);
+    tmp3 = mult2_1(tmp3,S);
+
+
     tmp4 = expo1(-r*T);
     tmp4 = tmp4*((tmp3 - E < 0.0) ? 0.0 : tmp3 - E);
 

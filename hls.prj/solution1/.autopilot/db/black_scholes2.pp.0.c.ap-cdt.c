@@ -4806,6 +4806,21 @@ extern void __assert (const char *__assertion, const char *__file, int __line)
  * Black-Scholes iterations, and computes the local part of the mean.
  */
 #pragma empty_line
+double mult2_1(double a, double b){
+  return a*b;
+}
+double div_1(double a, double b){
+  return a/b;
+}
+#pragma empty_line
+double expo1(double a){
+  return exp(a);
+}
+#pragma empty_line
+double sqrt1(double a){
+  return sqrt(a);
+}
+#pragma empty_line
 #pragma empty_line
 double
 black_scholes2 (
@@ -4818,15 +4833,36 @@ black_scholes2 (
          )
 {
 #pragma empty_line
-    double current_value;
+#pragma HLS dataflow
+#pragma empty_line
+ double current_value;
     double mydata;
+    double tmp;
+    double tmp2;
+    double tmp3;
+    double tmp4;
+#pragma empty_line
+    tmp = mult2_1(sigma,sigma);
+    tmp = div_1(tmp,2.0);
+#pragma empty_line
+    //tmp = expo1(r-tmp);
+    tmp = mult2_1(r-tmp,T);
+    tmp2 = mult2_1(sigma, gaussian_random_number);
+    tmp2 = mult2_1(tmp2,sqrt1(T));
+    tmp3 = tmp + tmp2;
+    tmp3 = expo1(tmp3);
+    tmp3 = mult2_1(tmp3,S);
 #pragma empty_line
 #pragma empty_line
-    current_value = S * exp ( (r - (sigma*sigma) / 2.0) * T + sigma * sqrt (T) * gaussian_random_number );
-    mydata = exp(-r * T) * ((current_value - E < 0.0) ? 0.0 : current_value - E);
+    tmp4 = expo1(-r*T);
+    tmp4 = tmp4*((tmp3 - E < 0.0) ? 0.0 : tmp3 - E);
+#pragma empty_line
+    //current_value = S * exp ( (r - (sigma*sigma) / 2.0) * T + sigma * sqrt (T) * gaussian_random_number );
+    //mydata = exp(-r * T) * ((current_value - E < 0.0) ? 0.0 : current_value - E);
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-    return mydata;
+    //return mydata;
+    return tmp4;
 }

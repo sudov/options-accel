@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'black_scholes2'" level="0">
-<item name = "Date">Fri Nov 28 13:53:16 2014
+<item name = "Date">Sat Nov 29 02:32:38 2014
 </item>
 <item name = "Version">2014.2 (Build 932637 on Wed Jun 11 12:38:34 PM 2014)</item>
 <item name = "Project">hls.prj</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">85, 85, 86, 86, none</column>
+<column name="">43, 43, 32, 32, dataflow</column>
 </table>
 </item>
 <item name = "Detail">
