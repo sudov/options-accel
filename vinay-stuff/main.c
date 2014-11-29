@@ -1,3 +1,5 @@
+#ifndef _black_scholes3_loop_H
+#define _black_scholes3_loop_H
 #include "black_scholes2.h"
 #include "gaussian.h"
 #include "parser.h"
@@ -128,6 +130,6 @@ main (int argc, char* argv[])
 
   return 0;
 }
-
+#endif
 
 
