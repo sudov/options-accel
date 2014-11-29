@@ -20,8 +20,8 @@ black_scholes2_loop (
         double r,
         double sigma,
         double T,
-        double rand_number[],
-        double store[],
+        double* rand_number,
+        double* store,
         int M
         );
 #endif /* _black_scholes2_loop_h */

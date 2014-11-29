@@ -32,14 +32,15 @@ double sqrt1(double a){
 }
 
 
-double
-black_scholes2 (
+//double
+void black_scholes2 (
         const double S,
         const double E,
         const double r,
         const double sigma,
         const double T,
-        const double gaussian_random_number
+        const double gaussian_random_number,
+        double store[]
         )
 {
     // #pragma HLS dataflow
@@ -67,8 +68,9 @@ black_scholes2 (
     tmp4 = expo1(tmp6);
     tmp4 = tmp4*((tmp3 - E < 0.0) ? 0.0 : tmp3 - E);
 
-    current_value = S * expo1 ( (r - (sigma*sigma) / 2.0) * T + sigma * sqrt (T) * gaussian_random_number );
-    mydata = expo1(-r * T) * ((current_value - E < 0.0) ? 0.0 : current_value - E);
-
-    return mydata;
+    current_value = S * exp ( (r - (sigma*sigma) / 2.0) * T + sigma * sqrt (T) * gaussian_random_number );
+    mydata = exp(-r * T) * ((current_value - E < 0.0) ? 0.0 : current_value - E);
+    //printf("%f\n", mydata);
+    *store = mydata;
+    //return mydata;
 }

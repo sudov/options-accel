@@ -42,13 +42,14 @@
  *
  * @note You might need to modify the signature of this function.
  */
-double
-black_scholes2 (
+//double
+void black_scholes2 (
          const double S,
          const double E,
          const double r,
          const double sigma,
          const double T,
-         const double gaussian_random_number
+         const double gaussian_random_number,
+         double store[]
          );
 #endif /* _black_scholes_h */

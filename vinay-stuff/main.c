@@ -80,11 +80,16 @@ main (int argc, char* argv[])
   }
 
   printf("\n");
-  sum = black_scholes2_loop(S, E, r, sigma, T, &rand_number, &store, M);
+  sum = black_scholes2_loop(S, E, r, sigma, T, rand_number, store, M);
   // for(i = 0;i<M;i++){
   //     store[i] = black_scholes2 (S, E, r, sigma, T, rand_number[i]);
   //     sum += store[i];
   // }
+ sum = 0.0;
+ for(i = 0;i<M;i++){
+ 	sum += store[i];
+// 	printf("store %d:%f\n",i,store[i]);
+ }
   
   printf("sum af: %f\n", sum);
 
@@ -101,7 +106,7 @@ main (int argc, char* argv[])
   }
 
   conf_width = 1.96 * sqrt(variance) / sqrt ((double) M);
-
+	printf("conf:%f\n",conf_width);
   /*
    * A fun fact about C string literals (i.e., strings enclosed in
    * double quotes) is that the C preprocessor automatically
