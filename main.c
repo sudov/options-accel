@@ -1,5 +1,4 @@
 #include "black_scholes2.h"
-#include "current_var.h"
 
 #include "gaussian.h"
 
