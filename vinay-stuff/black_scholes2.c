@@ -1,3 +1,5 @@
+#ifndef _black_scholes2_H
+#define _black_scholes2_H
 #include "black_scholes2.h"
 #include "gaussian.h"
 #include "util.h"
@@ -5,6 +7,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#define Mm 10000
 //#include "mt19937ar.h"
 
 /**
@@ -15,9 +18,13 @@
  */
 
 double mult2_1(double a, double b){
-  float res = a*b;
-  #pragma HLS RESOURCE variable=res core=FAddSub_nodsp
-  return res;
+  return a*b;
+}
+double mult2_2(double a, double b){
+  return a*b;
+}
+double mult2_3(double a, double b){
+  return a*b;
 }
 double div_1(double a, double b){
   return a/b;
@@ -31,8 +38,6 @@ double sqrt1(double a){
   return sqrt(a);
 }
 
-
-//double
 void black_scholes2 (
         const double S,
         const double E,
@@ -74,3 +79,31 @@ void black_scholes2 (
     *store = mydata;
     //return mydata;
 }
+
+
+// double
+void black_scholes3 (
+        const double S,
+        const double E,
+        const double A,
+        const double B,
+        const double rT,
+        const double gaussian_random_number,
+        double store[Mm]
+        )
+{
+    #pragma HLS dataflow
+    double tmp;
+    double tmp2;
+    double tmp3;
+    double tmp4;
+
+    tmp = mult2_1(B,gaussian_random_number);
+    tmp2 = expo1(A+tmp);
+    tmp3 = mult2_2(S,tmp2);
+    tmp4 = (tmp3 - E < 0.0) ? 0.0 : tmp3 - E;
+    tmp4 = mult2_3(rT,tmp4);
+
+    *store = tmp4;
+}
+#endif
