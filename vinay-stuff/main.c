@@ -40,7 +40,7 @@ main (int argc, char* argv[])
   if (argc < 3)
     {
       fprintf (stderr, 
-	       "Usage: ./hw1.x <filename> <nthreads>\n\n");
+         "Usage: ./hw1.x <filename> <nthreads>\n\n");
       exit (EXIT_FAILURE);
     }
   filename = argv[1];
@@ -72,30 +72,13 @@ main (int argc, char* argv[])
    * Run the benchmark and time it.
    */
 
+  t1 = get_seconds ();
   int j = 0;
 
   for(i = 0;i<M;i++){
       rand_number[i] = gaussrand2(&gaussrand_state);
   }
 
-<<<<<<< HEAD
-  t1 = get_seconds ();
-  printf("\n");
-  sum = black_scholes2_loop(S, E, r, sigma, T, rand_number, store, M);
-  // for(i = 0;i<M;i++){
-  //     store[i] = black_scholes2 (S, E, r, sigma, T, rand_number[i]);
-  //     sum += store[i];
-  // }
- 
-  t2 = get_seconds ();
- sum = 0.0;
- for(i = 0;i<M;i++){
- 	sum += store[i];
-// 	printf("store %d:%f\n",i,store[i]);
- }
-  
-  printf("sum af: %f\n", sum);
-=======
 //--------------------------------Design 2----------------------
   // sum = black_scholes2_loop(S, E, r, sigma, T, rand_number, store, M);
 
@@ -109,9 +92,8 @@ main (int argc, char* argv[])
 
   sum = 0;
   for(i = 0;i<M;i++){
-  	sum += store[i];
+    sum += store[i];
   }
->>>>>>> 321e732abb1e6d8301d27ace67ac22aba6bbd177
 
   if(M==0){
     printf("Divide by 0\n");
@@ -119,31 +101,30 @@ main (int argc, char* argv[])
     mean = sum/M;
   }
 
+  t2 = get_seconds ();
   
   for(i = 0;i<M;i++){
     variance += (store[i]-mean)*(store[i]-mean)/(double)M;
   }
 
   conf_width = 1.96 * sqrt(variance) / sqrt ((double) M);
-	printf("conf:%f\n",conf_width);
+  printf("conf:%f\n",conf_width);
   /*
    * A fun fact about C string literals (i.e., strings enclosed in
    * double quotes) is that the C preprocessor automatically
    * concatenates them if they are separated only by whitespace.
    */
   printf ("Black-Scholes benchmark:\n"
-	  "------------------------\n"
-	  "S        %g\n"
-	  "E        %g\n"
-	  "r        %g\n"
-	  "sigma    %g\n"
-	  "T        %g\n"
-	  "M        %d\n",
-	  S, E, r, sigma, T, M);
+    "------------------------\n"
+    "S        %g\n"
+    "E        %g\n"
+    "r        %g\n"
+    "sigma    %g\n"
+    "T        %g\n"
+    "M        %d\n",
+    S, E, r, sigma, T, M);
   printf ("Confidence interval: (%g, %g)\n", mean-conf_width, mean+conf_width);
   printf ("Total simulation time: %g seconds\n", t2 - t1);
 
   return 0;
 }
-
-

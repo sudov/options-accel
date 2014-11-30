@@ -92,6 +92,7 @@ void black_scholes3 (
         double store[Mm]
         )
 {
+    #pragma HLS pipeline II=1
     #pragma HLS dataflow
     double tmp;
     double tmp2;

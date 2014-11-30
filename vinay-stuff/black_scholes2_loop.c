@@ -1,9 +1,5 @@
 #ifndef _black_scholes3_loop_H
 #define _black_scholes3_loop_H
-#include <assert.h>
-#include <math.h>
-#include <stdio.h>
-#include <stdlib.h>
 #define Mm 10000
 /**
  * This function is what you compute for each iteration of
@@ -57,11 +53,10 @@ black_scholes3_loop (
   // #pragma HLS resource core=AXI4Stream variable=rand_number metadata="-bus_bundle AXI4Stream_M" port_map={{rand_number_data TDATA} {store_strb TSTRB}}
 
   int i;
-  assert(Mm < 10000);
-  pipe_loop: for(i = 0; i < Mm; i++){
-    #pragma HLS loop_tripcount min=0 max=10000 avg=500
-    black_scholes3 (S, E, A,B,rT, rand_number[i],&store[i]);
-    *sum += store[i];
+
+  for(i = 0; i < M; i++){
+      black_scholes3 (S, E, A,B,rT, rand_number[i],&store[i]);
+      *sum += store[i];
   }
 }
 #endif

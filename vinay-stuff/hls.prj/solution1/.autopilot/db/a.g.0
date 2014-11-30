@@ -1,4 +1,0 @@
-#!/bin/sh
-lli=${LLVMINTERP-lli}
-exec $lli \
-    /home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/vinay-stuff/hls.prj/solution1/.autopilot/db/a.g.0.bc ${1+"$@"}
