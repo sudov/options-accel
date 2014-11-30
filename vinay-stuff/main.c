@@ -72,19 +72,21 @@ main (int argc, char* argv[])
    * Run the benchmark and time it.
    */
 
-  t1 = get_seconds ();
   int j = 0;
 //--------------------------------Design 1----------------------
   for(i = 0;i<M;i++){
       rand_number[i] = gaussrand2(&gaussrand_state);
   }
 
+  t1 = get_seconds ();
   printf("\n");
   sum = black_scholes2_loop(S, E, r, sigma, T, rand_number, store, M);
   // for(i = 0;i<M;i++){
   //     store[i] = black_scholes2 (S, E, r, sigma, T, rand_number[i]);
   //     sum += store[i];
   // }
+ 
+  t2 = get_seconds ();
  sum = 0.0;
  for(i = 0;i<M;i++){
  	sum += store[i];
@@ -99,7 +101,6 @@ main (int argc, char* argv[])
     mean = sum/M;
   }
 
-  t2 = get_seconds ();
   
   for(i = 0;i<M;i++){
     variance += (store[i]-mean)*(store[i]-mean)/(double)M;

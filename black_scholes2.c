@@ -104,13 +104,12 @@ black_scholes3 (
          const double gaussian_random_number
          )
 {
-    #pragma HLS dataflow
-    #pragma HLS pipeline
+//    #pragma HLS dataflow
+    #pragma HLS pipeline II=1
     double tmp;
     double tmp2;
     double tmp3;
     double tmp4;
-
 
     tmp = mult2_1(B,gaussian_random_number);
     tmp2 = expo1(A+tmp);
