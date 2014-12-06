@@ -1,4 +1,4 @@
-/* 
+ /* 
    A C-program for MT19937, with initialization improved 2002/1/26.
    Coded by Takuji Nishimura and Makoto Matsumoto.
 
@@ -48,6 +48,7 @@
 static unsigned long mt[N]; /* the array for the state vector  */
 static int mti=N+1; /* mti==N+1 means mt[N] is not initialized */
 
+void init_by_array(unsigned long init_key[], int key_length);
 
 // new random generator
-void rand_uint32(uint32 seed, uint32 *result);
+uint32 rand_uint32();

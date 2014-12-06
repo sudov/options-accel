@@ -97,13 +97,13 @@ black_scholes2 (
 
 double
 black_scholes3 (
-         const double S,
-         const double E,
+        const double S,
+        const double E,
         const double A,
         const double B,
         const double rT,
-        uint32 result
-         )
+        const double result
+        )
 {
 //    #pragma HLS dataflow
     #pragma HLS pipeline II=1

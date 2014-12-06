@@ -23,21 +23,21 @@ double gaussrand2 (gaussrand_state_t* gaussrand_state)
    * Discussed in Knuth and due originally to Marsaglia.
    */
 
-   double X;
+  double X;
+  printf("gaussrand_state phase %d\n", gaussrand_state->phase);
   const int phase = gaussrand_state->phase;
   
 
   if (phase == 0) 
     {
       double V1, V2, S;
-
       do {
-  const double U1 = genrand_res53();
-  const double U2 = genrand_res53();
+        const double U1 = rand_uint32()*(1.0/4294967296.0);
+        const double U2 = rand_uint32()*(1.0/4294967296.0);
 
-  V1 = 2 * U1 - 1;
-  V2 = 2 * U2 - 1;
-  S = V1 * V1 + V2 * V2;
+        V1 = 2 * U1 - 1;
+        V2 = 2 * U2 - 1;
+        S = V1 * V1 + V2 * V2;
       } while (S >= 1 || S == 0);
       /* 
        * Save (pack) the state.  Note that we never needed to unpack
