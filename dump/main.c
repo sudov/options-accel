@@ -1,6 +1,5 @@
 #include "black_scholes2.h"
-
-#include "gaussian.h"
+// #include "gaussian.h"
 
 #include "parser.h"
 #include "timer.h"
@@ -8,6 +7,8 @@
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "mt19937ar.h"
+#define uint32 unsigned
 
 /**
  * Usage: ./hw1.x <filename> <nthreads>
@@ -31,8 +32,6 @@
  * will.
  */
 
-
-
 int
 main (int argc, char* argv[])
 {
@@ -46,8 +45,6 @@ main (int argc, char* argv[])
 
   //------Design 2
   int i;
-
-
 
   if (argc < 3)
     {
@@ -74,16 +71,8 @@ main (int argc, char* argv[])
   double A;
   double B;
   double C;
-  //double result;
-
-
-  gaussrand_state_t gaussrand_state;
-  // Init mt19937ar random number generator
-  unsigned long init[4]={0x123, 0x234, 0x345, 0x456}, length=4; //***Mod
-  init_gaussrand_state (&gaussrand_state);
-  init_by_array(init, length);        //***Mod
-
-
+  unsigned long result = 0; 
+  uint32 seed = 1; 
 
   /* 
    * Make sure init_timer() is only called by one thread,
@@ -109,22 +98,26 @@ main (int argc, char* argv[])
 
 
   for(i = 0;i<M;i++){
-      // #pragma HLS pipeline
-      // #pragma HLS unroll
-      rand_number = gaussrand2(&gaussrand_state);
-	  //store[i] = black_scholes2 (S, E, r, sigma, sqrt_T, rand_number,rT);
-      store[i] = black_scholes3 (S, E, A,B,rT, rand_number);
-      sum += store[i];
+    // Result magic inspired from old mt
+    rand_uint32(i, &result);
+    unsigned long a = result >> 5;
+    rand_uint32(i, &result);
+    unsigned long b = result >> 6;
+    result = (a*67108864.0+b)*(1.0/9007199254740992.0);
+
+    store[i] = black_scholes3 (S, E, A,B,rT, result);
+    // printf("store[i] val is : %f\n", store[i]);
+
+    sum += store[i];
   }
+
 
   if(M==0){
     printf("Divide by 0\n");
   }else{
     mean = sum/M;
   }
-
-  printf("Mean is: %f\n", mean);
-  printf("store[400] is: %f\n", store[400]);
+  printf("mean: %f\n", mean);
 
   t2 = get_seconds ();
   
@@ -132,9 +125,8 @@ main (int argc, char* argv[])
     variance += (store[i]-mean)*(store[i]-mean)/(double)M;
   }
 
-  // for(i = 0;i<M;i++){
-  //     variance += (store[i]-mean)*(store[i]-mean)/(double)M;
-  // }
+  printf("variance: %f\n", variance);
+
   conf_width = 1.96 * sqrt(variance) / sqrt ((double) M);
 
   /*
@@ -156,6 +148,16 @@ main (int argc, char* argv[])
 
   return 0;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
