@@ -38,6 +38,7 @@ double gaussrand2 (gaussrand_state_t* gaussrand_state)
   V1 = 2 * U1 - 1;
   V2 = 2 * U2 - 1;
   S = V1 * V1 + V2 * V2;
+
       } while (S >= 1 || S == 0);
       /* 
        * Save (pack) the state.  Note that we never needed to unpack

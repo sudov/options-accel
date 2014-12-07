@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/xillydemo.ncd
+OUTFILE=/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/xillydemo.bit
+FAMILY=Zynq
+PART=xc7z020-1clg484
+WORKINGDIR=/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog
+LICENSE=ISE
+USER_INFO=210679823_1777488264_210583128_209

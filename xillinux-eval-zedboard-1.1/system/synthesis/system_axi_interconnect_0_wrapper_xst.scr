@@ -1,0 +1,14 @@
+set -tmpdir /home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/synthesis/xst_temp_dir/
+run
+-opt_mode speed
+-netlist_hierarchy as_optimized
+-opt_level 1
+-p xc7z020clg484-1
+-top system_axi_interconnect_0_wrapper
+-ifmt MIXED
+-ifn system_axi_interconnect_0_wrapper_xst.prj
+-ofn ../implementation/system_axi_interconnect_0_wrapper.ngc
+-hierarchy_separator /
+-iobuf NO
+-sd {../implementation}
+-vlgincdir {"/home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/pcores/" "/opt/xilinx/14.3/ISE_DS/EDK/hw/XilinxBFMinterface/pcores/" "/opt/xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/" }

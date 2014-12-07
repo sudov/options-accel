@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="info" file="sim" num="172" delta="new" >Generating IP...
+</msg>
+
+<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">A core named &apos;fifo_32x512&apos; already exists in the project. Output products for this core may be overwritten.</arg>
+</msg>
+
+<msg type="warning" file="coreutil" num="0" delta="new" >
+    while executing
+&quot;close $EJPFILE&quot;
+    (procedure &quot;createEJPFile&quot; line 105)
+    invoked from within
+&quot;createEJPFile $componentInstanceID&quot;
+    (procedure &quot;main&quot; line 27)
+    invoked from within
+&quot;main $argc $argv&quot;
+    invoked from within
+&quot;return [main $argc $argv]&quot;
+    (file &quot;/opt/xilinx/14.3/ISE_DS/ISE/coregen/repository/xilinx.com/generators/ejava_generator_v1_0.tcl&quot; line 242)</msg>
+
+<msg type="error" file="sim" num="0" delta="new" >Unable to evaluate Tcl file:
+   /opt/xilinx/14.3/ISE_DS/ISE/coregen/repository/xilinx.com/generators/ejava_generator_v1_0.tcl
+</msg>
+
+<msg type="error" file="sim" num="0" delta="new" >Failed executing Tcl generator.
+</msg>
+
+<msg type="error" file="sim" num="0" delta="new" >Failed to generate &apos;fifo_32x512&apos;.  Failed executing Tcl generator.
+
+</msg>
+
+</messages>
+

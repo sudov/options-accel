@@ -1,0 +1,398 @@
+No logfile was found.
+
+Xilinx Platform Studio (XPS)
+Xilinx EDK 14.3 Build EDK_P.40xd
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+
+********************************************************************************
+At Local date and time: Thu Apr 25 22:59:59 2013
+ make -f system.make netlist started...
+****************************************************
+Creating system netlist for hardware specification..
+****************************************************
+platgen -p xc7z020clg484-1 -lang verilog -intstyle default   -toplevel no -ti system_i -msg __xps/ise/xmsgprops.lst system.mhs
+
+Release 14.3 - platgen Xilinx EDK 14.3 Build EDK_P.40xd
+ (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+
+Command Line: platgen -p xc7z020clg484-1 -lang verilog -intstyle default
+-toplevel no -ti system_i -msg __xps/ise/xmsgprops.lst system.mhs 
+
+Parse
+/home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/syste
+m.mhs ...
+
+Read MPD definitions ...
+WARNING:EDK:4092 - IPNAME: axi_interconnect, INSTANCE: axi4lite_0 -
+   Pre-Production version not verified on hardware for architecture 'zynq' -
+   /home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/sy
+   stem.mhs line 104 
+WARNING:EDK:4088 - IPNAME: processing_system7, INSTANCE: processing_system7_0 -
+   Superseded core for architecture 'zynq' -
+   /home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/sy
+   stem.mhs line 112 
+WARNING:EDK:4092 - IPNAME: axi_interconnect, INSTANCE: axi_interconnect_0 -
+   Pre-Production version not verified on hardware for architecture 'zynq' -
+   /home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/sy
+   stem.mhs line 281 
+WARNING:EDK:4092 - IPNAME: axi_interconnect, INSTANCE: axi_interconnect_1 -
+   Pre-Production version not verified on hardware for architecture 'zynq' -
+   /home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/sy
+   stem.mhs line 307 
+WARNING:EDK:4092 - IPNAME: axi_interconnect, INSTANCE: axi4lite_0 -
+   Pre-Production version not verified on hardware for architecture 'zynq' -
+   /home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/sy
+   stem.mhs line 104 
+WARNING:EDK:4088 - IPNAME: processing_system7, INSTANCE: processing_system7_0 -
+   Superseded core for architecture 'zynq' -
+   /home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/sy
+   stem.mhs line 112 
+WARNING:EDK:4092 - IPNAME: axi_interconnect, INSTANCE: axi_interconnect_0 -
+   Pre-Production version not verified on hardware for architecture 'zynq' -
+   /home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/sy
+   stem.mhs line 281 
+WARNING:EDK:4092 - IPNAME: axi_interconnect, INSTANCE: axi_interconnect_1 -
+   Pre-Production version not verified on hardware for architecture 'zynq' -
+   /home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/sy
+   stem.mhs line 307 
+
+Overriding IP level properties ...
+INFO:EDK:4130 - IPNAME: axi_interconnect, INSTANCE:axi4lite_0 - tcl is
+   overriding PARAMETER C_BASEFAMILY value to zynq -
+   /opt/xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/axi_interconnect_v
+   1_06_a/data/axi_interconnect_v2_1_0.mpd line 80 
+INFO:EDK:4130 - IPNAME: axi_interconnect, INSTANCE:axi_interconnect_0 - tcl is
+   overriding PARAMETER C_BASEFAMILY value to zynq -
+   /opt/xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/axi_interconnect_v
+   1_06_a/data/axi_interconnect_v2_1_0.mpd line 80 
+INFO:EDK:4130 - IPNAME: axi_interconnect, INSTANCE:axi_interconnect_1 - tcl is
+   overriding PARAMETER C_BASEFAMILY value to zynq -
+   /opt/xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/axi_interconnect_v
+   1_06_a/data/axi_interconnect_v2_1_0.mpd line 80 
+
+Computing clock values...
+INFO:EDK:1432 - Frequency for Top-Level Input Clock
+   'processing_system7_0_PS_CLK' is not specified. Clock DRCs will not be
+   performed for IPs connected to that clock port, unless they are connected
+   through the clock generator IP. 
+
+
+Performing IP level DRCs on properties...
+
+Running DRC Tcl procedures for OPTION IPLEVEL_DRC_PROC...
+Address Map for Processor processing_system7_0
+  (0x50000000-0x50000fff) xillybus_0	axi4lite_0
+  (0x50001000-0x50001fff) xillyvga_0	axi4lite_0
+  (0x50002000-0x50002fff) xillybus_lite_0	axi4lite_0
+
+Checking platform address map ...
+
+Checking platform configuration ...
+IPNAME: axi_interconnect, INSTANCE: axi4lite_0 - 1 master(s) : 3 slave(s) 
+IPNAME: axi_interconnect, INSTANCE: axi_interconnect_0 - 1 master(s) : 1
+slave(s) 
+IPNAME: axi_interconnect, INSTANCE: axi_interconnect_1 - 1 master(s) : 1
+slave(s) 
+
+Checking port drivers...
+WARNING:EDK:4181 - PORT: FCLK_RESET0_N, CONNECTOR:
+   processing_system7_0_FCLK_RESET0_N - floating connection -
+   /home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/sy
+   stem.mhs line 217 
+
+Performing Clock DRCs...
+
+Performing Reset DRCs...
+
+Overriding system level properties...
+
+INFO: Setting C_RANGE_CHECK = ON for axi_interconnect axi4lite_0.
+INFO:EDK:4130 - IPNAME: axi_interconnect, INSTANCE:axi4lite_0 - tcl is
+   overriding PARAMETER C_RANGE_CHECK value to 1 -
+   /opt/xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/axi_interconnect_v
+   1_06_a/data/axi_interconnect_v2_1_0.mpd line 148 
+INFO:EDK:4130 - IPNAME: processing_system7, INSTANCE:processing_system7_0 - tcl
+   is overriding PARAMETER C_FCLK_CLK0_BUF value to FALSE -
+   /opt/xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/processing_system7
+   _v4_01_a/data/processing_system7_v2_1_0.mpd line 344 
+INFO:EDK:4130 - IPNAME: processing_system7, INSTANCE:processing_system7_0 - tcl
+   is overriding PARAMETER C_FCLK_CLK2_BUF value to FALSE -
+   /opt/xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/processing_system7
+   _v4_01_a/data/processing_system7_v2_1_0.mpd line 346 
+INFO:EDK:4130 - IPNAME: processing_system7, INSTANCE:processing_system7_0 - tcl
+   is overriding PARAMETER C_FCLK_CLK3_BUF value to FALSE -
+   /opt/xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/processing_system7
+   _v4_01_a/data/processing_system7_v2_1_0.mpd line 347 
+
+INFO: Setting C_RANGE_CHECK = OFF for axi_interconnect axi_interconnect_0; no
+DECERR checking will be performed.
+INFO:EDK:4130 - IPNAME: axi_interconnect, INSTANCE:axi_interconnect_0 - tcl is
+   overriding PARAMETER C_RANGE_CHECK value to 0 -
+   /opt/xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/axi_interconnect_v
+   1_06_a/data/axi_interconnect_v2_1_0.mpd line 148 
+
+INFO: Setting C_RANGE_CHECK = OFF for axi_interconnect axi_interconnect_1; no
+DECERR checking will be performed.
+INFO:EDK:4130 - IPNAME: axi_interconnect, INSTANCE:axi_interconnect_1 - tcl is
+   overriding PARAMETER C_RANGE_CHECK value to 0 -
+   /opt/xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/axi_interconnect_v
+   1_06_a/data/axi_interconnect_v2_1_0.mpd line 148 
+
+Running system level update procedures...
+
+Running UPDATE Tcl procedures for OPTION SYSLEVEL_UPDATE_PROC...
+ZynqConfig: Terminated for tcl mode
+
+Running system level DRCs...
+
+Performing System level DRCs on properties...
+
+Running DRC Tcl procedures for OPTION SYSLEVEL_DRC_PROC...
+ZynqConfig: Terminated for tcl mode
+
+Running UPDATE Tcl procedures for OPTION PLATGEN_SYSLEVEL_UPDATE_PROC...
+INFO: No asynchronous clock conversions in axi_interconnect axi4lite_0.
+ZynqConfig: Terminated for tcl mode
+INFO: No asynchronous clock conversions in axi_interconnect axi_interconnect_0.
+INFO: No asynchronous clock conversions in axi_interconnect axi_interconnect_1.
+
+Modify defaults ...
+
+Creating stub ...
+
+Processing licensed instances ...
+Completion time: 0.00 seconds
+
+Creating hardware output directories ...
+
+Managing hardware (BBD-specified) netlist files ...
+IPNAME:xillybus_lite INSTANCE:xillybus_lite_0 -
+/home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/syste
+m.mhs line 314 - Copying (BBD-specified) netlist files.
+
+Managing cache ...
+
+Elaborating instances ...
+
+Writing HDL for elaborated instances ...
+
+Inserting wrapper level ...
+Completion time: 0.00 seconds
+
+Constructing platform-level connectivity ...
+Completion time: 1.00 seconds
+
+Writing (top-level) BMM ...
+
+Writing (top-level and wrappers) HDL ...
+
+Generating synthesis project file ...
+
+Running XST synthesis ...
+
+INFO:EDK:4211 - The following instances are synthesized with XST. The MPD option
+   IMP_NETLIST=TRUE indicates that a NGC file is to be produced using XST
+   synthesis. IMP_NETLIST=FALSE (default) instances are not synthesized. 
+INSTANCE:axi4lite_0 -
+/home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/syste
+m.mhs line 104 - Running XST synthesis
+PMSPEC -- Overriding Xilinx file
+</opt/xilinx/14.3/ISE_DS/EDK/zynq/data/zynq.acd> with local file
+</opt/xilinx/14.3/ISE_DS/ISE/zynq/data/zynq.acd>
+INSTANCE:processing_system7_0 -
+/home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/syste
+m.mhs line 112 - Running XST synthesis
+PMSPEC -- Overriding Xilinx file
+</opt/xilinx/14.3/ISE_DS/EDK/zynq/data/zynq.acd> with local file
+</opt/xilinx/14.3/ISE_DS/ISE/zynq/data/zynq.acd>
+INSTANCE:xillybus_0 -
+/home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/syste
+m.mhs line 220 - Running XST synthesis
+PMSPEC -- Overriding Xilinx file
+</opt/xilinx/14.3/ISE_DS/EDK/zynq/data/zynq.acd> with local file
+</opt/xilinx/14.3/ISE_DS/ISE/zynq/data/zynq.acd>
+INSTANCE:axi_interconnect_0 -
+/home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/syste
+m.mhs line 281 - Running XST synthesis
+PMSPEC -- Overriding Xilinx file
+</opt/xilinx/14.3/ISE_DS/EDK/zynq/data/zynq.acd> with local file
+</opt/xilinx/14.3/ISE_DS/ISE/zynq/data/zynq.acd>
+INSTANCE:xillyvga_0 -
+/home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/syste
+m.mhs line 288 - Running XST synthesis
+PMSPEC -- Overriding Xilinx file
+</opt/xilinx/14.3/ISE_DS/EDK/zynq/data/zynq.acd> with local file
+</opt/xilinx/14.3/ISE_DS/ISE/zynq/data/zynq.acd>
+INSTANCE:axi_interconnect_1 -
+/home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/syste
+m.mhs line 307 - Running XST synthesis
+PMSPEC -- Overriding Xilinx file
+</opt/xilinx/14.3/ISE_DS/EDK/zynq/data/zynq.acd> with local file
+</opt/xilinx/14.3/ISE_DS/ISE/zynq/data/zynq.acd>
+INSTANCE:xillybus_lite_0 -
+/home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/syste
+m.mhs line 314 - Running XST synthesis
+PMSPEC -- Overriding Xilinx file
+</opt/xilinx/14.3/ISE_DS/EDK/zynq/data/zynq.acd> with local file
+</opt/xilinx/14.3/ISE_DS/ISE/zynq/data/zynq.acd>
+
+Running NGCBUILD ...
+IPNAME:system_axi4lite_0_wrapper INSTANCE:axi4lite_0 -
+/home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/syste
+m.mhs line 104 - Running NGCBUILD
+PMSPEC -- Overriding Xilinx file
+</opt/xilinx/14.3/ISE_DS/EDK/zynq/data/zynq.acd> with local file
+</opt/xilinx/14.3/ISE_DS/ISE/zynq/data/zynq.acd>
+
+Command Line: /opt/xilinx/14.3/ISE_DS/ISE/bin/lin64/unwrapped/ngcbuild -p
+xc7z020clg484-1 -intstyle silent -i -sd .. system_axi4lite_0_wrapper.ngc
+../system_axi4lite_0_wrapper
+
+Reading NGO file
+"/home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/impl
+ementation/axi4lite_0_wrapper/system_axi4lite_0_wrapper.ngc" ...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGCBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   0
+
+Writing NGC file "../system_axi4lite_0_wrapper.ngc" ...
+Total REAL time to NGCBUILD completion:  15 sec
+Total CPU time to NGCBUILD completion:   15 sec
+
+Writing NGCBUILD log file "../system_axi4lite_0_wrapper.blc"...
+
+NGCBUILD done.
+IPNAME:system_axi_interconnect_0_wrapper INSTANCE:axi_interconnect_0 -
+/home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/syste
+m.mhs line 281 - Running NGCBUILD
+PMSPEC -- Overriding Xilinx file
+</opt/xilinx/14.3/ISE_DS/EDK/zynq/data/zynq.acd> with local file
+</opt/xilinx/14.3/ISE_DS/ISE/zynq/data/zynq.acd>
+
+Command Line: /opt/xilinx/14.3/ISE_DS/ISE/bin/lin64/unwrapped/ngcbuild -p
+xc7z020clg484-1 -intstyle silent -i -sd .. system_axi_interconnect_0_wrapper.ngc
+../system_axi_interconnect_0_wrapper
+
+Reading NGO file
+"/home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/impl
+ementation/axi_interconnect_0_wrapper/system_axi_interconnect_0_wrapper.ngc" ...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGCBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   0
+
+Writing NGC file "../system_axi_interconnect_0_wrapper.ngc" ...
+Total REAL time to NGCBUILD completion:  18 sec
+Total CPU time to NGCBUILD completion:   18 sec
+
+Writing NGCBUILD log file "../system_axi_interconnect_0_wrapper.blc"...
+
+NGCBUILD done.
+IPNAME:system_axi_interconnect_1_wrapper INSTANCE:axi_interconnect_1 -
+/home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/syste
+m.mhs line 307 - Running NGCBUILD
+PMSPEC -- Overriding Xilinx file
+</opt/xilinx/14.3/ISE_DS/EDK/zynq/data/zynq.acd> with local file
+</opt/xilinx/14.3/ISE_DS/ISE/zynq/data/zynq.acd>
+
+Command Line: /opt/xilinx/14.3/ISE_DS/ISE/bin/lin64/unwrapped/ngcbuild -p
+xc7z020clg484-1 -intstyle silent -i -sd .. system_axi_interconnect_1_wrapper.ngc
+../system_axi_interconnect_1_wrapper
+
+Reading NGO file
+"/home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/impl
+ementation/axi_interconnect_1_wrapper/system_axi_interconnect_1_wrapper.ngc" ...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGCBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   0
+
+Writing NGC file "../system_axi_interconnect_1_wrapper.ngc" ...
+Total REAL time to NGCBUILD completion:  16 sec
+Total CPU time to NGCBUILD completion:   16 sec
+
+Writing NGCBUILD log file "../system_axi_interconnect_1_wrapper.blc"...
+
+NGCBUILD done.
+IPNAME:system_xillybus_lite_0_wrapper INSTANCE:xillybus_lite_0 -
+/home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/syste
+m.mhs line 314 - Running NGCBUILD
+PMSPEC -- Overriding Xilinx file
+</opt/xilinx/14.3/ISE_DS/EDK/zynq/data/zynq.acd> with local file
+</opt/xilinx/14.3/ISE_DS/ISE/zynq/data/zynq.acd>
+
+Command Line: /opt/xilinx/14.3/ISE_DS/ISE/bin/lin64/unwrapped/ngcbuild -p
+xc7z020clg484-1 -intstyle silent -i -sd .. system_xillybus_lite_0_wrapper.ngc
+../system_xillybus_lite_0_wrapper
+
+Reading NGO file
+"/home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/impl
+ementation/xillybus_lite_0_wrapper/system_xillybus_lite_0_wrapper.ngc" ...
+Loading design module
+"/home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/impl
+ementation/xillybus_lite_0_wrapper/xillybus_lite.ngc"...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGCBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   0
+
+Writing NGC file "../system_xillybus_lite_0_wrapper.ngc" ...
+Total REAL time to NGCBUILD completion:  15 sec
+Total CPU time to NGCBUILD completion:   15 sec
+
+Writing NGCBUILD log file "../system_xillybus_lite_0_wrapper.blc"...
+
+NGCBUILD done.
+INFO:EDK:3509 - NCF files should not be modified as they will be regenerated.
+   If any constraint needs to be overridden, this should be done by modifying
+   the data/system.ucf file.
+
+Rebuilding cache ...
+
+Total run time: 440.00 seconds
+Running synthesis...
+bash -c "cd synthesis; ./synthesis.sh"
+xst -ifn system_xst.scr -intstyle silent
+Running XST synthesis ...
+PMSPEC -- Overriding Xilinx file
+</opt/xilinx/14.3/ISE_DS/EDK/zynq/data/zynq.acd> with local file
+</opt/xilinx/14.3/ISE_DS/ISE/zynq/data/zynq.acd>
+XST completed
+Done!
+Writing filter settings....
+Done writing filter settings to:
+	/home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/etc/system.filters
+Done writing Tab View settings to:
+	/home/academic/zz284/local-test/xillinux/xillinux-eval-zedboard-1.1/system/etc/system.gui

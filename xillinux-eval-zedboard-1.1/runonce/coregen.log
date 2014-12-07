@@ -1,0 +1,32 @@
+WARNING:UtilitiesC:240 - The message file
+   "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux
+   -eval-zedboard-1.1/runonce/_xmsgs/cg.xmsgs" is corrupt, therefore all message
+   will be marked as new.
+INFO:sim:172 - Generating IP...
+Applying current project options...
+Finished applying current project options.
+Resolving generics for 'fifo_32x512'...
+WARNING:sim - A core named 'fifo_32x512' already exists in the project. Output
+   products for this core may be overwritten.
+Applying external generics to 'fifo_32x512'...
+Delivering associated files for 'fifo_32x512'...
+WARNING:coreutil - 
+       while executing
+   "close $EJPFILE"
+       (procedure "createEJPFile" line 105)
+       invoked from within
+   "createEJPFile $componentInstanceID"
+       (procedure "main" line 27)
+       invoked from within
+   "main $argc $argv"
+       invoked from within
+   "return [main $argc $argv]"
+       (file
+   "/opt/xilinx/14.3/ISE_DS/ISE/coregen/repository/xilinx.com/generators/ejava_g
+   enerator_v1_0.tcl" line 242)ERROR:sim - Unable to evaluate Tcl file:
+   /opt/xilinx/14.3/ISE_DS/ISE/coregen/repository/xilinx.com/generators/ejava_ge
+   nerator_v1_0.tcl
+ERROR:sim - Failed executing Tcl generator.
+ERROR:sim - Failed to generate 'fifo_32x512'.  Failed executing Tcl generator.
+
+Wrote CGP file for project 'fifo_32x512'.

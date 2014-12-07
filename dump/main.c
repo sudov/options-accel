@@ -91,33 +91,23 @@ main (int argc, char* argv[])
    * Run the benchmark and time it.
    */
    
-  t1 = get_seconds ();
-
-//--------------------------------Design 1----------------------
+//---------------------  Design 1   -------------------------------
   
   //sqrt_T = sqrt(T);
   rT = exp(-r*T);
   A = (r - (sigma*sigma) / 2.0) * T;
   B = sigma * sqrt (T);
 
+  t1 = get_seconds ();
 
   for(i = 0;i<M;i++){
-    // Result magic inspired from old mt
-    // rand_uint32(1, &result);
-    // printf("random before is : %d\n", result);
-    // double zeroOneRand = result*(1.0/4294967296.0);
-    // printf("random after is : %f\n", zeroOneRand);
-    printf("one\n");
     rand_number = gaussrand2(&gaussrand_state);
-    printf("two\n");
-    // store[i] = black_scholes3 (S, E, A,B,rT, rand_number);
-    // printf("three");
-    // printf("store[i] val is : %f\n", store[i]);
-
+    printf("rand_number is %d\n", rand_number);
+    store[i] = black_scholes3 (S, E, A,B,rT, rand_number);
     sum += store[i];
-    break;
   }
 
+  t2 = get_seconds ();
 
   if(M==0){
     printf("Divide by 0\n");
@@ -125,8 +115,6 @@ main (int argc, char* argv[])
     mean = sum/M;
   }
   printf("mean: %f\n", mean);
-
-  t2 = get_seconds ();
   
   for(i = 0;i<M;i++){
     variance += (store[i]-mean)*(store[i]-mean)/(double)M;
@@ -155,16 +143,3 @@ main (int argc, char* argv[])
 
   return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
