@@ -1,0 +1,236 @@
+
+
+================================================================
+== Vivado HLS Report for 'black_scholes_gaussrand2'
+================================================================
+* Date:           Mon Dec  8 04:06:05 2014
+
+* Version:        2014.2 (Build 932637 on Wed Jun 11 12:38:34 PM 2014)
+* Project:        hls.prj
+* Solution:       solution1
+* Product family: zynq zynq_fpv6 
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +---------+-------+----------+------------+
+    |  Clock  | Target| Estimated| Uncertainty|
+    +---------+-------+----------+------------+
+    |default  |  10.00|     16.02|        1.25|
+    +---------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |  565|  565|  411|  411| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        +--------------------------------------+---------------------------+-----+-----+-----+-----+----------+
+        |                                      |                           |  Latency  |  Interval | Pipeline |
+        |               Instance               |           Module          | min | max | min | max |   Type   |
+        +--------------------------------------+---------------------------+-----+-----+-----+-----+----------+
+        |grp_black_scholes_rand_uint32_fu_146  |black_scholes_rand_uint32  |    2|    2|    1|    1| function |
+        +--------------------------------------+---------------------------+-----+-----+-----+-----+----------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|Expression       |        -|      -|       0|     54|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |       12|     89|    9354|  13143|
+|Memory           |        -|      -|       -|      -|
+|Multiplexer      |        -|      -|       -|   3382|
+|Register         |        -|      -|    2893|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |       12|     89|   12247|  16579|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |        4|     40|      11|     31|
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    +-------------------------------------------------+---------------------------------------------+---------+-------+------+------+
+    |                     Instance                    |                    Module                   | BRAM_18K| DSP48E|  FF  |  LUT |
+    +-------------------------------------------------+---------------------------------------------+---------+-------+------+------+
+    |black_scholes_dadd_64ns_64ns_64_5_full_dsp_U2    |black_scholes_dadd_64ns_64ns_64_5_full_dsp   |        0|      3|   445|  1149|
+    |black_scholes_dadd_64ns_64ns_64_5_full_dsp_U3    |black_scholes_dadd_64ns_64ns_64_5_full_dsp   |        0|      3|   445|  1149|
+    |black_scholes_dcmp_64ns_64ns_1_3_U7              |black_scholes_dcmp_64ns_64ns_1_3             |        0|      0|   130|   469|
+    |black_scholes_dcmp_64ns_64ns_1_3_U8              |black_scholes_dcmp_64ns_64ns_1_3             |        0|      0|   130|   469|
+    |black_scholes_ddiv_64ns_64ns_64_31_U6            |black_scholes_ddiv_64ns_64ns_64_31           |        0|      0|  3211|  3658|
+    |black_scholes_dlog_64ns_64ns_64_31_full_dsp_U11  |black_scholes_dlog_64ns_64ns_64_31_full_dsp  |        0|     61|  1909|  1510|
+    |black_scholes_dmul_64ns_64ns_64_6_max_dsp_U4     |black_scholes_dmul_64ns_64ns_64_6_max_dsp    |        0|     11|   317|   578|
+    |black_scholes_dmul_64ns_64ns_64_6_max_dsp_U5     |black_scholes_dmul_64ns_64ns_64_6_max_dsp    |        0|     11|   317|   578|
+    |black_scholes_dsqrt_64ns_64ns_64_31_U10          |black_scholes_dsqrt_64ns_64ns_64_31          |        0|      0|  1832|  2180|
+    |grp_black_scholes_rand_uint32_fu_146             |black_scholes_rand_uint32                    |       12|      0|   206|   758|
+    |black_scholes_uitodp_64ns_64_6_U9                |black_scholes_uitodp_64ns_64_6               |        0|      0|   412|   645|
+    +-------------------------------------------------+---------------------------------------------+---------+-------+------+------+
+    |Total                                            |                                             |       12|     89|  9354| 13143|
+    +-------------------------------------------------+---------------------------------------------+---------+-------+------+------+
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------+----------+-------+---+----+------------+------------+
+    |  Variable Name  | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------+----------+-------+---+----+------------+------------+
+    |ap_sig_bdd_439   |    and   |      0|  0|   1|           1|           1|
+    |ap_sig_bdd_5160  |    and   |      0|  0|   1|           1|           1|
+    |ap_sig_bdd_5164  |    and   |      0|  0|   1|           1|           1|
+    |ap_sig_bdd_5165  |    and   |      0|  0|   1|           1|           1|
+    |ap_sig_bdd_5168  |    and   |      0|  0|   1|           1|           1|
+    |ap_sig_bdd_5171  |    and   |      0|  0|   1|           1|           1|
+    |ap_sig_bdd_5174  |    and   |      0|  0|   1|           1|           1|
+    |ap_sig_bdd_5177  |    and   |      0|  0|   1|           1|           1|
+    |ap_sig_bdd_5180  |    and   |      0|  0|   1|           1|           1|
+    |ap_sig_bdd_5183  |    and   |      0|  0|   1|           1|           1|
+    |ap_sig_bdd_5186  |    and   |      0|  0|   1|           1|           1|
+    |ap_sig_bdd_5199  |    and   |      0|  0|   1|           1|           1|
+    |ap_sig_bdd_5201  |    and   |      0|  0|   1|           1|           1|
+    |tmp_fu_352_p2    |   icmp   |      0|  0|  40|          32|           1|
+    |grp_fu_251_p2    |    or    |      0|  0|   1|           1|           1|
+    +-----------------+----------+-------+---+----+------------+------------+
+    |Total            |          |      0|  0|  54|          46|          15|
+    +-----------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +------------------------------------------------------------+------+-----------+-----+-----------+
+    |                            Name                            |  LUT | Input Size| Bits| Total Bits|
+    +------------------------------------------------------------+------+-----------+-----+-----------+
+    |X2_phi_fu_139_p4                                            |    64|          2|   64|        128|
+    |ap_NS_fsm                                                   |  1206|        412|    9|       3708|
+    |ap_reg_phiprechg_X2_reg_136pp0_it1                          |    64|          2|   64|        128|
+    |ap_reg_phiprechg_gaussrand_state_S_0_lcssa_reg_84pp0_it0    |   128|          9|   64|        576|
+    |ap_reg_phiprechg_gaussrand_state_S_0_lcssa_reg_84pp0_it1    |    64|          2|   64|        128|
+    |ap_reg_phiprechg_gaussrand_state_V1_0_lcssa_reg_110pp0_it0  |   128|          9|   64|        576|
+    |ap_reg_phiprechg_gaussrand_state_V1_0_lcssa_reg_110pp0_it1  |    64|          2|   64|        128|
+    |grp_fu_162_p0                                               |    64|          5|   64|        320|
+    |grp_fu_162_p1                                               |    64|          7|   64|        448|
+    |grp_fu_166_p0                                               |    64|          3|   64|        192|
+    |grp_fu_166_p1                                               |    64|          3|   64|        192|
+    |grp_fu_172_p0                                               |   192|         13|   64|        832|
+    |grp_fu_172_p1                                               |   128|         10|   64|        640|
+    |grp_fu_180_p0                                               |    64|          3|   64|        192|
+    |grp_fu_180_p1                                               |    64|          4|   64|        256|
+    |grp_fu_198_p0                                               |    64|          3|   64|        192|
+    |grp_fu_198_p1                                               |    64|          3|   64|        192|
+    |grp_fu_215_p0                                               |   768|         41|   64|       2624|
+    |grp_fu_224_p1                                               |    64|          3|   64|        192|
+    +------------------------------------------------------------+------+-----------+-----+-----------+
+    |Total                                                       |  3382|        536| 1161|      11644|
+    +------------------------------------------------------------+------+-----------+-----+-----------+
+
+    * Register: 
+    +------------------------------------------------------------+----+----+-----+-----------+
+    |                            Name                            | FF | LUT| Bits| Const Bits|
+    +------------------------------------------------------------+----+----+-----+-----------+
+    |S_1_1_reg_633                                               |  64|   0|   64|          0|
+    |S_1_2_reg_681                                               |  64|   0|   64|          0|
+    |S_1_3_reg_719                                               |  64|   0|   64|          0|
+    |S_1_4_reg_757                                               |  64|   0|   64|          0|
+    |S_1_5_reg_795                                               |  64|   0|   64|          0|
+    |S_1_6_reg_833                                               |  64|   0|   64|          0|
+    |S_1_7_reg_871                                               |  64|   0|   64|          0|
+    |S_1_8_reg_909                                               |  64|   0|   64|          0|
+    |S_1_reg_595                                                 |  64|   0|   64|          0|
+    |V1_1_reg_626                                                |  64|   0|   64|          0|
+    |V1_2_reg_674                                                |  64|   0|   64|          0|
+    |V1_3_reg_712                                                |  64|   0|   64|          0|
+    |V1_4_reg_750                                                |  64|   0|   64|          0|
+    |V1_5_reg_788                                                |  64|   0|   64|          0|
+    |V1_6_reg_826                                                |  64|   0|   64|          0|
+    |V1_7_reg_864                                                |  64|   0|   64|          0|
+    |V1_8_reg_902                                                |  64|   0|   64|          0|
+    |V1_reg_588                                                  |  64|   0|   64|          0|
+    |X_reg_669                                                   |  64|   0|   64|          0|
+    |ap_CS_fsm                                                   |   9|   0|    9|          0|
+    |ap_reg_phiprechg_X2_reg_136pp0_it1                          |  64|   0|   64|          0|
+    |ap_reg_phiprechg_gaussrand_state_S_0_lcssa_reg_84pp0_it0    |  64|   0|   64|          0|
+    |ap_reg_phiprechg_gaussrand_state_S_0_lcssa_reg_84pp0_it1    |  64|   0|   64|          0|
+    |ap_reg_phiprechg_gaussrand_state_V1_0_lcssa_reg_110pp0_it0  |  64|   0|   64|          0|
+    |ap_reg_phiprechg_gaussrand_state_V1_0_lcssa_reg_110pp0_it1  |  64|   0|   64|          0|
+    |ap_reg_ppiten_pp0_it0_preg                                  |   1|   0|    1|          0|
+    |ap_reg_ppiten_pp0_it1                                       |   1|   0|    1|          0|
+    |ap_reg_ppstg_X_reg_669_pp0_it1                              |  64|   0|   64|          0|
+    |ap_reg_ppstg_or_cond_1_reg_602_pp0_it1                      |   1|   0|    1|          0|
+    |ap_reg_ppstg_tmp_reg_564_pp0_it1                            |   1|   0|    1|          0|
+    |ap_reg_ptbuf_gaussrand_state_V2_read                        |  64|   0|   64|          0|
+    |gaussrand_state_S_0_lcssa_reg_84                            |  64|   0|   64|          0|
+    |gaussrand_state_S_read_1_reg_558                            |  64|   0|   64|          0|
+    |gaussrand_state_V1_0_lcssa_reg_110                          |  64|   0|   64|          0|
+    |grp_black_scholes_rand_uint32_fu_146_ap_start_ap_start_reg  |   1|   0|    1|          0|
+    |or_cond_1_reg_602                                           |   1|   0|    1|          0|
+    |or_cond_2_reg_640                                           |   1|   0|    1|          0|
+    |or_cond_3_reg_688                                           |   1|   0|    1|          0|
+    |or_cond_4_reg_726                                           |   1|   0|    1|          0|
+    |or_cond_5_reg_764                                           |   1|   0|    1|          0|
+    |or_cond_6_reg_802                                           |   1|   0|    1|          0|
+    |or_cond_7_reg_840                                           |   1|   0|    1|          0|
+    |or_cond_8_reg_878                                           |   1|   0|    1|          0|
+    |or_cond_9_reg_916                                           |   1|   0|    1|          0|
+    |reg_257                                                     |  59|   0|   59|          0|
+    |reg_261                                                     |  58|   0|   58|          0|
+    |reg_265                                                     |  64|   0|   64|          0|
+    |reg_270                                                     |  64|   0|   64|          0|
+    |reg_280                                                     |  64|   0|   64|          0|
+    |reg_286                                                     |  64|   0|   64|          0|
+    |reg_293                                                     |  64|   0|   64|          0|
+    |reg_300                                                     |  64|   0|   64|          0|
+    |reg_320                                                     |  64|   0|   64|          0|
+    |reg_325                                                     |  64|   0|   64|          0|
+    |reg_334                                                     |  64|   0|   64|          0|
+    |reg_339                                                     |  64|   0|   64|          0|
+    |reg_345                                                     |  64|   0|   64|          0|
+    |tmp_33_9_reg_940                                            |  64|   0|   64|          0|
+    |tmp_38_9_reg_945                                            |  64|   0|   64|          0|
+    |tmp_43_9_reg_950                                            |  64|   0|   64|          0|
+    |tmp_reg_564                                                 |   1|   0|    1|          0|
+    +------------------------------------------------------------+----+----+-----+-----------+
+    |Total                                                       |2893|   0| 2893|          0|
+    +------------------------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------------+-----+-----+------------+----------------------------+--------------+
+|          RTL Ports         | Dir | Bits|  Protocol  |        Source Object       |    C Type    |
++----------------------------+-----+-----+------------+----------------------------+--------------+
+|ap_clk                      |  in |    1| ap_ctrl_hs |  black_scholes_gaussrand2  | return value |
+|ap_rst                      |  in |    1| ap_ctrl_hs |  black_scholes_gaussrand2  | return value |
+|ap_start                    |  in |    1| ap_ctrl_hs |  black_scholes_gaussrand2  | return value |
+|ap_done                     | out |    1| ap_ctrl_hs |  black_scholes_gaussrand2  | return value |
+|ap_idle                     | out |    1| ap_ctrl_hs |  black_scholes_gaussrand2  | return value |
+|ap_ready                    | out |    1| ap_ctrl_hs |  black_scholes_gaussrand2  | return value |
+|ap_ce                       |  in |    1| ap_ctrl_hs |  black_scholes_gaussrand2  | return value |
+|ap_return                   | out |   64| ap_ctrl_hs |  black_scholes_gaussrand2  | return value |
+|gaussrand_state_V2_read     |  in |   64|   ap_none  |   gaussrand_state_V2_read  |    scalar    |
+|gaussrand_state_S_read      |  in |   64|   ap_none  |   gaussrand_state_S_read   |    scalar    |
+|gaussrand_state_phase_read  |  in |   32|   ap_none  | gaussrand_state_phase_read |    scalar    |
++----------------------------+-----+-----+------------+----------------------------+--------------+
+

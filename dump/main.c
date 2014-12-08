@@ -80,8 +80,7 @@ main (int argc, char* argv[])
   for(i = 0;i<M;i++){
     shadow_state();
     t1[i] = get_seconds();
-    rand_number = gaussrand2(&gaussrand_state);
-    store[i] = black_scholes (S, E, A,B,rT, rand_number);
+    store[i] = black_scholes (S, E, A,B,rT, gaussrand_state);
     sum += store[i];
     t2[i] = get_seconds();
   }

@@ -52,19 +52,19 @@ black_scholes (
         const double A,
         const double B,
         const double rT,
-        const double rand_number
+        gaussrand_state_t gaussrand_state
         )
 {
-    #pragma HLS pipeline II=1
-    double tmp;
-    double tmp2;
-    double tmp3;
-    double tmp4;
+  #pragma HLS pipeline II=1
+  double tmp, tmp2, tmp3, tmp4, tmp5;
+  double rand_number = gaussrand2(&gaussrand_state);
+  #pragma HLS dependence variable=rand_number inter false
 
-    tmp = mult2_1(B,rand_number);
-    tmp2 = expo1(A+tmp);
-    tmp3 = S*tmp2;
-    tmp4 = rT*((tmp3 - E < 0.0) ? 0.0 : tmp3 - E);
+  tmp = mult2_1(B,rand_number);
+  tmp2 = expo1(A+tmp);
+  tmp3 = mult2_2(S,tmp2);
+  tmp4 = (tmp3 - E < 0.0) ? 0.0 : tmp3 - E;
+  tmp5 = mult2_3(rT,tmp4);
 
-    return tmp4;
+  return tmp5;
 }
