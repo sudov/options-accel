@@ -1,6 +1,7 @@
 #ifndef _black_scholes_h
 #define _black_scholes_h
 
+#include "gaussian.h"
 #include <math.h>
 #include "util.h"
 #include <assert.h>
@@ -51,7 +52,7 @@ black_scholes (
         const double A,
         const double B,
         const double rT,
-        const double result
+        gaussrand_state_t gaussrand_state
         );
 
 

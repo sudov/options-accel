@@ -1,9 +1,9 @@
 ############################################################
 open_project hls.prj
-# set_top black_scholes
-set_top rand_uint32
+set_top black_scholes
+# set_top rand_uint32
 
-add_files black_scholes2.c
+add_files black_scholes.c
 add_files gaussian.c
 add_files mt19937ar.c
 
