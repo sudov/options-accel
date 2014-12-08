@@ -52,7 +52,7 @@ black_scholes (
         const double A,
         const double B,
         const double rT,
-        gaussrand_state_t gaussrand_state
+        const double rand_number
         )
 {
     #pragma HLS pipeline II=1
@@ -60,7 +60,6 @@ black_scholes (
     double tmp2;
     double tmp3;
     double tmp4;
-    double rand_number = gaussrand2(&gaussrand_state);
 
     tmp = mult2_1(B,rand_number);
     tmp2 = expo1(A+tmp);

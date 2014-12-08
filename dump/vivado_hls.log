@@ -6,7 +6,7 @@
 ================================================================
 @I [LIC-101] Checked out feature [HLS]
 @I [HLS-10] Running '/opt/xilinx/Vivado_HLS/2014.2/bin/unwrapped/lnx64.o/vivado_hls'
-            for user 'vff6' on host 'amdpool-02' (Linux_x86_64 version 2.6.18-371.8.1.el5) on Sun Dec 07 20:18:06 EST 2014
+            for user 'vff6' on host 'amdpool-02' (Linux_x86_64 version 2.6.18-371.8.1.el5) on Sun Dec 07 22:03:55 EST 2014
             in directory '/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/dump'
 @I [HLS-10] Creating and opening project '/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/dump/hls.prj'.
 @I [HLS-10] Adding design file 'black_scholes.c' to the project
@@ -21,44 +21,19 @@
 @I [HLS-10] Validating synthesis directives ...
 @I [HLS-10] Starting code transformations ...
 @I [HLS-10] Checking synthesizability ...
-@I [XFORM-502] Unrolling all loops for pipelining in function 'gaussrand2' (gaussian.c:17).
-@W [XFORM-503] Cannot unroll loop 'Loop-1' (gaussian.c:32) in function 'gaussrand2' completely: variable loop bound.
-@I [XFORM-602] Inlining function 'mod_N' into 'rand_uint32' (mt19937ar.c:151) automatically.
-@I [XFORM-602] Inlining function 'mod_N_p1' into 'rand_uint32' (mt19937ar.c:152) automatically.
-@I [XFORM-602] Inlining function 'mod_N_pm' into 'rand_uint32' (mt19937ar.c:153) automatically.
-@I [XFORM-602] Inlining function 'gaussrand2' into 'black_scholes' (black_scholes.c:63) automatically.
-@I [XFORM-602] Inlining function 'mult2_1' into 'black_scholes' (black_scholes.c:65) automatically.
-@I [XFORM-602] Inlining function 'expo1' into 'black_scholes' (black_scholes.c:66) automatically.
-@I [ANALYSIS-51] Setting 'None' inter dependency for variable 'mt_kk' in region (mt19937ar.c:97).
-@I [ANALYSIS-51] Setting 'None' inter dependency for variable 'mt_kkp1' in region (mt19937ar.c:97).
-@I [ANALYSIS-51] Setting 'None' inter dependency for variable 'mt_kkpm' in region (mt19937ar.c:97).
-@I [HLS-111] Elapsed time: 2.32 seconds; current memory usage: 58.2 MB.
+@I [XFORM-602] Inlining function 'mult2_1' into 'black_scholes' (black_scholes.c:64) automatically.
+@I [XFORM-602] Inlining function 'expo1' into 'black_scholes' (black_scholes.c:65) automatically.
+@I [HLS-111] Elapsed time: 1.69 seconds; current memory usage: 47.3 MB.
 @I [HLS-10] Starting hardware synthesis ...
 @I [HLS-10] Synthesizing 'black_scholes' ...
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Scheduling module 'black_scholes_rand_uint32' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [SCHED-11] Starting scheduling ...
-@I [SCHED-61] Pipelining function 'black_scholes_rand_uint32'.
-@I [SCHED-61] Pipelining result: Target II: 1, Final II: 1, Depth: 3.
-@I [SCHED-11] Finished scheduling.
-@I [HLS-111] Elapsed time: 0.14 seconds; current memory usage: 58.5 MB.
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Exploring micro-architecture for module 'black_scholes_rand_uint32' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [BIND-100] Starting micro-architecture generation ...
-@I [BIND-101] Performing variable lifetime analysis.
-@I [BIND-101] Exploring resource sharing.
-@I [BIND-101] Binding ...
-@I [BIND-100] Finished micro-architecture generation.
-@I [HLS-111] Elapsed time: 0.05 seconds; current memory usage: 58.9 MB.
 @I [HLS-10] ----------------------------------------------------------------
 @I [HLS-10] -- Scheduling module 'black_scholes' 
 @I [HLS-10] ----------------------------------------------------------------
 @I [SCHED-11] Starting scheduling ...
-@W [SCHED-65] Unable to satisfy pipeline directive: Function contains subloop(s) not being unrolled.
+@I [SCHED-61] Pipelining function 'black_scholes'.
+@I [SCHED-61] Pipelining result: Target II: 1, Final II: 1, Depth: 49.
 @I [SCHED-11] Finished scheduling.
-@I [HLS-111] Elapsed time: 0.24 seconds; current memory usage: 60.1 MB.
+@I [HLS-111] Elapsed time: 0.08 seconds; current memory usage: 47.8 MB.
 @I [HLS-10] ----------------------------------------------------------------
 @I [HLS-10] -- Exploring micro-architecture for module 'black_scholes' 
 @I [HLS-10] ----------------------------------------------------------------
@@ -67,12 +42,7 @@
 @I [BIND-101] Exploring resource sharing.
 @I [BIND-101] Binding ...
 @I [BIND-100] Finished micro-architecture generation.
-@I [HLS-111] Elapsed time: 0.25 seconds; current memory usage: 61.6 MB.
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Generating RTL for module 'black_scholes_rand_uint32' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [RTGEN-100] Finished creating RTL model for 'black_scholes_rand_uint32'.
-@I [HLS-111] Elapsed time: 0.15 seconds; current memory usage: 62.1 MB.
+@I [HLS-111] Elapsed time: 0.02 seconds; current memory usage: 48.1 MB.
 @I [HLS-10] ----------------------------------------------------------------
 @I [HLS-10] -- Generating RTL for module 'black_scholes' 
 @I [HLS-10] ----------------------------------------------------------------
@@ -81,31 +51,18 @@
 @I [RTGEN-500] Setting interface mode on port 'black_scholes/A' to 'ap_none'.
 @I [RTGEN-500] Setting interface mode on port 'black_scholes/B' to 'ap_none'.
 @I [RTGEN-500] Setting interface mode on port 'black_scholes/rT' to 'ap_none'.
-@I [RTGEN-500] Setting interface mode on port 'black_scholes/gaussrand_state_V1' to 'ap_none'.
-@I [RTGEN-500] Setting interface mode on port 'black_scholes/gaussrand_state_V2' to 'ap_none'.
-@I [RTGEN-500] Setting interface mode on port 'black_scholes/gaussrand_state_S' to 'ap_none'.
-@I [RTGEN-500] Setting interface mode on port 'black_scholes/gaussrand_state_phase' to 'ap_none'.
+@I [RTGEN-500] Setting interface mode on port 'black_scholes/rand_number' to 'ap_none'.
 @I [RTGEN-500] Setting interface mode on function 'black_scholes' to 'ap_ctrl_hs'.
-@W [RTGEN-101] Global scalar 'kk' will not be exposed as RTL port.
-@W [RTGEN-101] Global scalar 'kk_p1' will not be exposed as RTL port.
-@W [RTGEN-101] Global scalar 'kk_pm' will not be exposed as RTL port.
-@W [RTGEN-101] Port 'black_scholes/gaussrand_state_V1' has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to.
 @I [RTGEN-100] Generating core module 'black_scholes_dadd_64ns_64ns_64_5_full_dsp': 1 instance(s).
-@I [RTGEN-100] Generating core module 'black_scholes_dadddsub_64ns_64ns_64_5_full_dsp': 1 instance(s).
-@I [RTGEN-100] Generating core module 'black_scholes_dcmp_64ns_64ns_1_3': 2 instance(s).
-@I [RTGEN-100] Generating core module 'black_scholes_ddiv_64ns_64ns_64_31': 1 instance(s).
+@I [RTGEN-100] Generating core module 'black_scholes_dcmp_64ns_64ns_1_3': 1 instance(s).
 @I [RTGEN-100] Generating core module 'black_scholes_dexp_64ns_64ns_64_18_full_dsp': 1 instance(s).
-@I [RTGEN-100] Generating core module 'black_scholes_dlog_64ns_64ns_64_31_full_dsp': 1 instance(s).
-@I [RTGEN-100] Generating core module 'black_scholes_dmul_64ns_64ns_64_6_max_dsp': 2 instance(s).
-@I [RTGEN-100] Generating core module 'black_scholes_dsqrt_64ns_64ns_64_31': 1 instance(s).
-@I [RTGEN-100] Generating core module 'black_scholes_uitodp_64ns_64_6': 2 instance(s).
+@I [RTGEN-100] Generating core module 'black_scholes_dmul_64ns_64ns_64_6_max_dsp': 3 instance(s).
+@I [RTGEN-100] Generating core module 'black_scholes_dsub_64ns_64ns_64_5_full_dsp': 1 instance(s).
 @I [RTGEN-100] Finished creating RTL model for 'black_scholes'.
-@I [HLS-111] Elapsed time: 0.26 seconds; current memory usage: 64.7 MB.
-@I [RTMG-278] Implementing memory 'black_scholes_rand_uint32_mt_kk_ram' using block RAMs with power-on initialization.
+@I [HLS-111] Elapsed time: 0.1 seconds; current memory usage: 48.9 MB.
 @I [HLS-10] Finished generating all RTL models.
 @I [WSYSC-301] Generating RTL SystemC for 'black_scholes'.
 @I [WVHDL-304] Generating RTL VHDL for 'black_scholes'.
 @I [WVLOG-307] Generating RTL Verilog for 'black_scholes'.
-@I [HLS-112] Total elapsed time: 72.944 seconds; peak memory usage: 64.7 MB.
+@I [HLS-112] Total elapsed time: 71.337 seconds; peak memory usage: 48.9 MB.
 @I [LIC-101] Checked in feature [HLS]

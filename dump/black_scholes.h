@@ -52,7 +52,7 @@ black_scholes (
         const double A,
         const double B,
         const double rT,
-        gaussrand_state_t gaussrand_state
+        const double rand_number
         );
 
 
