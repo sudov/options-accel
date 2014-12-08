@@ -48,7 +48,11 @@
 static unsigned long mt[N]; /* the array for the state vector  */
 static int mti=N+1; /* mti==N+1 means mt[N] is not initialized */
 
+// Random generator - Initiate state array for generator
 void init_by_array(unsigned long init_key[], int key_length);
 
-// new random generator
+// Random generator - Shadow states
+void shadow_state();
+
+// Random generator - Get New Random Number
 uint32 rand_uint32();

@@ -45,18 +45,7 @@
  * @note You might need to modify the signature of this function.
  */
 double
-black_scholes2 (
-         const double S,
-         const double E,
-         const double r,
-         const double sigma,
-         const double T,
-         const double gaussian_random_number,
-         const double rT
-		 );
-
-double
-black_scholes3 (
+black_scholes (
         const double S,
         const double E,
         const double A,

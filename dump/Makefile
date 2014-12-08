@@ -1,9 +1,5 @@
+# 
 # Makefile
-# For CS194-2 fall 2007, Homework 1 (Monte Carlo)
-#
-#
-#
-# Include platform-dependent settings.
 #
 include Makefile.include
 
@@ -17,8 +13,8 @@ include Makefile.include
 
 LDFLAGS += -Ldcmt0.4/lib -ldcmt
 
-HW1_INCS = black_scholes2.h gaussian.h parser.h mt19937ar.h timer.h util.h
-HW1_C_SRCS = black_scholes2.c gaussian.c main.c parser.c mt19937ar.c dcmt0.4/lib/random_seed.c timer.c util.c
+HW1_INCS = black_scholes.h gaussian.h parser.h mt19937ar.h timer.h util.h
+HW1_C_SRCS = black_scholes.c gaussian.c main.c parser.c mt19937ar.c dcmt0.4/lib/random_seed.c timer.c util.c
 HW1_C_OBJS = $(HW1_C_SRCS:.c=.o)
 HW1_EXE = hw1.x
 
@@ -35,11 +31,11 @@ hw1.x: $(HW1_C_OBJS) dcmt0.4/lib/libdcmt.a
 dcmt0.4/lib/libdcmt.a: 
 	make -C dcmt0.4/lib
 
-black_scholes2.o: black_scholes2.c black_scholes2.h  gaussian.h mt19937ar.h util.h
+black_scholes.o: black_scholes.c black_scholes.h  gaussian.h mt19937ar.h util.h
 
 gaussian.o: gaussian.c gaussian.h util.h
 
-main.o: main.c black_scholes2.h parser.h mt19937ar.h timer.h
+main.o: main.c black_scholes.h parser.h mt19937ar.h timer.h
 
 parser.o: parser.c parser.h
 

@@ -1,4 +1,3 @@
-
 #define N 624
 #define M 397
 #define Mm 1000
@@ -8,14 +7,15 @@
 #define KNUTH 1812433253UL
 #define K1 0x9d2c5680UL
 #define K2 0xefc60000UL
-
 #define uint32 unsigned long
 #define uint10 unsigned short
 
-uint32 mt_kk[N]; /* the array for the state vector  */
-uint32 mt_kkp1[N];
+static uint32 mt_kk[N]; /* the array for the state vector  */
+static uint32 mt_kkp1[N];
 static uint32 mt_kkpm[N];
 static int mti=N+1; /* mti==N+1 means mt[N] is not initialized */
+
+/* initialize three counters */
 uint10 kk = 0;
 uint10 kk_p1 = 1;
 uint10 kk_pm = M;
@@ -62,19 +62,31 @@ void init_by_array(unsigned long init_key[], int key_length)
         if (i>=N) { mt_kk[0] = mt_kk[N-1]; i=1; }
     }
 
-    mt_kk[0] = 0x80000000UL; /* MSB is 1; assuring non-zero initial array */ 
+    mt_kk[0] = 0x80000000UL; /* MSB is 1; assuring non-zero initial array */
+
+    // uint32 tmp; 
+
+    // // Manually shadow the state
+    // for(i = 0; i < N; i++) {
+    // 	#pragma HLS unroll
+    // 	tmp = mt_kk[i];
+    // 	mt_kkp1[i] = tmp;
+    // 	mt_kkpm[i] = tmp;
+    // } 
 }
 
-/*
- * Initializes the random number generator with a seed 
- */
-void srand_uint32(uint32 seed, uint32 *mt_kk)
-{
+/* shadow state */
+void shadow_state() {
+	uint32 tmp;
 	uint10 i;
 
-	mt_kk[0] = seed & 0xffffffff;
-	for(i=1;i<N;i++)
-		mt_kk[i] = (KNUTH * (mt_kk[i-1] ^ (mt_kk[i-1] >> 30)) + (uint32)i);
+	// Manually shadow the state 
+	for(i = 0; i < N; i++) {
+		#pragma HLS unroll
+		tmp = mt_kk[i];
+		mt_kkp1[i] = tmp;
+		mt_kkpm[i] = tmp;
+	}
 }
 
 /* 
@@ -88,42 +100,20 @@ uint10 mod_N(uint10 a)
 		return a;	
 }
 
-uint32 new_rand_function() 
-{	
-	/* 
-	 * Generate numbers until the close register tells us to stop.
-	 * This register must be set to 1 before sending the go signal.
-	 */
-	int i;
-	uint32 mag01, y, mt_kk_new;
+uint10 mod_N_p1(uint10 a)
+{
+	if(a > N-1)
+		return a-N;
+	else
+		return a;	
+}
 
-	loop1: for (i = 0; i < 1; i++) {
-		#pragma HLS pipeline II=1
-		#pragma HLS dependence array false
-		
-		/* Mersenne twister state update */
-		y = (mt_kk[kk] & UPPER_MASK) | (mt_kkp1[kk_p1] & LOWER_MASK);
-		mag01 = (y&0x1UL)==0 ? 0 : MATRIX_A;
-		mt_kk_new = mt_kkpm[kk_pm] ^ (y >> 1) ^ mag01;
-
-		/* update the state, note the manual shadowing */
-		mt_kk[kk]     = mt_kk_new;
-		mt_kkp1[kk_p1] = mt_kk_new;
-		mt_kkpm[kk_pm] = mt_kk_new;
-
-		/* tempering */
-		y = mt_kk_new;
-		y ^= (y >> 11);
-		y ^= (y << 7) & K1;
-		y ^= (y << 15) & K2;
-		y ^= (y >> 18);
-
-		/* update the counters */
-		kk    = mod_N(kk+1);
-		kk_p1 = mod_N(kk_p1+1);
-		kk_pm = mod_N(kk_pm+1);
-	}	
-	return y;
+uint10 mod_N_pm(uint10 a)
+{
+	if(a > N-1)
+		return a-N;
+	else
+		return a;	
 }
 
 /*
@@ -131,32 +121,36 @@ uint32 new_rand_function()
  */
 uint32 rand_uint32()
 {
-	/* manually shadow the state table */
-	uint32 result, tmp; 
-  	// uint32 seed; 
-	// uint32 mt_kk[N];
-	// uint32 mt_kkp1[N];
-	// uint32 mt_kkpm[N];
-	// uint32 mag01;
-	uint10 i;
-    
-	/* Initialize the random number generator with a seed */
-	// srand_uint32(seed, mt_kk);
-
-	/* Manually shadow the state */
-	for(i = 0; i < N; i++) {
-		tmp = mt_kk[i];
-		mt_kkp1[i] = tmp;
-		mt_kkpm[i] = tmp;
-	}
-
-	/* initialize three counters */
-	// kk    = 0;
-	// kk_p1 = 1;
-	// kk_pm = M;
-
-	// *result = new_rand_function(y, mt_kk, mt_kkp1, mt_kkpm, mag01, mt_kk_new, kk, kk_p1, kk_pm);
-	result = new_rand_function();
+	/* 
+	 * Generate numbers until the close register tells us to stop.
+	 * This register must be set to 1 before sending the go signal.
+	 */
+	#pragma HLS pipeline II=1
+	#pragma HLS dependence array inter false
 	
-	return result;
+	uint32 mag01, y, mt_kk_new;
+
+	/* Mersenne twister state update */
+	y = (mt_kk[kk] & UPPER_MASK) | (mt_kkp1[kk_p1] & LOWER_MASK);
+	mag01 = (y&0x1UL)==0 ? 0 : MATRIX_A;
+	mt_kk_new = mt_kkpm[kk_pm] ^ (y >> 1) ^ mag01;
+
+	/* update the state, note the manual shadowing */
+	mt_kk[kk]     = mt_kk_new;
+	mt_kkp1[kk_p1] = mt_kk_new;
+	mt_kkpm[kk_pm] = mt_kk_new;
+
+	/* tempering */
+	y = mt_kk_new;
+	y ^= (y >> 11);
+	y ^= (y << 7) & K1;
+	y ^= (y << 15) & K2;
+	y ^= (y >> 18);
+
+	/* update the counters */
+	kk    = mod_N(kk+1);
+	kk_p1 = mod_N_p1(kk_p1+1);
+	kk_pm = mod_N_pm(kk_pm+1);
+	
+	return y;
 }

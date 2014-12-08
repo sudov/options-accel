@@ -1,4 +1,4 @@
-#include "black_scholes2.h"
+#include "black_scholes.h"
 #include "gaussian.h"
 
 #include "parser.h"
@@ -17,19 +17,9 @@
  * a data file in the current directory containing the parameters
  * for the Black-Scholes simulation.  It has exactly six lines 
  * with no white space.  Put each parameter one to a line, with
- * an endline after it.  Here are the parameters:
+ * an endline after it.  Here are the parameters: S, E, r, sigma, T, M
  *
- * S
- * E
- * r
- * sigma
- * T
- * M
- *
- * <nthreads> (don't include the angle brackets) is the number of
- * worker threads to use at a time in the benchmark.  The sequential
- * code which we supply to you doesn't use this argument; your code
- * will.
+ * <nthreads> 1 by default
  */
 
 int
@@ -39,11 +29,7 @@ main (int argc, char* argv[])
   double S, E, r, sigma, T;
   int M = 0;
   char* filename = NULL;
-  int nthreads = 1;
-  double t1, t2;
-  
-
-  //------Design 2
+  int nthreads = 1;  
   int i;
 
   if (argc < 3)
@@ -53,7 +39,6 @@ main (int argc, char* argv[])
       exit (EXIT_FAILURE);
     }
   filename = argv[1];
-//  nthreads = to_int (argv[2]);
   parse_parameters (&S, &E, &r, &sigma, &T, &M, filename);
 
 
@@ -67,10 +52,10 @@ main (int argc, char* argv[])
   double sqrt_T;
   double rT;
 
+  double A, B, C;
+  double time_sum_runs, time_average_runs, time_sum_bs, time_avg_bs;
+  double t1[M], t2[M];
 
-  double A;
-  double B;
-  double C;
 
   gaussrand_state_t gaussrand_state;
   // Init mt19937ar random number generator
@@ -83,31 +68,31 @@ main (int argc, char* argv[])
    * before all the other threads run!
    */
   init_timer ();
-
-  /* Same goes for initializing the PRNG */
-  //init_prng (random_seed ());
-
   /*
    * Run the benchmark and time it.
    */
    
-//---------------------  Design 1   -------------------------------
-  
-  //sqrt_T = sqrt(T);
+  //------------------------  Design 1   -------------------------------
   rT = exp(-r*T);
   A = (r - (sigma*sigma) / 2.0) * T;
   B = sigma * sqrt (T);
 
-  t1 = get_seconds ();
-
   for(i = 0;i<M;i++){
+    shadow_state();
+    t1[i] = get_seconds();
     rand_number = gaussrand2(&gaussrand_state);
-    printf("rand_number is %d\n", rand_number);
-    store[i] = black_scholes3 (S, E, A,B,rT, rand_number);
+    store[i] = black_scholes (S, E, A,B,rT, rand_number);
     sum += store[i];
+    t2[i] = get_seconds();
+  }
+  //---------------------  End of Design 1   ----------------------------
+
+  // Calculating latencies per run and for total experiment
+  for (i = 0; i < M; i++) {
+    time_sum_runs += t2[i] - t1[i];
   }
 
-  t2 = get_seconds ();
+  time_average_runs = time_sum_runs/M;
 
   if(M==0){
     printf("Divide by 0\n");
@@ -139,7 +124,9 @@ main (int argc, char* argv[])
 	  "M        %d\n",
 	  S, E, r, sigma, T, M);
   printf ("Confidence interval: (%g, %g)\n", mean-conf_width, mean+conf_width);
-  printf ("Total simulation time: %g seconds\n", t2 - t1);
+  
+  printf ("Total simulation time: %g seconds\n", time_sum_runs);
+  printf ("Avg time per valuation: %g seconds\n", time_average_runs);
 
   return 0;
 }

@@ -1,4 +1,4 @@
-#include "black_scholes2.h"
+#include "black_scholes.h"
 #include "gaussian.h"
 #include "util.h"
 
@@ -45,58 +45,8 @@ double sqrt1(double a){
   return sqrt(a);
 }
 
-
 double
-black_scholes2 (
-         const double S,
-         const double E,
-         const double r,
-         const double sigma,
-         const double T,
-         const double gaussian_random_number,
-         const double rT
-         )
-{
-    #pragma HLS dataflow
-    #pragma HLS pipeline
-    double current_value;
-    double mydata;
-    double tmp;
-    double tmp2;
-    double tmp3;
-    double tmp4;
-    double tmp5;
-    double tmp6;
-
-    tmp = mult2_1(sigma,sigma);
-    tmp = div_1(tmp,2.0);
-
-    //tmp = expo1(r-tmp);
-    tmp = mult2_1(r-tmp,T);
-    tmp2 = mult2_2(sigma, gaussian_random_number);
-    //tmp3 = sqrt1(T);
-    tmp2 = mult2_3(tmp2,T);
-    tmp3 = tmp + tmp2;
-    tmp3 = expo1(tmp3);
-    tmp3 = mult2_1(tmp3,S);
-
-
-    tmp4 = rT;//expo1(-r*T);
-    tmp4 = tmp4*((tmp3 - E < 0.0) ? 0.0 : tmp3 - E);
-
-    //current_value = S * expo1 ( (r - (sigma*sigma) / 2.0) * T + sigma * sqrt (T) * gaussian_random_number );
-    //mydata = expo1(-r * T) * ((current_value - E < 0.0) ? 0.0 : current_value - E);
-
-    //return mydata;
-    return tmp4;
-}
-
-
-
-
-
-double
-black_scholes3 (
+black_scholes (
         const double S,
         const double E,
         const double A,
@@ -105,7 +55,6 @@ black_scholes3 (
         const double result
         )
 {
-//    #pragma HLS dataflow
     #pragma HLS pipeline II=1
     double tmp;
     double tmp2;
@@ -116,9 +65,6 @@ black_scholes3 (
     tmp2 = expo1(A+tmp);
     tmp3 = S*tmp2;
     tmp4 = rT*((tmp3 - E < 0.0) ? 0.0 : tmp3 - E);
-
-    //current_value = S * expo1 ( (r - (sigma*sigma) / 2.0) * T + sigma * sqrt (T) * gaussian_random_number );
-    //mydata = expo1(-r * T) * ((current_value - E < 0.0) ? 0.0 : current_value - E);
 
     return tmp4;
 }
