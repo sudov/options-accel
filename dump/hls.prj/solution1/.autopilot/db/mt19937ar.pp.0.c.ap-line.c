@@ -275,6 +275,7 @@ void shadow_state() {
 /* 
  * Computes a mod N assuming a is in [0, 2N)
  */
+// First Set of Mods
 unsigned short mod_N(unsigned short a)
 {
  if(a > 624 -1)

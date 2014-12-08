@@ -3454,18 +3454,6 @@ unsigned long rand_uint32();
 # 4 "gaussian.c" 2
 
 
-void
-init_gaussrand_state (gaussrand_state_t* state)
-{
-  if(state==((void*)0)){
-   printf("init gauss error\n");
-  }
-  state->V1 = 0.0;
-  state->V2 = 0.0;
-  state->S = 0.0;
-  state->phase = 0;
-}
-
 double gaussrand2 (gaussrand_state_t* gaussrand_state)
 {
   /*
@@ -3484,25 +3472,20 @@ _ssdm_op_SpecPipeline(1, 1, 1, 0, "");
       double V1, V2, S;
       int i;
 
-
       S = 0.0;
-      for (i = 0; i < 10; i++) {_ssdm_RegionBegin("hls_label_0");
-_ssdm_Unroll(0,0,0, "");
-_ssdm_SpecDependence( a1, 0, 0, -1, 0, 1);
-_ssdm_SpecDependence( b1, 0, 0, -1, 0, 1);
-_ssdm_SpecDependence( a2, 0, 0, -1, 0, 1);
-_ssdm_SpecDependence( b2, 0, 0, -1, 0, 1);
+      for (i = 0; i < 10; i++) {
+        if (S >= 1 || S == 0) {
+          a1 = rand_uint32()>>5;
+          b1 = rand_uint32()>>6;
+          double temp_U1 = (a1*67108864.0+b1);
+          const double U1 = 0.25;
+          // const double U1 = (a1*67108864.0+b1)*(1.0/9007199254740992.0);
 
- if (S >= 1 || S == 0) {
-          a1=rand_uint32()>>5;
-          b1=a1>>1;
-          // b1=rand_uint32()>>6;
-          const double U1 = (a1*67108864.0+b1)*(1.0/9007199254740992.0);
-
-          a2=rand_uint32()>>5;
-          b2=a2>>1;
-          // b2=rand_uint32()>>6; 
-          const double U2 = (a2*67108864.0+b2)*(1.0/9007199254740992.0);
+          a2 = rand_uint32()>>5;
+          b2 = rand_uint32()>>6;
+          double temp_U2 = (a2*67108864.0+b2);
+          const double U2 = 0.75;
+          // const double U2 = (a2*67108864.0+b2)*(1.0/9007199254740992.0);
 
           V1 = 2 * U1 - 1;
           V2 = 2 * U2 - 1;
@@ -3510,16 +3493,7 @@ _ssdm_SpecDependence( b2, 0, 0, -1, 0, 1);
         } else {
           break;
         }
-      _ssdm_RegionEnd("hls_label_0");}
-      // do {
-      //   unsigned long a=rand_uint32()>>5, b=rand_uint32()>>6;
-      //   const double U1 = (a*67108864.0+b)*(1.0/9007199254740992.0);
-      //   a=rand_uint32()>>5, b=rand_uint32()>>6; 
-      //   const double U2 = (a*67108864.0+b)*(1.0/9007199254740992.0);
-      //     V1 = 2 * U1 - 1;
-      //     V2 = 2 * U2 - 1;
-      //     S = V1 * V1 + V2 * V2;
-      // } while (S >= 1 || S == 0);
+      }
       /* 
        * Save (pack) the state.  Note that we never needed to unpack
        * it, because the above DO loop is guaranteed to run at least
@@ -3529,7 +3503,7 @@ _ssdm_SpecDependence( b2, 0, 0, -1, 0, 1);
       gaussrand_state->V1 = V1;
       gaussrand_state->V2 = V2;
 
-      X = V1 * sqrt (-2.0 * log (S) / S);
+      X = V1 * sqrtf (-2.0 * logf (S) / S);
     }
   else /* phase == 1 */
     {
@@ -3537,7 +3511,7 @@ _ssdm_SpecDependence( b2, 0, 0, -1, 0, 1);
       const double S = gaussrand_state->S;
       const double V2 = gaussrand_state->V2;
 
-      X = V2 * sqrt (-2.0 * log (S) / S);
+      X = V2 * sqrtf (-2.0 * logf (S) / S);
     }
 
   /* Modify and pack the "phase" state */

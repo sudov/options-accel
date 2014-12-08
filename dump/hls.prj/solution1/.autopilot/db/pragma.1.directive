@@ -5,36 +5,5 @@
 <option name="II" value="1"/>
 </pragma>
 </directive>
-<directive functionLabel="" functionName="gaussrand2" label="">
-<pragma name="UNROLL"/>
-</directive>
-<directive functionLabel="" functionName="gaussrand2" label="">
-<pragma name="DEPENDENCE">
-<option name="variable" value="a1"/>
-<option name="inter" positionalBoolean="type" value=""/>
-<option name="false" positionalBoolean="dependent" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="gaussrand2" label="">
-<pragma name="DEPENDENCE">
-<option name="variable" value="b1"/>
-<option name="inter" positionalBoolean="type" value=""/>
-<option name="false" positionalBoolean="dependent" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="gaussrand2" label="">
-<pragma name="DEPENDENCE">
-<option name="variable" value="a2"/>
-<option name="inter" positionalBoolean="type" value=""/>
-<option name="false" positionalBoolean="dependent" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="gaussrand2" label="">
-<pragma name="DEPENDENCE">
-<option name="variable" value="b2"/>
-<option name="inter" positionalBoolean="type" value=""/>
-<option name="false" positionalBoolean="dependent" value=""/>
-</pragma>
-</directive>
 </sourceFile>
 </AutoPilot:ProjectResources>

@@ -92,6 +92,7 @@ void shadow_state() {
 /* 
  * Computes a mod N assuming a is in [0, 2N)
  */
+// First Set of Mods
 uint10 mod_N(uint10 a)
 {
 	if(a > N-1)

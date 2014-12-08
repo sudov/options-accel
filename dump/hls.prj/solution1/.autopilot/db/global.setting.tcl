@@ -1,5 +1,5 @@
 
-set TopModule "black_scholes"
+set TopModule "gaussrand2"
 set ClockPeriod "10.000000"
 set ClockList {ap_clk}
 set multiClockList {}

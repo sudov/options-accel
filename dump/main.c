@@ -21,6 +21,17 @@
  *
  * <nthreads> 1 by default
  */
+void
+init_gaussrand_state (gaussrand_state_t* state)
+{
+ if(state==NULL){
+  printf("init gauss error\n");
+ }
+ state->V1 = 0.0;
+ state->V2 = 0.0;
+ state->S = 0.0;
+ state->phase = 0;
+}
 
 int
 main (int argc, char* argv[])

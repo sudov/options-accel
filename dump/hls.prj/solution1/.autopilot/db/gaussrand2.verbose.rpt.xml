@@ -1,0 +1,160 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'gaussrand2'" level="0">
+<item name = "Date">Mon Dec  8 18:02:54 2014
+</item>
+<item name = "Version">2014.2 (Build 932637 on Wed Jun 11 12:38:34 PM 2014)</item>
+<item name = "Project">hls.prj</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynq zynq_fpv6 </item>
+<item name = "Target device">xc7z020clg484-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="default">10.00, 8.62, 1.25</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">80, 80, 12, 12, function</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_gaussrand2_rand_uint32_fu_119">gaussrand2_rand_uint32, 2, 2, 1, 1, function</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="Expression">-, -, 0, 72</column>
+<column name="FIFO">-, -, -, -</column>
+<column name="Instance">12, 24, 4768, 6290</column>
+<column name="Memory">-, -, -, -</column>
+<column name="Multiplexer">-, -, -, 449</column>
+<column name="Register">-, -, 610, 129</column>
+<specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
+<specialColumn name="Utilization (%)">4, 10, 5, 13</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="gaussrand2_ddiv_64ns_64ns_64_31_U7">gaussrand2_ddiv_64ns_64ns_64_31, 0, 0, 3211, 3658</column>
+<column name="gaussrand2_dmul_64ns_64ns_64_6_max_dsp_U6">gaussrand2_dmul_64ns_64ns_64_6_max_dsp, 0, 11, 317, 578</column>
+<column name="gaussrand2_flog_32ns_32ns_32_13_full_dsp_U5">gaussrand2_flog_32ns_32ns_32_13_full_dsp, 0, 13, 485, 614</column>
+<column name="gaussrand2_fpext_32ns_64_3_U3">gaussrand2_fpext_32ns_64_3, 0, 0, 100, 138</column>
+<column name="gaussrand2_fptrunc_64ns_32_3_U2">gaussrand2_fptrunc_64ns_32_3, 0, 0, 128, 277</column>
+<column name="gaussrand2_fsqrt_32ns_32ns_32_12_U4">gaussrand2_fsqrt_32ns_32ns_32_12, 0, 0, 405, 615</column>
+<column name="grp_gaussrand2_rand_uint32_fu_119">gaussrand2_rand_uint32, 12, 0, 122, 410</column>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="9">Memory, Module, BRAM_18K, FF, LUT, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="7">Name, BRAM_18K, FF, LUT, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="gaussrand_state_phase_o">-, 0, 0, 32, 1, 32</column>
+<column name="tmp_fu_161_p2">icmp, 0, 0, 40, 32, 1</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="X2_phi_fu_111_p4">64, 2, 64, 128</column>
+<column name="ap_NS_fsm">12, 13, 4, 52</column>
+<column name="ap_reg_phiprechg_X2_reg_107pp0_it6">21, 2, 21, 42</column>
+<column name="gaussrand_state_S_o">64, 2, 64, 128</column>
+<column name="gaussrand_state_V2_o">64, 2, 64, 128</column>
+<column name="grp_fu_135_p0">64, 3, 64, 192</column>
+<column name="grp_fu_139_p0">32, 3, 32, 96</column>
+<column name="grp_fu_152_p0">64, 3, 64, 192</column>
+<column name="grp_fu_152_p1">64, 3, 64, 192</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="S_reg_178">64, 0, 64, 0</column>
+<column name="V2_reg_189">64, 0, 64, 0</column>
+<column name="X_reg_229">64, 0, 64, 0</column>
+<column name="ap_CS_fsm">4, 0, 4, 0</column>
+<column name="ap_reg_phiprechg_X2_reg_107pp0_it6">21, 0, 64, 43</column>
+<column name="ap_reg_ppiten_pp0_it0_preg">1, 0, 1, 0</column>
+<column name="ap_reg_ppiten_pp0_it1">1, 0, 1, 0</column>
+<column name="ap_reg_ppiten_pp0_it2">1, 0, 1, 0</column>
+<column name="ap_reg_ppiten_pp0_it3">1, 0, 1, 0</column>
+<column name="ap_reg_ppiten_pp0_it4">1, 0, 1, 0</column>
+<column name="ap_reg_ppiten_pp0_it5">1, 0, 1, 0</column>
+<column name="ap_reg_ppiten_pp0_it6">1, 0, 1, 0</column>
+<column name="grp_gaussrand2_rand_uint32_fu_119_ap_start_ap_start_reg">1, 0, 1, 0</column>
+<column name="tmp_1_reg_224">64, 0, 64, 0</column>
+<column name="tmp_4_reg_194">32, 0, 32, 0</column>
+<column name="tmp_5_reg_199">64, 0, 64, 0</column>
+<column name="tmp_6_reg_204">64, 0, 64, 0</column>
+<column name="tmp_7_reg_209">64, 0, 64, 0</column>
+<column name="tmp_8_reg_214">32, 0, 32, 0</column>
+<column name="tmp_9_reg_219">32, 0, 32, 0</column>
+<column name="tmp_reg_174">1, 0, 1, 0</column>
+<column name="tmp_s_reg_184">32, 0, 32, 0</column>
+<column name="S_reg_178">0, 64, 64, 0</column>
+<column name="V2_reg_189">0, 64, 64, 0</column>
+<column name="tmp_reg_174">0, 1, 1, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, gaussrand2, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, gaussrand2, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, gaussrand2, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, gaussrand2, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, gaussrand2, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, gaussrand2, return value</column>
+<column name="ap_return">out, 64, ap_ctrl_hs, gaussrand2, return value</column>
+<column name="gaussrand_state_V1">out, 64, ap_vld, gaussrand_state_V1, pointer</column>
+<column name="gaussrand_state_V1_ap_vld">out, 1, ap_vld, gaussrand_state_V1, pointer</column>
+<column name="gaussrand_state_V2_i">in, 64, ap_ovld, gaussrand_state_V2, pointer</column>
+<column name="gaussrand_state_V2_o">out, 64, ap_ovld, gaussrand_state_V2, pointer</column>
+<column name="gaussrand_state_V2_o_ap_vld">out, 1, ap_ovld, gaussrand_state_V2, pointer</column>
+<column name="gaussrand_state_V2_o_ap_lwr">out, 1, ap_ovld, gaussrand_state_V2, pointer</column>
+<column name="gaussrand_state_S_i">in, 64, ap_ovld, gaussrand_state_S, pointer</column>
+<column name="gaussrand_state_S_o">out, 64, ap_ovld, gaussrand_state_S, pointer</column>
+<column name="gaussrand_state_S_o_ap_vld">out, 1, ap_ovld, gaussrand_state_S, pointer</column>
+<column name="gaussrand_state_S_o_ap_lwr">out, 1, ap_ovld, gaussrand_state_S, pointer</column>
+<column name="gaussrand_state_phase_i">in, 32, ap_ovld, gaussrand_state_phase, pointer</column>
+<column name="gaussrand_state_phase_o">out, 32, ap_ovld, gaussrand_state_phase, pointer</column>
+<column name="gaussrand_state_phase_o_ap_vld">out, 1, ap_ovld, gaussrand_state_phase, pointer</column>
+<column name="gaussrand_state_phase_o_ap_lwr">out, 1, ap_ovld, gaussrand_state_phase, pointer</column>
+</table>
+</item>
+</section>
+</profile>
