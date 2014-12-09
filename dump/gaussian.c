@@ -3,6 +3,32 @@
 #include "mt19937ar.h"
 #define max_iter 10
 
+#define NUM_INPUTS 20000
+#define NUM_PASSES 50
+#define RAND ((double)rand()/RAND_MAX)
+#define PI 3.14159265358979323846  /* pi */
+
+double CND(double X)
+{
+  double K, w;
+  double a1 = 0.31938153; 
+  double a2 = -0.356563782;
+  double a3 = 1.781477937;
+  double a4 = -1.821255978;
+  double a5 = 1.330274429;
+
+  K = 1.0 / (1.0 + 0.2316419 * fabs(X));
+  w = 1.0 / sqrt(2.0 * PI) * 
+            exp(-(X*X) / 2) * 
+           (a1*K + 
+      a2*K*K + 
+      a3*pow(K,3) + 
+      a4*pow(K,4) + 
+      a5*pow(K,5));
+
+  return (X < 0.0) ? w : 0.95 - w; 
+}
+
 double gaussrand2 (gaussrand_state_t* gaussrand_state)
 {
   /*
@@ -19,7 +45,7 @@ double gaussrand2 (gaussrand_state_t* gaussrand_state)
   if (phase == 0) 
     {
       double V1, V2, S;
-      int i;
+      int i, j, k;
 
       S = 0.0;
       for (i = 0; i < max_iter; i++) {
@@ -27,13 +53,37 @@ double gaussrand2 (gaussrand_state_t* gaussrand_state)
           a1 = rand_uint32()>>5; 
           b1 = rand_uint32()>>6;
           double temp_U1 = (a1*67108864.0+b1);
+          for (j = 0; j<1000;j++) {
+            #pragma HLS unroll
+            if (temp_U1 > 9007199254740992) {
+              temp_U1 -= 9007199254740992;
+            }
+            else {
+              break;
+            }
+          }
+          // const double U1 = CND(temp_U1);
+          // printf("U1 prev is :%f\n", temp_U1);
+          // printf("U1 post is :%f\n", U1);
           const double U1 = 0.25;
           // const double U1 = (a1*67108864.0+b1)*(1.0/9007199254740992.0);
 
           a2 = rand_uint32()>>5;
           b2 = rand_uint32()>>6;
           double temp_U2 = (a2*67108864.0+b2); 
-          const double U2 = 0.75;
+          for (k = 0; k<1000;k++) {
+            #pragma HLS unroll
+            if (temp_U2 > 9007199254740992) {
+              temp_U2 -= 9007199254740992;
+            }
+            else {
+              break;
+            }
+          }
+          // const double U2 = CND(temp_U2);
+          // printf("U2 prev is :%f\n", temp_U2);
+          // printf("U2 post is :%f\n", U2);
+          const double U2 = 0.90;
           // const double U2 = (a2*67108864.0+b2)*(1.0/9007199254740992.0);
           
           V1 = 2 * U1 - 1;

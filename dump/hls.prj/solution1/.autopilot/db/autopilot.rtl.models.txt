@@ -1,9 +1,0 @@
-gaussrand2_rand_uint32_mt_kk
-gaussrand2_fptrunc_64ns_32_3
-gaussrand2_fpext_32ns_64_3
-gaussrand2_fsqrt_32ns_32ns_32_12
-gaussrand2_flog_32ns_32ns_32_13_full_dsp
-gaussrand2_dmul_64ns_64ns_64_6_max_dsp
-gaussrand2_ddiv_64ns_64ns_64_31
-gaussrand2_rand_uint32
-gaussrand2
