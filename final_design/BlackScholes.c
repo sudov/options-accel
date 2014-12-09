@@ -14,12 +14,28 @@ double BlackScholes(char CallPutFlag,
 		    double X, 
 		    double T, 
 		    double r, 
-		    double b, 
-		    double v)
+		    double b 
+		    // double v,
+		    )
 {
 	#pragma HLS pipeline II=1
 	double d1, d2, v1, v2, t1, t2, vc1, vc2, vc, vp1, vp2, vp;
 	
+	unsigned long k = rand_uint32() >> 5; 
+	unsigned long l = k >> 1;
+	double U = (k*67108864.0+l)*(1.0/9007199254740992.0);
+	U = 2 * U - 1;
+	double v;
+
+	if (U < 1) {
+		v = U;
+	} else {
+		v = U * sqrtf (2.0 * logf (S) / S)/100000000000;
+		if (v >= 1) {
+			v -= 0.5;
+		}
+	}
+
 	t1=S*exp((b-r)*T);
 	t2=X*exp(-r*T);
 	v1=log(S/X) + (b+v*v/2)*T;

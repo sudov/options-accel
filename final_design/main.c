@@ -1,4 +1,5 @@
 #include "BlackScholes.h"
+#include "mt19937ar.h"
 #include "math.h"
 #include <time.h>
 #include <stdlib.h>
@@ -18,6 +19,10 @@ main()
   int i, j;
   clock_t before, after;
 
+  // Synthesizable Random Number Initialization - mt19937ar
+  unsigned long init[4]={0x123, 0x234, 0x345, 0x456}, length=4; //***Mod
+  init_by_array(init, length);        //***Mod
+
   printf( "Loading input arrays..." );
   for (i=0;i<NUM_INPUTS;i++) {
     f[i] = (rand()&1) ? 'c' : 'p';
@@ -33,7 +38,9 @@ main()
   before = clock();
   for (j=0;j<NUM_PASSES;j++) {
     for (i=0;i<NUM_INPUTS;i++) {
-      a[i] = BlackScholes(f[i],s[i],x[i],t[i],r[i],b[i],v[i]);
+      // a[i] = BlackScholes(f[i],s[i],x[i],t[i],r[i],b[i],v[i], gaussrand_state);
+      shadow_state();
+      a[i] = BlackScholes(f[i],s[i],x[i],t[i],r[i],b[i]);
     }
   }
   after = clock();

@@ -8,5 +8,6 @@ double BlackScholes(char CallPutFlag,
 		    double X, 
 		    double T, 
 		    double r, 
-		    double b, 
-		    double v);
+		    double b 
+		    // double v
+		    );

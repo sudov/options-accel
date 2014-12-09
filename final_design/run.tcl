@@ -4,6 +4,7 @@ set_top BlackScholes
 
 add_files BlackScholes.c
 add_files CND.c
+add_files mt19937ar.c
 
 open_solution "solution1"
 set_part {xc7z020clg484-1}
