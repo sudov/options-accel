@@ -9,8 +9,6 @@
 #define RAND ((double)rand()/RAND_MAX)
 #define PI 3.14159265358979323846  /* pi */
 
-/* parts of this code, Copyright 1999: Tempus Financial Engineering */
-
 double BlackScholes(char CallPutFlag, 
 		    double S, 
 		    double X, 
