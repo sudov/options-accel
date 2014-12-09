@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# Xilinx Vivado System Edition 2014.2
-export XILINXD_LICENSE_FILE=2100@flex.ece.cornell.edu
-source /opt/xilinx/Vivado/2014.2/settings64.sh
