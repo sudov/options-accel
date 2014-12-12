@@ -1,7 +1,7 @@
 Release 14.3 par P.40xd (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-amdpool-04.ece.cornell.edu::  Sat Dec 06 16:30:43 2014
+amdpool-04.ece.cornell.edu::  Fri Dec 12 00:25:48 2014
 
 par -w -intstyle ise -ol high -xe n -mt off xillydemo_map.ncd xillydemo.ncd
 xillydemo.pcf 
@@ -26,6 +26,7 @@ WARNING:Par:426 - The cost table specified for par "-t 1" is different from map 
 Device Utilization Summary:
 
    Number of BUFGs                           3 out of 32      9%
+   Number of DSP48E1s                       11 out of 220     5%
    Number of ILOGICE2s                       3 out of 200     1%
    Number of External IOB33s                85 out of 200    42%
       Number of LOCed IOB33s                85 out of 85    100%
@@ -37,14 +38,14 @@ Device Utilization Summary:
    Number of PLLE2_ADVs                      1 out of 4      25%
    Number of PS7s                            1 out of 1     100%
    Number of RAMB18E1s                       9 out of 280     3%
-   Number of Slices                       1455 out of 13300  10%
-   Number of Slice Registers              3720 out of 106400  3%
-      Number used as Flip Flops           3720
+   Number of Slices                       1550 out of 13300  11%
+   Number of Slice Registers              3856 out of 106400  3%
+      Number used as Flip Flops           3856
       Number used as Latches                 0
       Number used as LatchThrus              0
 
-   Number of Slice LUTS                   3501 out of 53200   6%
-   Number of Slice LUT-Flip Flop pairs    4453 out of 53200   8%
+   Number of Slice LUTS                   3623 out of 53200   6%
+   Number of Slice LUT-Flip Flop pairs    4667 out of 53200   8%
 
 
 Overall effort level (-ol):   High 
@@ -52,89 +53,89 @@ Router effort level (-rl):    High
 
 INFO:Timing:3386 - Intersecting Constraints found and resolved.  For more information, see the TSI report.  Please consult the Xilinx
    Command Line Tools User Guide for information on generating a TSI report.
-Starting initial Timing Analysis.  REAL time: 55 secs 
-Finished initial Timing Analysis.  REAL time: 55 secs 
+Starting initial Timing Analysis.  REAL time: 49 secs 
+Finished initial Timing Analysis.  REAL time: 50 secs 
 
-WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram2/Mram_fifo_ram1_RAMD_O has no load.  PAR
-   will not attempt to route this signal.
-WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram2/Mram_fifo_ram3_RAMD_O has no load.  PAR
+WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram1/Mram_fifo_ram3_RAMD_O has no load.  PAR
    will not attempt to route this signal.
 WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram1/Mram_fifo_ram4_RAMD_O has no load.  PAR
    will not attempt to route this signal.
-WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram1/Mram_fifo_ram3_RAMD_O has no load.  PAR
+WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram1/Mram_fifo_ram2_RAMD_O has no load.  PAR
+   will not attempt to route this signal.
+WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram2/Mram_fifo_ram1_RAMD_O has no load.  PAR
+   will not attempt to route this signal.
+WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram1/Mram_fifo_ram1_RAMD_O has no load.  PAR
    will not attempt to route this signal.
 WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram2/Mram_fifo_ram2_RAMD_O has no load.  PAR
    will not attempt to route this signal.
 WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram2/Mram_fifo_ram4_RAMD_O has no load.  PAR
    will not attempt to route this signal.
-WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram3/Mram_fifo_ram1_RAMD_O has no load.  PAR
-   will not attempt to route this signal.
-WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram3/Mram_fifo_ram2_RAMD_O has no load.  PAR
-   will not attempt to route this signal.
-WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram0/Mram_fifo_ram2_RAMD_O has no load.  PAR
+WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram2/Mram_fifo_ram3_RAMD_O has no load.  PAR
    will not attempt to route this signal.
 WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram0/Mram_fifo_ram1_RAMD_O has no load.  PAR
    will not attempt to route this signal.
+WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram0/Mram_fifo_ram2_RAMD_O has no load.  PAR
+   will not attempt to route this signal.
 WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram0/Mram_fifo_ram3_RAMD_O has no load.  PAR
+   will not attempt to route this signal.
+WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram0/Mram_fifo_ram4_RAMD_O has no load.  PAR
+   will not attempt to route this signal.
+WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram3/Mram_fifo_ram2_RAMD_O has no load.  PAR
+   will not attempt to route this signal.
+WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram3/Mram_fifo_ram1_RAMD_O has no load.  PAR
    will not attempt to route this signal.
 WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram3/Mram_fifo_ram3_RAMD_O has no load.  PAR
    will not attempt to route this signal.
 WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram3/Mram_fifo_ram4_RAMD_O has no load.  PAR
    will not attempt to route this signal.
-WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram1/Mram_fifo_ram1_RAMD_O has no load.  PAR
-   will not attempt to route this signal.
-WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram1/Mram_fifo_ram2_RAMD_O has no load.  PAR
-   will not attempt to route this signal.
-WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/axi4_send_dma_ins/xillybus_wr_fifo/ram0/Mram_fifo_ram4_RAMD_O has no load.  PAR
-   will not attempt to route this signal.
+WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/unitr_4_ins/Mram_unitr_4_offsets2_RAMD_D1_O has no load.  PAR will not attempt
+   to route this signal.
+WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/unitr_4_ins/Mram_unitr_4_offsets1_RAMD_D1_O has no load.  PAR will not attempt
+   to route this signal.
+WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/unitr_2_ins/Mram_unitr_2_offsets2_RAMD_D1_O has no load.  PAR will not attempt
+   to route this signal.
+WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/unitr_6_ins/Mram_unitr_6_offsets1_RAMD_D1_O has no load.  PAR will not attempt
+   to route this signal.
+WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/unitr_7_ins/Mram_unitr_7_offsets1_RAMD_D1_O has no load.  PAR will not attempt
+   to route this signal.
 WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/unitr_1_ins/Mram_unitr_1_offsets_RAMD_D1_O has no load.  PAR will not attempt to
    route this signal.
 WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/unitr_2_ins/Mram_unitr_2_offsets1_RAMD_D1_O has no load.  PAR will not attempt
    to route this signal.
-WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/unitr_7_ins/Mram_unitr_7_offsets1_RAMD_D1_O has no load.  PAR will not attempt
-   to route this signal.
-WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/unitr_2_ins/Mram_unitr_2_offsets2_RAMD_D1_O has no load.  PAR will not attempt
-   to route this signal.
-WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/unitr_4_ins/Mram_unitr_4_offsets2_RAMD_D1_O has no load.  PAR will not attempt
-   to route this signal.
-WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/unitr_6_ins/Mram_unitr_6_offsets1_RAMD_D1_O has no load.  PAR will not attempt
-   to route this signal.
-WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/unitr_4_ins/Mram_unitr_4_offsets1_RAMD_D1_O has no load.  PAR will not attempt
-   to route this signal.
+WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/msg_buf_ins/Mram_mem4_RAMD_D1_O has no load.  PAR will not attempt to route this
+   signal.
+WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/msg_buf_ins/Mram_mem5_RAMD_D1_O has no load.  PAR will not attempt to route this
+   signal.
+WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/msg_buf_ins/Mram_mem3_RAMD_D1_O has no load.  PAR will not attempt to route this
+   signal.
 WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/msg_buf_ins/Mram_mem2_RAMD_D1_O has no load.  PAR will not attempt to route this
    signal.
 WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/msg_buf_ins/Mram_mem1_RAMD_D1_O has no load.  PAR will not attempt to route this
    signal.
-WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/msg_buf_ins/Mram_mem4_RAMD_D1_O has no load.  PAR will not attempt to route this
-   signal.
-WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/msg_buf_ins/Mram_mem3_RAMD_D1_O has no load.  PAR will not attempt to route this
-   signal.
-WARNING:Par:288 - The signal xillybus_ins/xillybus_core_ins/msg_buf_ins/Mram_mem5_RAMD_D1_O has no load.  PAR will not attempt to route this
-   signal.
 Starting Router
 
 
-Phase  1  : 23361 unrouted;      REAL time: 58 secs 
+Phase  1  : 25812 unrouted;      REAL time: 52 secs 
 
-Phase  2  : 18512 unrouted;      REAL time: 1 mins 
+Phase  2  : 19028 unrouted;      REAL time: 54 secs 
 
-Phase  3  : 7155 unrouted;      REAL time: 1 mins 13 secs 
+Phase  3  : 7091 unrouted;      REAL time: 1 mins 8 secs 
 
-Phase  4  : 7155 unrouted; (Setup:0, Hold:45977, Component Switching Limit:0)     REAL time: 1 mins 19 secs 
+Phase  4  : 7091 unrouted; (Setup:0, Hold:43991, Component Switching Limit:0)     REAL time: 1 mins 14 secs 
 
 Updating file: xillydemo.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Setup:0, Hold:37349, Component Switching Limit:0)     REAL time: 1 mins 31 secs 
+Phase  5  : 0 unrouted; (Setup:0, Hold:34258, Component Switching Limit:0)     REAL time: 1 mins 27 secs 
 
-Phase  6  : 0 unrouted; (Setup:0, Hold:37349, Component Switching Limit:0)     REAL time: 1 mins 31 secs 
+Phase  6  : 0 unrouted; (Setup:0, Hold:34258, Component Switching Limit:0)     REAL time: 1 mins 27 secs 
 
-Phase  7  : 0 unrouted; (Setup:0, Hold:37349, Component Switching Limit:0)     REAL time: 1 mins 31 secs 
+Phase  7  : 0 unrouted; (Setup:0, Hold:34258, Component Switching Limit:0)     REAL time: 1 mins 27 secs 
 
-Phase  8  : 0 unrouted; (Setup:0, Hold:37349, Component Switching Limit:0)     REAL time: 1 mins 31 secs 
+Phase  8  : 0 unrouted; (Setup:0, Hold:34258, Component Switching Limit:0)     REAL time: 1 mins 27 secs 
 
-Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 35 secs 
-Total REAL time to Router completion: 1 mins 35 secs 
-Total CPU time to Router completion: 1 mins 17 secs 
+Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 32 secs 
+Total REAL time to Router completion: 1 mins 32 secs 
+Total CPU time to Router completion: 1 mins 23 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -152,10 +153,10 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|             bus_clk |BUFGCTRL_X0Y31| No   | 1156 |  0.271     |  1.816      |
+|             bus_clk |BUFGCTRL_X0Y31| No   | 1218 |  0.265     |  1.812      |
 +---------------------+--------------+------+------+------------+-------------+
 |xillybus_ins/vga_clk |              |      |      |            |             |
-|                     | BUFGCTRL_X0Y1| No   |   74 |  0.203     |  1.824      |
+|                     | BUFGCTRL_X0Y1| No   |   77 |  0.309     |  1.925      |
 +---------------------+--------------+------+------+------------+-------------+
 |       clk_100_BUFGP | BUFGCTRL_X0Y0| No   |    3 |  0.079     |  1.769      |
 +---------------------+--------------+------+------+------------+-------------+
@@ -183,27 +184,27 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
+  TS_clk_fpga_1 = PERIOD TIMEGRP "clk_fpga_ | SETUP       |     0.639ns|     9.361ns|       0|           0
+  1" 100 MHz HIGH 50%                       | HOLD        |     0.000ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
   TS_force_iob_ffs = MAXDELAY FROM TIMEGRP  | MAXDELAY    |     1.580ns|     3.920ns|       0|           0
   "tgrp_vga_pads_ffs" 5.5 ns                |             |            |            |        |            
-----------------------------------------------------------------------------------------------------------
-  TS_clk_fpga_1 = PERIOD TIMEGRP "clk_fpga_ | SETUP       |     1.748ns|     8.252ns|       0|           0
-  1" 100 MHz HIGH 50%                       | HOLD        |     0.002ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
   TS_gclk = PERIOD TIMEGRP "TN_gclk" 10 ns  | SETUP       |     8.006ns|     1.994ns|       0|           0
   HIGH 50%                                  | HOLD        |     0.262ns|            |       0|           0
                                             | MINLOWPULSE |     6.000ns|     4.000ns|       0|           0
 ----------------------------------------------------------------------------------------------------------
-  TS_xillybus_ins_system_i_xillyvga_0_xilly | SETUP       |     9.452ns|     5.932ns|       0|           0
-  vga_0_xillyvga_core_ins_vga_clk_ins_clkou | HOLD        |     0.116ns|            |       0|           0
+  TS_xillybus_ins_system_i_xillyvga_0_xilly | SETUP       |     9.945ns|     5.439ns|       0|           0
+  vga_0_xillyvga_core_ins_vga_clk_ins_clkou | HOLD        |     0.112ns|            |       0|           0
   t0         = PERIOD TIMEGRP         "xill |             |            |            |        |            
   ybus_ins_system_i_xillyvga_0_xillyvga_0_x |             |            |            |        |            
   illyvga_core_ins_vga_clk_ins_clkout0"     |             |            |            |        |            
        TS_gclk / 0.65 HIGH 50%              |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
-  PATH "TS_axi_interconnect_1_reset_resync_ | SETUP       |         N/A|     1.281ns|     N/A|           0
+  PATH "TS_axi_interconnect_1_reset_resync_ | SETUP       |         N/A|     1.114ns|     N/A|           0
   path" TIG                                 |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
-  PATH "TS_axi4lite_0_reset_resync_path" TI | SETUP       |         N/A|     1.081ns|     N/A|           0
+  PATH "TS_axi4lite_0_reset_resync_path" TI | SETUP       |         N/A|     1.197ns|     N/A|           0
   G                                         |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
 
@@ -218,8 +219,8 @@ Derived Constraints for TS_gclk
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_gclk                        |     10.000ns|      4.000ns|      3.856ns|            0|            0|            4|         3951|
-| TS_xillybus_ins_system_i_xilly|     15.385ns|      5.932ns|          N/A|            0|            0|         3951|            0|
+|TS_gclk                        |     10.000ns|      4.000ns|      3.535ns|            0|            0|            4|         3951|
+| TS_xillybus_ins_system_i_xilly|     15.385ns|      5.439ns|          N/A|            0|            0|         3951|            0|
 | vga_0_xillyvga_0_xillyvga_core|             |             |             |             |             |             |             |
 | _ins_vga_clk_ins_clkout0      |             |             |             |             |             |             |             |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
@@ -238,10 +239,10 @@ All signals are completely routed.
 
 WARNING:Par:283 - There are 28 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
-Total REAL time to PAR completion: 1 mins 39 secs 
-Total CPU time to PAR completion: 1 mins 20 secs 
+Total REAL time to PAR completion: 1 mins 35 secs 
+Total CPU time to PAR completion: 1 mins 27 secs 
 
-Peak Memory Usage:  1012 MB
+Peak Memory Usage:  1024 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.

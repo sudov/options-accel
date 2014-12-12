@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2014-12-06T16:18:25</DateModified>
+  <DateModified>2014-12-12T00:34:08</DateModified>
   <ModuleName>xillydemo</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/iseconfig/xillydemo.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/</ImplementationReportsDirectory>
+  <SavedFilePath>/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/iseconfig/xillydemo.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/</ImplementationReportsDirectory>
   <DateInitialized>2014-05-20T14:34:38</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

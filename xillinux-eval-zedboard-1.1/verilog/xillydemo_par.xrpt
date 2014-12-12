@@ -5,7 +5,7 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="par" timeStamp="Sat Dec  6 16:31:31 2014">
+  <application stringID="par" timeStamp="Fri Dec 12 00:26:27 2014">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
@@ -16,7 +16,7 @@
         </row>
         <row stringID="row" value="1">
           <item stringID="variable" value="LD_LIBRARY_PATH"/>
-          <item stringID="value" value="/opt/xilinx/14.3/ISE_DS/ISE//lib/lin64:/opt/xilinx/14.3/ISE_DS/ISE/lib/lin64:/opt/xilinx/14.3/ISE_DS/ISE/smartmodel/lin64/installed_lin64/lib:/opt/xilinx/14.3/ISE_DS/ISE/sysgen/lib:/opt/xilinx/14.3/ISE_DS/EDK/lib/lin64:/opt/xilinx/14.3/ISE_DS/common/lib/lin64:/opt/alttools/lib:/classes/ece475/lib"/>
+          <item stringID="value" value="/opt/xilinx/14.3/ISE_DS/ISE//lib/lin64:/opt/xilinx/14.3/ISE_DS/ISE/lib/lin64:/opt/xilinx/14.3/ISE_DS/ISE/smartmodel/lin64/installed_lin64/lib:/opt/xilinx/14.3/ISE_DS/ISE/sysgen/lib:/opt/xilinx/14.3/ISE_DS/EDK/lib/lin64:/opt/xilinx/14.3/ISE_DS/common/lib/lin64:/classes/ece475/lib"/>
         </row>
         <row stringID="row" value="2">
           <item stringID="variable" value="XILINX_EDK"/>
@@ -28,7 +28,7 @@
         </row>
         <row stringID="row" value="4">
           <item stringID="variable" value="PATH"/>
-          <item stringID="value" value="/opt/xilinx/14.3/ISE_DS/ISE//bin/lin64:/opt/xilinx/14.3/ISE_DS/../../Vivado_HLS/2012.3/bin:/opt/xilinx/14.3/ISE_DS/ISE/bin/lin64:/opt/xilinx/14.3/ISE_DS/ISE/sysgen/util:/opt/xilinx/14.3/ISE_DS/ISE/sysgen/bin:/opt/xilinx/14.3/ISE_DS/ISE/../../../DocNav:/opt/xilinx/14.3/ISE_DS/PlanAhead/bin:/opt/xilinx/14.3/ISE_DS/EDK/bin/lin64:/opt/xilinx/14.3/ISE_DS/EDK/gnu/microblaze/lin64/bin:/opt/xilinx/14.3/ISE_DS/EDK/gnu/powerpc-eabi/lin64/bin:/opt/xilinx/14.3/ISE_DS/EDK/gnu/arm/lin64/bin:/opt/xilinx/14.3/ISE_DS/common/bin/lin64:/home/student/vff6/install/stow-pkgs/x86_64-rhel5/bin:/home/student/vff6/install/stow-pkgs/noarch/bin:/research/brg/install/stow-pkgs/x86_64-rhel5/bin:/research/brg/install/stow-pkgs/noarch/bin:/opt/alttools/bin:/opt/synopsys/F-2011.06/bin:/usr/kerberos/bin:/usr/local/bin:/bin:/usr/bin:/classes/ece547/32/v4/bin:/classes/ece547/bin:/opt/ads/ADS2011_10/bin:/opt/ansoft/hfss15.0/Linux:/opt/ansys/ANSYS-13.0SP2/v130/ansys/bin:/opt/cadence/ic/bin:/opt/cadence/ic/tools/dfII/bin:/opt/cadence/ic/tools/bin:/opt/cadence/ius/tools.lnx86/bin:/opt/cadence/assura/bin:/opt/cadence/ccd/bin:/opt/cadence/confrml/bin:/opt/cadence/cva/bin:/opt/cadence/eanl/bin:/opt/cadence/et/bin:/opt/cadence/ets/bin:/opt/cadence/ext/bin:/opt/cadence/finale/bin:/opt/cadence/icoa/bin:/opt/cadence/ixe/bin:/opt/cadence/mmsim/bin:/opt/cadence/pacific/bin:/opt/cadence/pvs/bin:/opt/cadence/rc/bin:/opt/cadence/ret/bin:/opt/cadence/sev/bin:/opt/cadence/soc/bin:/opt/cadence/spmn/bin:/opt/cadence/tsi/bin:/opt/cadence/xae/bin:/opt/cadence/amskit/tools.lnx86/bin:/opt/cadence/cwspw/tools.lnx86/bin:/opt/cadence/icc/tools.lnx86/bin:/opt/cadence/ifv/tools.lnx86/bin:/opt/cadence/isv/tools.lnx86/bin:/opt/cadence/kcl/tools.lnx86/bin:/opt/cadence/kmc/tools.lnx86/bin:/opt/cadence/kqv/tools.lnx86/bin:/opt/cadence/lcu/tools.lnx86/bin:/opt/cadence/neocell/tools.lnx86/bin:/opt/cadence/neockt/tools.lnx86/bin:/opt/cadence/psd/tools.lnx86/bin:/opt/cadence/rfkit/tools.lnx86/bin:/opt/cadence/spb/tools.lnx86/bin:/opt/cadence/tda/tools.lnx86/bin:/opt/cadence/tvm/tools.lnx86/bin:/opt/cadence/usim/tools.lnx86/bin:/opt/cadence/vce/tools.lnx86/bin:/opt/cadence/vip/tools.lnx86/bin:/opt/cadence/vsde/tools.lnx86/bin:/opt/comsol/4.2/bin:/classes/brg/install/noarch/bin:/classes/ece314/bin:/classes/ece475/bin:/opt/alttools/ece:/opt/Magic/magic-7.3.108/x86_64/bin:/opt/matlab/R2012a/bin:/opt/QuartusII/10.0SP1/bin:/opt/silvaco/2010-00/bin/:/opt/sonnet/14.54/bin:/opt/synplcty/fpga_94/bin:/opt/synplcty/identify_30/bin:/opt/synplcty/system_designer_202/bin"/>
+          <item stringID="value" value="/opt/xilinx/14.3/ISE_DS/ISE//bin/lin64:/opt/xilinx/14.3/ISE_DS/../../Vivado_HLS/2012.3/bin:/opt/xilinx/14.3/ISE_DS/ISE/bin/lin64:/opt/xilinx/14.3/ISE_DS/ISE/sysgen/util:/opt/xilinx/14.3/ISE_DS/ISE/sysgen/bin:/opt/xilinx/14.3/ISE_DS/ISE/../../../DocNav:/opt/xilinx/14.3/ISE_DS/PlanAhead/bin:/opt/xilinx/14.3/ISE_DS/EDK/bin/lin64:/opt/xilinx/14.3/ISE_DS/EDK/gnu/microblaze/lin64/bin:/opt/xilinx/14.3/ISE_DS/EDK/gnu/powerpc-eabi/lin64/bin:/opt/xilinx/14.3/ISE_DS/EDK/gnu/arm/lin64/bin:/opt/xilinx/14.3/ISE_DS/common/bin/lin64:/opt/synopsys/F-2011.06/bin:/usr/kerberos/bin:/usr/local/bin:/bin:/usr/bin:/classes/ece547/32/v4/bin:/classes/ece547/bin:/opt/sonnet/14.54/bin:/opt/ads/ADS2011_10/bin:/opt/ansoft/hfss15.0/Linux:/opt/ansys/ANSYS-13.0SP2/v130/ansys/bin:/opt/cadence/ic/bin:/opt/cadence/ic/tools/dfII/bin:/opt/cadence/ic/tools/bin:/opt/cadence/ius/tools.lnx86/bin:/opt/cadence/assura/bin:/opt/cadence/ccd/bin:/opt/cadence/confrml/bin:/opt/cadence/cva/bin:/opt/cadence/eanl/bin:/opt/cadence/et/bin:/opt/cadence/ets/bin:/opt/cadence/ext/bin:/opt/cadence/finale/bin:/opt/cadence/icoa/bin:/opt/cadence/ixe/bin:/opt/cadence/mmsim/bin:/opt/cadence/pacific/bin:/opt/cadence/pvs/bin:/opt/cadence/rc/bin:/opt/cadence/ret/bin:/opt/cadence/sev/bin:/opt/cadence/soc/bin:/opt/cadence/spmn/bin:/opt/cadence/tsi/bin:/opt/cadence/xae/bin:/opt/cadence/amskit/tools.lnx86/bin:/opt/cadence/cwspw/tools.lnx86/bin:/opt/cadence/icc/tools.lnx86/bin:/opt/cadence/ifv/tools.lnx86/bin:/opt/cadence/isv/tools.lnx86/bin:/opt/cadence/kcl/tools.lnx86/bin:/opt/cadence/kmc/tools.lnx86/bin:/opt/cadence/kqv/tools.lnx86/bin:/opt/cadence/lcu/tools.lnx86/bin:/opt/cadence/neocell/tools.lnx86/bin:/opt/cadence/neockt/tools.lnx86/bin:/opt/cadence/psd/tools.lnx86/bin:/opt/cadence/rfkit/tools.lnx86/bin:/opt/cadence/spb/tools.lnx86/bin:/opt/cadence/tda/tools.lnx86/bin:/opt/cadence/tvm/tools.lnx86/bin:/opt/cadence/usim/tools.lnx86/bin:/opt/cadence/vce/tools.lnx86/bin:/opt/cadence/vip/tools.lnx86/bin:/opt/cadence/vsde/tools.lnx86/bin:/opt/comsol/4.2/bin:/classes/brg/install/noarch/bin:/opt/alttools/ece:/classes/ece314/bin:/classes/ece475/bin:/opt/Magic/magic-7.3.108/x86_64/bin:/opt/matlab/R2012a/bin:/opt/QuartusII/10.0SP1/bin:/opt/silvaco/2010-00/bin/:/opt/synplcty/fpga_94/bin:/opt/synplcty/identify_30/bin:/opt/synplcty/system_designer_202/bin"/>
         </row>
         <row stringID="row" value="5">
           <item stringID="variable" value="LMC_HOME"/>
@@ -81,24 +81,24 @@
     <task stringID="PAR_DEVICE_UTILIZATION">
       <section label="Device Utilization Summary" stringID="PAR_DEVICE_UTLIZATION">
         <item AVAILABLE="32" dataType="int" label="Number of BUFGs" stringID="PAR_BUFG" value="3"/>
-        <item AVAILABLE="13300" dataType="int" stringID="PAR_SLICES" value="1455"/>
-        <item AVAILABLE="106400" dataType="int" label="Number of Slice Registers" stringID="PAR_SLICE_REGISTERS" value="3720">
-          <item dataType="int" label="Number used as Flip Flops" stringID="PAR_FLIP_FLOPS" value="3720"/>
+        <item AVAILABLE="13300" dataType="int" stringID="PAR_SLICES" value="1550"/>
+        <item AVAILABLE="106400" dataType="int" label="Number of Slice Registers" stringID="PAR_SLICE_REGISTERS" value="3856">
+          <item dataType="int" label="Number used as Flip Flops" stringID="PAR_FLIP_FLOPS" value="3856"/>
           <item dataType="int" label="Number used as Latches" stringID="PAR_LATCHES" value="0"/>
           <item dataType="int" label="Number used as LatchThrus" stringID="PAR_LATCH_THRUS" value="0"/>
         </item>
-        <item AVAILABLE="53200" dataType="int" label="Number of Slice LUTS" stringID="PAR_SLICE_LUTS" value="3501"/>
-        <item AVAILABLE="53200" dataType="int" label="Number of Slice LUT-Flip Flop pairs" stringID="PAR_SLICE_LUT_FLIPFLOP_PAIRS" value="4453"/>
+        <item AVAILABLE="53200" dataType="int" label="Number of Slice LUTS" stringID="PAR_SLICE_LUTS" value="3623"/>
+        <item AVAILABLE="53200" dataType="int" label="Number of Slice LUT-Flip Flop pairs" stringID="PAR_SLICE_LUT_FLIPFLOP_PAIRS" value="4667"/>
       </section>
     </task>
     <task stringID="PAR_PAR">
       <section stringID="PAR_DESIGN_SUMMARY">
-        <item stringID="PAR_REAL_TIME_COMPLETION_ROUTER" value="1 mins 35 secs "/>
-        <item stringID="PAR_CPU_TIME_COMPLETION_ROUTER" value="1 mins 17 secs "/>
+        <item stringID="PAR_REAL_TIME_COMPLETION_ROUTER" value="1 mins 32 secs "/>
+        <item stringID="PAR_CPU_TIME_COMPLETION_ROUTER" value="1 mins 23 secs "/>
         <item dataType="int" stringID="PAR_UNROUTES" value="0"/>
         <item dataType="float" stringID="PAR_TIMING_SCORE" value="0.000000"/>
-        <item stringID="PAR_REAL_TIME_COMPLETION_PAR" value="1 mins 39 secs "/>
-        <item stringID="PAR_CPU_TIME_COMPLETION_PAR" value="1 mins 20 secs "/>
+        <item stringID="PAR_REAL_TIME_COMPLETION_PAR" value="1 mins 35 secs "/>
+        <item stringID="PAR_CPU_TIME_COMPLETION_PAR" value="1 mins 27 secs "/>
       </section>
     </task>
     <task stringID="PAR_par">
@@ -117,18 +117,18 @@
             <item label="Routed" stringID="ROUTED" value="ROUTED"/>
             <item label="Resource" stringID="RESOURCE" value="BUFGCTRL_X0Y31"/>
             <item label="Locked" stringID="LOCKED" value="No"/>
-            <item dataType="float" label="Fanout" stringID="FANOUT" value="1156.000000"/>
-            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.271000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.816000"/>
+            <item dataType="float" label="Fanout" stringID="FANOUT" value="1218.000000"/>
+            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.265000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.812000"/>
           </row>
           <row stringID="row" value="2">
             <item label="Clock Net" stringID="CLOCK_NET" value="xillybus_ins/vga_clk"/>
             <item label="Routed" stringID="ROUTED" value="ROUTED"/>
             <item label="Resource" stringID="RESOURCE" value="BUFGCTRL_X0Y1"/>
             <item label="Locked" stringID="LOCKED" value="No"/>
-            <item dataType="float" label="Fanout" stringID="FANOUT" value="74.000000"/>
-            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.203000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.824000"/>
+            <item dataType="float" label="Fanout" stringID="FANOUT" value="77.000000"/>
+            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.309000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.925000"/>
           </row>
           <row stringID="row" value="3">
             <item label="Clock Net" stringID="CLOCK_NET" value="clk_100_BUFGP"/>

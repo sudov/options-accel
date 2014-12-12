@@ -1,0 +1,26 @@
+<AutoPilot:solution xmlns:AutoPilot="com.autoesl.autopilot.solution">
+    <name>
+        <value string="sol"/>
+    </name>
+    <project>
+        <value string="fifo.prj"/>
+    </project>
+    <targetInfo>
+        <TargetInfo value="xc7z020:clg484:-1"/>
+    </targetInfo>
+    <libraryList>
+        <library value="xilinx/zynq/zynq" name="DefaultPlatform"/>
+        <library value="xilinx/zynq/zynq_fpv6" name="DefaultPlatform"/>
+    </libraryList>
+    <config>
+        <config_rtl reset="state"/>
+        <schedule model="dut"/>
+    </config>
+    <clockList>
+        <clock name="default" period="10ns" default="false"/>
+    </clockList>
+    <ExportDesign askAgain="true" evaluate="false" rtl="verilog" formatName="pcore">
+        <Format formatName="pcore" version="1.04.a" use_netlist="none"/>
+    </ExportDesign>
+</AutoPilot:solution>
+

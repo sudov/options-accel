@@ -1,0 +1,14 @@
+rand_uint32_mt_kk
+dut_dadddsub_64ns_64ns_64_5_no_dsp
+dut_dadd_64ns_64ns_64_5_no_dsp
+dut_dmul_64ns_64ns_64_6_med_dsp
+dut_ddiv_64ns_64ns_64_31
+dut_dcmp_64ns_64ns_1_3
+dut_uitodp_64ns_64_6
+dut_dsqrt_64ns_64ns_64_31
+dut_drecip_64ns_64ns_64_11
+dut_dlog_64ns_64ns_64_24_med_dsp
+dut_dexp_64ns_64ns_64_15_med_dsp
+rand_uint32
+BlackScholes
+dut

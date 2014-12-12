@@ -4,14 +4,14 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
+Total REAL time to Xst completion: 0.00 secs
 Total CPU time to Xst completion: 0.08 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
+Total REAL time to Xst completion: 0.00 secs
 Total CPU time to Xst completion: 0.08 secs
  
 --> 
@@ -103,7 +103,7 @@ Auto BRAM Packing                  : NO
 Slice Utilization Ratio Delta      : 5
 
 ---- Other Options
-Cores Search Directories           : {"../runonce" "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/system/implementation" "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/cores" "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/runonce"  }
+Cores Search Directories           : {"../runonce" "src/dut" "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/system/implementation" "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/cores" "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/runonce"  }
 
 =========================================================================
 
@@ -111,25 +111,29 @@ Cores Search Directories           : {"../runonce" "/home/student/vff6/ece5775/a
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Analyzing Verilog file "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillybus_core.v" into library work
+Analyzing Verilog file "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/dut/dut_ap_dmul_4_max_dsp.v" into library work
+Parsing module <dut_ap_dmul_4_max_dsp>.
+Analyzing Verilog file "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillybus_core.v" into library work
 Parsing module <xillybus_core>.
-Analyzing Verilog file "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/system.v" into library work
+Analyzing Verilog file "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/system.v" into library work
 Parsing module <system>.
-Analyzing Verilog file "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/fifo_8x2048.v" into library work
+Analyzing Verilog file "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/fifo_8x2048.v" into library work
 Parsing module <fifo_8x2048>.
-Analyzing Verilog file "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/fifo_32x512.v" into library work
+Analyzing Verilog file "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/fifo_32x512.v" into library work
 Parsing module <fifo_32x512>.
-Analyzing Verilog file "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillybus.v" into library work
+Analyzing Verilog file "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/dut/dut_dmul_64ns_64ns_64_6_max_dsp.v" into library work
+Parsing module <dut_dmul_64ns_64ns_64_6_max_dsp>.
+Analyzing Verilog file "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillybus.v" into library work
 Parsing module <xillybus>.
-Analyzing Verilog file "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/smbus.v" into library work
+Analyzing Verilog file "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/smbus.v" into library work
 Parsing module <smbus>.
-Analyzing Verilog file "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/i2s_audio.v" into library work
+Analyzing Verilog file "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/i2s_audio.v" into library work
 Parsing module <i2s_audio>.
-Analyzing Verilog file "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/fifo_std_32x512.v" into library work
+Analyzing Verilog file "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/fifo_std_32x512.v" into library work
 Parsing module <fifo_std_32x512>.
-Analyzing Verilog file "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/dut/dut.v" into library work
+Analyzing Verilog file "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/dut/dut.v" into library work
 Parsing module <dut>.
-Analyzing Verilog file "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillydemo.v" into library work
+Analyzing Verilog file "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillydemo.v" into library work
 Parsing module <xillydemo>.
 
 =========================================================================
@@ -143,48 +147,54 @@ Elaborating module <xillybus>.
 Elaborating module <FDCE>.
 
 Elaborating module <system>.
-WARNING:HDLCompiler:1499 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/system.v" Line 1: Empty module <system> remains a black box.
+WARNING:HDLCompiler:1499 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/system.v" Line 1: Empty module <system> remains a black box.
 
 Elaborating module <xillybus_core>.
-WARNING:HDLCompiler:1499 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillybus_core.v" Line 1: Empty module <xillybus_core> remains a black box.
-WARNING:HDLCompiler:1127 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillydemo.v" Line 148: Assignment to user_r_mem_8_open ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillydemo.v" Line 154: Assignment to user_w_mem_8_open ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillydemo.v" Line 158: Assignment to user_mem_8_addr_update ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillydemo.v" Line 225: Assignment to user_wren ignored, since the identifier is never used
+WARNING:HDLCompiler:1499 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillybus_core.v" Line 1: Empty module <xillybus_core> remains a black box.
+WARNING:HDLCompiler:1127 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillydemo.v" Line 148: Assignment to user_r_mem_8_open ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillydemo.v" Line 154: Assignment to user_w_mem_8_open ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillydemo.v" Line 158: Assignment to user_mem_8_addr_update ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillydemo.v" Line 225: Assignment to user_wren ignored, since the identifier is never used
 
 Elaborating module <fifo_32x512>.
-WARNING:HDLCompiler:1499 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/fifo_32x512.v" Line 1: Empty module <fifo_32x512> remains a black box.
-WARNING:HDLCompiler:604 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillydemo.v" Line 337: Module instantiation should have an instance name
+WARNING:HDLCompiler:1499 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/fifo_32x512.v" Line 1: Empty module <fifo_32x512> remains a black box.
+WARNING:HDLCompiler:604 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillydemo.v" Line 337: Module instantiation should have an instance name
 
 Elaborating module <dut>.
 
+Elaborating module <dut_dmul_64ns_64ns_64_6_max_dsp(ID=1,NUM_STAGE=6,din0_WIDTH=64,din1_WIDTH=64,dout_WIDTH=64)>.
+
+Elaborating module <dut_ap_dmul_4_max_dsp>.
+WARNING:HDLCompiler:1127 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/dut/dut_dmul_64ns_64ns_64_6_max_dsp.v" Line 45: Assignment to r_tvalid ignored, since the identifier is never used
+WARNING:HDLCompiler:413 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/dut/dut.v" Line 269: Result of 32-bit expression is truncated to fit in 4-bit target.
+
 Elaborating module <fifo_std_32x512>.
-WARNING:HDLCompiler:1499 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/fifo_std_32x512.v" Line 1: Empty module <fifo_std_32x512> remains a black box.
+WARNING:HDLCompiler:1499 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/fifo_std_32x512.v" Line 1: Empty module <fifo_std_32x512> remains a black box.
 
 Elaborating module <fifo_8x2048>.
-WARNING:HDLCompiler:1499 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/fifo_8x2048.v" Line 1: Empty module <fifo_8x2048> remains a black box.
+WARNING:HDLCompiler:1499 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/fifo_8x2048.v" Line 1: Empty module <fifo_8x2048> remains a black box.
 
 Elaborating module <i2s_audio>.
-WARNING:HDLCompiler:413 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/i2s_audio.v" Line 55: Result of 3-bit expression is truncated to fit in 2-bit target.
-WARNING:HDLCompiler:413 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/i2s_audio.v" Line 72: Result of 3-bit expression is truncated to fit in 2-bit target.
-WARNING:HDLCompiler:413 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/i2s_audio.v" Line 91: Result of 17-bit expression is truncated to fit in 16-bit target.
-WARNING:HDLCompiler:413 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/i2s_audio.v" Line 100: Result of 33-bit expression is truncated to fit in 32-bit target.
-WARNING:HDLCompiler:413 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/i2s_audio.v" Line 101: Result of 32-bit expression is truncated to fit in 5-bit target.
+WARNING:HDLCompiler:413 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/i2s_audio.v" Line 55: Result of 3-bit expression is truncated to fit in 2-bit target.
+WARNING:HDLCompiler:413 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/i2s_audio.v" Line 72: Result of 3-bit expression is truncated to fit in 2-bit target.
+WARNING:HDLCompiler:413 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/i2s_audio.v" Line 91: Result of 17-bit expression is truncated to fit in 16-bit target.
+WARNING:HDLCompiler:413 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/i2s_audio.v" Line 100: Result of 33-bit expression is truncated to fit in 32-bit target.
+WARNING:HDLCompiler:413 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/i2s_audio.v" Line 101: Result of 32-bit expression is truncated to fit in 5-bit target.
 
 Elaborating module <smbus>.
-WARNING:HDLCompiler:413 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/smbus.v" Line 87: Result of 13-bit expression is truncated to fit in 12-bit target.
-WARNING:HDLCompiler:413 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/smbus.v" Line 145: Result of 32-bit expression is truncated to fit in 3-bit target.
+WARNING:HDLCompiler:413 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/smbus.v" Line 87: Result of 13-bit expression is truncated to fit in 12-bit target.
+WARNING:HDLCompiler:413 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/smbus.v" Line 145: Result of 32-bit expression is truncated to fit in 3-bit target.
 
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Synthesizing Unit <xillydemo>.
-    Related source file is "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillydemo.v".
-INFO:Xst:3210 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillydemo.v" line 140: Output port <user_r_mem_8_open> of the instance <xillybus_ins> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillydemo.v" line 140: Output port <user_w_mem_8_open> of the instance <xillybus_ins> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillydemo.v" line 140: Output port <user_mem_8_addr_update> of the instance <xillybus_ins> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillydemo.v" line 140: Output port <user_wren> of the instance <xillybus_ins> is unconnected or connected to loadless signal.
+    Related source file is "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillydemo.v".
+INFO:Xst:3210 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillydemo.v" line 140: Output port <user_r_mem_8_open> of the instance <xillybus_ins> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillydemo.v" line 140: Output port <user_w_mem_8_open> of the instance <xillybus_ins> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillydemo.v" line 140: Output port <user_mem_8_addr_update> of the instance <xillybus_ins> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillydemo.v" line 140: Output port <user_wren> of the instance <xillybus_ins> is unconnected or connected to loadless signal.
     Found 32x8-bit single-port RAM <Mram_demoarray> for signal <demoarray>.
     Found 32x8-bit single-port RAM <Mram_litearray0> for signal <litearray0>.
     Found 32x8-bit single-port RAM <Mram_litearray1> for signal <litearray1>.
@@ -198,7 +208,7 @@ INFO:Xst:3210 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-a
 Unit <xillydemo> synthesized.
 
 Synthesizing Unit <xillybus>.
-    Related source file is "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillybus.v".
+    Related source file is "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillybus.v".
     Set property "IOB = TRUE" for instance <vga_iob_ff<0>>.
     Set property "IOB = TRUE" for instance <vga_iob_ff<1>>.
     Set property "IOB = TRUE" for instance <vga_iob_ff<2>>.
@@ -214,38 +224,88 @@ Synthesizing Unit <xillybus>.
     Set property "IOB = TRUE" for instance <vga_iob_ff<12>>.
     Set property "IOB = TRUE" for instance <vga_iob_ff<13>>.
     Set property "BOX_TYPE = user_black_box" for instance <system_i>.
-INFO:Xst:3210 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillybus.v" line 186: Output port <xillyvga_0_vga_de> of the instance <system_i> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/xillybus.v" line 186: Output port <xillyvga_0_vga_de> of the instance <system_i> is unconnected or connected to loadless signal.
     Summary:
 	no macro.
 Unit <xillybus> synthesized.
 
 Synthesizing Unit <dut>.
-    Related source file is "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/dut/dut.v".
+    Related source file is "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/dut/dut.v".
         ap_const_logic_1 = 1'b1
         ap_const_logic_0 = 1'b0
-        ap_ST_st1_fsm_0 = 1'b0
+        ap_ST_st1_fsm_0 = 4'b0000
+        ap_ST_st2_fsm_1 = 4'b0001
+        ap_ST_st3_fsm_2 = 4'b0010
+        ap_ST_st4_fsm_3 = 4'b0011
+        ap_ST_st5_fsm_4 = 4'b0100
+        ap_ST_st6_fsm_5 = 4'b0101
+        ap_ST_st7_fsm_6 = 4'b0110
+        ap_ST_st8_fsm_7 = 4'b0111
+        ap_ST_st9_fsm_8 = 4'b1000
+        ap_ST_st10_fsm_9 = 4'b1001
+        ap_ST_st11_fsm_10 = 4'b1010
+        ap_ST_st12_fsm_11 = 4'b1011
+        ap_ST_st13_fsm_12 = 4'b1100
         ap_const_lv32_0 = 32'b00000000000000000000000000000000
-        ap_const_lv32_FFFFFFFF = 32'b11111111111111111111111111111111
+        ap_const_lv32_20 = 32'b00000000000000000000000000100000
+        ap_const_lv32_3F = 32'b00000000000000000000000000111111
         ap_true = 1'b1
-WARNING:Xst:647 - Input <in_fifo_V_dout> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 32-bit register for signal <cnt>.
-    Found 1-bit register for signal <ap_CS_fsm>.
-    Found 32-bit adder for signal <out_fifo_V_din> created at line 106.
+    Found 32-bit register for signal <data1_reg_154>.
+    Found 16-bit register for signal <data2_reg_159>.
+    Found 64-bit register for signal <full_1_reg_139>.
+    Found 64-bit register for signal <full_reg_134>.
+    Found 32-bit register for signal <tmp_3_reg_119>.
+    Found 32-bit register for signal <tmp_6_reg_124>.
+    Found 32-bit register for signal <tmp_7_reg_129>.
+    Found 4-bit register for signal <ap_CS_fsm>.
+    Found finite state machine <FSM_0> for signal <ap_CS_fsm>.
+    -----------------------------------------------------------------------
+    | States             | 13                                             |
+    | Transitions        | 20                                             |
+    | Inputs             | 2                                              |
+    | Outputs            | 8                                              |
+    | Clock              | ap_clk (rising_edge)                           |
+    | Reset              | ap_rst (positive)                              |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 0000                                           |
+    | Power Up State     | 0000                                           |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 64-bit adder for signal <full_1_fu_83_p2> created at line 276.
+    Found 64-bit adder for signal <full_fu_66_p2> created at line 278.
     Summary:
-	inferred   1 Adder/Subtractor(s).
-	inferred  33 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred 272 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
 Unit <dut> synthesized.
 
+Synthesizing Unit <dut_dmul_64ns_64ns_64_6_max_dsp>.
+    Related source file is "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/dut/dut_dmul_64ns_64ns_64_6_max_dsp.v".
+        ID = 1
+        NUM_STAGE = 6
+        din0_WIDTH = 64
+        din1_WIDTH = 64
+        dout_WIDTH = 64
+WARNING:Xst:647 - Input <reset> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/dut/dut_dmul_64ns_64ns_64_6_max_dsp.v" line 38: Output port <m_axis_result_tvalid> of the instance <dut_ap_dmul_4_max_dsp_u> is unconnected or connected to loadless signal.
+    Found 64-bit register for signal <din1_buf1>.
+    Found 64-bit register for signal <din0_buf1>.
+    Summary:
+	no macro.
+Unit <dut_dmul_64ns_64ns_64_6_max_dsp> synthesized.
+
 Synthesizing Unit <i2s_audio>.
-    Related source file is "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/i2s_audio.v".
+    Related source file is "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/i2s_audio.v".
     Set property "IOB = TRUE" for signal <audio_mclk>.
     Set property "IOB = TRUE" for signal <audio_dac>.
     Set property "IOB = TRUE" for signal <audio_adc_reg>.
     Set property "IOB = TRUE" for signal <audio_bclk_reg>.
     Set property "IOB = TRUE" for signal <audio_lrclk_reg>.
 WARNING:Xst:647 - Input <quiesce> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/i2s_audio.v" line 126: Output port <empty> of the instance <playback_fifo> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/i2s_audio.v" line 139: Output port <full> of the instance <record_fifo> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/i2s_audio.v" line 126: Output port <empty> of the instance <playback_fifo> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/i2s_audio.v" line 139: Output port <full> of the instance <record_fifo> is unconnected or connected to loadless signal.
     Found 1-bit register for signal <audio_mclk>.
     Found 1-bit register for signal <audio_adc_reg>.
     Found 1-bit register for signal <audio_bclk_reg>.
@@ -260,17 +320,17 @@ INFO:Xst:3210 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-a
     Found 5-bit register for signal <record_count>.
     Found 1-bit register for signal <write_when_done>.
     Found 2-bit register for signal <clk_div>.
-    Found 2-bit adder for signal <clk_div[1]_GND_10_o_add_1_OUT> created at line 55.
-    Found 5-bit subtractor for signal <GND_10_o_GND_10_o_sub_11_OUT<4:0>> created at line 101.
+    Found 2-bit adder for signal <clk_div[1]_GND_12_o_add_1_OUT> created at line 55.
+    Found 5-bit subtractor for signal <GND_12_o_GND_12_o_sub_11_OUT<4:0>> created at line 101.
 INFO:Xst:2774 - HDL ADVISOR - IOB property attached to signal audio_lrclk_reg may hinder XST clustering optimizations.
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred  66 D-type flip-flop(s).
-	inferred   3 Multiplexer(s).
+	inferred   5 Multiplexer(s).
 Unit <i2s_audio> synthesized.
 
 Synthesizing Unit <smbus>.
-    Related source file is "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/smbus.v".
+    Related source file is "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/smbus.v".
         clk_freq = 150
         st_idle = 0
         st_start = 1
@@ -284,7 +344,7 @@ Synthesizing Unit <smbus>.
         st_stop0 = 9
         st_stop1 = 10
         st_stop2 = 11
-INFO:Xst:3210 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/verilog/src/smbus.v" line 225: Output port <full> of the instance <fifo> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/verilog/src/smbus.v" line 225: Output port <full> of the instance <fifo> is unconnected or connected to loadless signal.
     Found 1-bit register for signal <sdata_sample>.
     Found 1-bit register for signal <fifo_wr_en>.
     Found 1-bit register for signal <open_d>.
@@ -302,7 +362,7 @@ INFO:Xst:3210 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-a
     Found 3-bit register for signal <idx>.
     Found 8-bit register for signal <read_byte>.
     Found 1-bit register for signal <SMBus_en>.
-    Found finite state machine <FSM_0> for signal <state>.
+    Found finite state machine <FSM_1> for signal <state>.
     -----------------------------------------------------------------------
     | States             | 12                                             |
     | Transitions        | 30                                             |
@@ -315,8 +375,8 @@ INFO:Xst:3210 - "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-a
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 12-bit adder for signal <div_counter[11]_GND_11_o_add_5_OUT> created at line 87.
-    Found 3-bit subtractor for signal <GND_11_o_GND_11_o_sub_11_OUT<2:0>> created at line 145.
+    Found 12-bit adder for signal <div_counter[11]_GND_13_o_add_5_OUT> created at line 87.
+    Found 3-bit subtractor for signal <GND_13_o_GND_13_o_sub_11_OUT<2:0>> created at line 145.
     Found 1-bit 8-to-1 multiplexer for signal <idx[2]_write_byte[7]_Mux_8_o> created at line 126.
     Found 1-bit tristate buffer for signal <smb_sclk> created at line 55
     Found 1-bit tristate buffer for signal <smb_sdata> created at line 56
@@ -334,30 +394,32 @@ HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 5
  32x8-bit single-port RAM                              : 5
-# Adders/Subtractors                                   : 5
+# Adders/Subtractors                                   : 6
  12-bit adder                                          : 1
  2-bit adder                                           : 1
  3-bit subtractor                                      : 1
- 32-bit adder                                          : 1
  5-bit subtractor                                      : 1
-# Registers                                            : 34
- 1-bit register                                        : 22
+ 64-bit adder                                          : 2
+# Registers                                            : 39
+ 1-bit register                                        : 21
  12-bit register                                       : 1
- 16-bit register                                       : 1
+ 16-bit register                                       : 2
  2-bit register                                        : 2
  3-bit register                                        : 1
- 32-bit register                                       : 3
+ 32-bit register                                       : 6
  5-bit register                                        : 1
+ 64-bit register                                       : 2
  8-bit register                                        : 3
-# Multiplexers                                         : 20
- 1-bit 2-to-1 multiplexer                              : 15
+# Multiplexers                                         : 23
+ 1-bit 2-to-1 multiplexer                              : 16
  1-bit 8-to-1 multiplexer                              : 1
  16-bit 2-to-1 multiplexer                             : 2
  3-bit 2-to-1 multiplexer                              : 1
- 5-bit 2-to-1 multiplexer                              : 1
+ 32-bit 2-to-1 multiplexer                             : 1
+ 5-bit 2-to-1 multiplexer                              : 2
 # Tristates                                            : 2
  1-bit tristate buffer                                 : 2
-# FSMs                                                 : 1
+# FSMs                                                 : 2
 
 =========================================================================
 
@@ -368,17 +430,19 @@ Macro Statistics
 Reading core <../runonce/fifo_32x512.ngc>.
 Reading core <../runonce/fifo_8x2048.ngc>.
 Reading core <../runonce/fifo_std_32x512.ngc>.
-Reading core </home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/cores/xillybus_core.ngc>.
-Reading core </home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/system/implementation/system.ngc>.
-Reading core </home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/system/implementation/system_xillybus_0_wrapper.ngc>.
-Reading core </home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/system/implementation/system_xillybus_lite_0_wrapper.ngc>.
-Reading core </home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/system/implementation/system_processing_system7_0_wrapper.ngc>.
-Reading core </home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/system/implementation/system_xillyvga_0_wrapper.ngc>.
-Reading core </home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/cores/xillyvga_core.ngc>.
+Reading core </home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/cores/xillybus_core.ngc>.
+Reading core </home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/system/implementation/system.ngc>.
+Reading core </home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/system/implementation/system_xillybus_0_wrapper.ngc>.
+Reading core </home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/system/implementation/system_xillybus_lite_0_wrapper.ngc>.
+Reading core </home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/system/implementation/system_processing_system7_0_wrapper.ngc>.
+Reading core </home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/system/implementation/system_xillyvga_0_wrapper.ngc>.
+Reading core </home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/cores/xillyvga_core.ngc>.
 Reading core <../runonce/vga_fifo.ngc>.
-Reading core </home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/system/implementation/system_axi_interconnect_0_wrapper.ngc>.
-Reading core </home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/system/implementation/system_axi4lite_0_wrapper.ngc>.
-Reading core </home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/system/implementation/system_axi_interconnect_1_wrapper.ngc>.
+Reading core </home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/system/implementation/system_axi_interconnect_0_wrapper.ngc>.
+Reading core </home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/system/implementation/system_axi4lite_0_wrapper.ngc>.
+Reading core </home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/system/implementation/system_axi_interconnect_1_wrapper.ngc>.
+Reading core <src/dut/dut_ap_dmul_4_max_dsp.ngc>.
+Reading Secure Unit <blk00000001>.
 Loading core <fifo_32x512> for timing and area information for instance <fifo_32>.
 Loading core <fifo_8x2048> for timing and area information for instance <fifo_8>.
 Loading core <fifo_std_32x512> for timing and area information for instance <fifo_32_2>.
@@ -396,15 +460,10 @@ Loading core <system> for timing and area information for instance <system_i>.
 Loading core <fifo_32x512> for timing and area information for instance <playback_fifo>.
 Loading core <fifo_32x512> for timing and area information for instance <record_fifo>.
 Loading core <fifo_8x2048> for timing and area information for instance <fifo>.
-WARNING:Xst:1293 - FF/Latch <ap_CS_fsm_0> has a constant value of 0 in block <_i000017>. This FF/Latch will be trimmed during the optimization process.
-
-Synthesizing (advanced) Unit <dut>.
-The following registers are absorbed into accumulator <cnt>: 1 register on signal <cnt>.
-Unit <dut> synthesized (advanced).
+Loading core <dut_ap_dmul_4_max_dsp> for timing and area information for instance <dut_ap_dmul_4_max_dsp_u>.
 
 Synthesizing (advanced) Unit <i2s_audio>.
 The following registers are absorbed into counter <clk_div>: 1 register on signal <clk_div>.
-The following registers are absorbed into counter <record_count>: 1 register on signal <record_count>.
 Unit <i2s_audio> synthesized (advanced).
 
 Synthesizing (advanced) Unit <smbus>.
@@ -481,31 +540,254 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 5
  32x8-bit single-port distributed RAM                  : 5
-# Adders/Subtractors                                   : 1
- 32-bit adder                                          : 1
-# Counters                                             : 4
+# Adders/Subtractors                                   : 3
+ 5-bit subtractor                                      : 1
+ 64-bit adder                                          : 2
+# Counters                                             : 3
  12-bit up counter                                     : 1
  2-bit up counter                                      : 1
  3-bit down counter                                    : 1
- 5-bit down counter                                    : 1
-# Accumulators                                         : 1
- 32-bit up accumulator                                 : 1
-# Registers                                            : 142
- Flip-Flops                                            : 142
-# Multiplexers                                         : 18
- 1-bit 2-to-1 multiplexer                              : 15
+# Registers                                            : 418
+ Flip-Flops                                            : 418
+# Multiplexers                                         : 22
+ 1-bit 2-to-1 multiplexer                              : 16
  1-bit 8-to-1 multiplexer                              : 1
  16-bit 2-to-1 multiplexer                             : 2
-# FSMs                                                 : 1
+ 32-bit 2-to-1 multiplexer                             : 1
+ 5-bit 2-to-1 multiplexer                              : 2
+# FSMs                                                 : 2
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1293 - FF/Latch <ap_CS_fsm_0> has a constant value of 0 in block <dut>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_0> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_1> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_2> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_3> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_4> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_5> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_6> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_7> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_8> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_9> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_10> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_11> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_12> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_13> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_14> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_15> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_16> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_17> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_18> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_19> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_20> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_21> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_22> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_23> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_24> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_25> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_26> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_27> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_28> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_29> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_30> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_7_reg_129_31> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_0> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_1> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_2> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_3> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_4> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_5> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_6> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_7> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_8> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_9> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_10> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_11> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_12> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_13> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_14> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_15> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_16> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_17> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_18> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_19> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_20> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_21> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_22> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_23> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_24> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_25> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_26> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_27> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_28> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_29> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_30> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_3_reg_119_31> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_0> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_1> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_2> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_3> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_4> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_5> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_6> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_7> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_8> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_9> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_10> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_11> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_12> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_13> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_14> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_15> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_16> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_17> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_18> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_19> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_20> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_21> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_22> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_23> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_24> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_25> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_26> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_27> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_28> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_29> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_30> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <tmp_6_reg_124_31> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_0> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_1> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_2> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_3> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_4> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_5> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_6> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_7> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_8> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_9> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_10> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_11> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_12> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_13> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_14> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_15> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_16> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_17> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_18> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_19> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_20> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_21> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_22> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_23> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_24> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_25> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_26> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_27> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_28> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_29> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_30> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_31> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_32> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_33> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_34> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_35> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_36> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_37> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_38> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_39> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_40> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_41> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_42> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_43> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_44> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_45> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_46> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_47> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_48> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_49> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_50> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_51> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_52> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_53> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_54> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_55> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_56> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_57> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_58> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_59> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_60> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_61> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_62> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_reg_134_63> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_0> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_1> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_2> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_3> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_4> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_5> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_6> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_7> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_8> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_9> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_10> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_11> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_12> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_13> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_14> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_15> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_16> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_17> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_18> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_19> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_20> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_21> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_22> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_23> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_24> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_25> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_26> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_27> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_28> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_29> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_30> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_31> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_32> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_33> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_34> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_35> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_36> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_37> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_38> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_39> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_40> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_41> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_42> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_43> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_44> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_45> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_46> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_47> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_48> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_49> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_50> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_51> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_52> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_53> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_54> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_55> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_56> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_57> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_58> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_59> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_60> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_61> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_62> of sequential type is unconnected in block <dut>.
+WARNING:Xst:2677 - Node <full_1_reg_139_63> of sequential type is unconnected in block <dut>.
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <smbus/FSM_0> on signal <state[1:4]> with user encoding.
+Optimizing FSM <smbus/FSM_1> on signal <state[1:4]> with user encoding.
 -------------------
  State | Encoding
 -------------------
@@ -522,6 +804,25 @@ Optimizing FSM <smbus/FSM_0> on signal <state[1:4]> with user encoding.
  1001  | 1001
  1010  | 1010
 -------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <_i000017/FSM_0> on signal <ap_CS_fsm[1:13]> with one-hot encoding.
+------------------------
+ State | Encoding
+------------------------
+ 0000  | 0000000000001
+ 0001  | 0000000000010
+ 0010  | 0000000000100
+ 0011  | 0000000001000
+ 0100  | 0000000010000
+ 0101  | 0000000100000
+ 0110  | 0000001000000
+ 0111  | 0000010000000
+ 1000  | 0000100000000
+ 1001  | 0001000000000
+ 1010  | 0010000000000
+ 1011  | 0100000000000
+ 1100  | 1000000000000
+------------------------
 
 WARNING:Xst:528 - Multi-source in Unit <processing_system7_0> on signal <PS_SRSTB>; this signal is connected to multiple drivers.
 Drivers are: 
@@ -543,11 +844,13 @@ Optimizing unit <xillydemo> ...
 Optimizing unit <xillybus> ...
 
 Optimizing unit <i2s_audio> ...
+
+Optimizing unit <dut> ...
 WARNING:Xst:1710 - FF/Latch <smbus/div_counter_11> (without init value) has a constant value of 0 in block <xillydemo>. This FF/Latch will be trimmed during the optimization process.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block xillydemo, actual ratio is 4.
+Found area constraint ratio of 100 (+ 5) on block xillydemo, actual ratio is 5.
 INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_full_i> in Unit <audio/record_fifo> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_full_fb_i> 
 INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.rfwft/empty_fwft_fb> in Unit <audio/record_fifo> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.rfwft/empty_fwft_i> 
 INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_full_i> in Unit <audio/playback_fifo> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_full_fb_i> 
@@ -609,14 +912,15 @@ Final Macro Processing ...
 
 Processing Unit <xillydemo> :
 	Found 2-bit shift register for signal <smbus/SMBus_en>.
+INFO:Xst:741 - HDL ADVISOR - A 5-bit shift register was found for signal <_i000017/ap_CS_fsm_FSM_FFd3> and currently occupies 5 logic cells (2 slices). Removing the set/reset logic would take advantage of SRL32 (and derived) primitives and reduce this to 1 logic cells (1 slices). Evaluate if the set/reset can be removed for this simple shift register. The majority of simple pipeline structures do not need to be set/reset operationally.
 Unit <xillydemo> processed.
 
 =========================================================================
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 197
- Flip-Flops                                            : 197
+# Registers                                            : 226
+ Flip-Flops                                            : 226
 # Shift Registers                                      : 1
  2-bit shift register                                  : 1
 
@@ -641,30 +945,30 @@ Top Level Output File Name         : xillydemo.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 5887
+# BELS                             : 5741
 #      GND                         : 25
-#      INV                         : 322
+#      INV                         : 258
 #      LUT1                        : 268
-#      LUT2                        : 431
-#      LUT3                        : 659
-#      LUT4                        : 673
-#      LUT5                        : 614
-#      LUT6                        : 1063
-#      MUXCY                       : 995
+#      LUT2                        : 447
+#      LUT3                        : 683
+#      LUT4                        : 674
+#      LUT5                        : 616
+#      LUT6                        : 1064
+#      MUXCY                       : 933
 #      MUXF7                       : 50
 #      VCC                         : 14
-#      XORCY                       : 773
-# FlipFlops/Latches                : 3942
-#      FD                          : 530
+#      XORCY                       : 709
+# FlipFlops/Latches                : 3971
+#      FD                          : 531
 #      FDC                         : 102
 #      FDCE                        : 39
-#      FDE                         : 1734
+#      FDE                         : 1787
 #      FDP                         : 15
 #      FDPE                        : 2
-#      FDR                         : 439
-#      FDRE                        : 921
-#      FDS                         : 34
-#      FDSE                        : 126
+#      FDR                         : 450
+#      FDRE                        : 885
+#      FDS                         : 35
+#      FDSE                        : 125
 # RAMS                             : 104
 #      RAM32M                      : 12
 #      RAM32X1D                    : 10
@@ -693,19 +997,19 @@ Selected Device : 7z020clg484-1
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            3923  out of  106400     3%  
- Number of Slice LUTs:                 4239  out of  53200     7%  
-    Number used as Logic:              4030  out of  53200     7%  
+ Number of Slice Registers:            3952  out of  106400     3%  
+ Number of Slice LUTs:                 4219  out of  53200     7%  
+    Number used as Logic:              4010  out of  53200     7%  
     Number used as Memory:              209  out of  17400     1%  
        Number used as RAM:              204
        Number used as SRL:                5
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   6035
-   Number with an unused Flip Flop:    2112  out of   6035    34%  
-   Number with an unused LUT:          1796  out of   6035    29%  
-   Number of fully used LUT-FF pairs:  2127  out of   6035    35%  
-   Number of unique control sets:       251
+ Number of LUT Flip Flop pairs used:   6036
+   Number with an unused Flip Flop:    2084  out of   6036    34%  
+   Number with an unused LUT:          1817  out of   6036    30%  
+   Number of fully used LUT-FF pairs:  2135  out of   6036    35%  
+   Number of unique control sets:       252
 
 IO Utilization: 
  Number of IOs:                         215
@@ -738,7 +1042,7 @@ Clock Information:
 --------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+-------+
 Clock Signal                                                                          | Clock buffer(FF name)                                                                                                                       | Load  |
 --------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+-------+
-xillybus_ins/system_i/processing_system7_0/processing_system7_0/FCLK_CLK_unbuffered<1>| BUFG                                                                                                                                        | 3845  |
+xillybus_ins/system_i/processing_system7_0/processing_system7_0/FCLK_CLK_unbuffered<1>| BUFG                                                                                                                                        | 4030  |
 clk_100                                                                               | BUFGP                                                                                                                                       | 3     |
 clk_100                                                                               | PLLE2_ADV:CLKOUT0                                                                                                                           | 204   |
 xillybus_ins/system_i/xillyvga_0/xillyvga_0/xillyvga_core_ins/m_axi_bready            | NONE(xillybus_ins/system_i/xillyvga_0/xillyvga_0/xillyvga_core_ins/screensaver_ins/BRAM_SINGLE_MACRO_inst/bram18_single_bl.bram18_single_bl)| 1     |
@@ -769,33 +1073,26 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'xillybus_ins/system_i/processing_system7_0/processing_system7_0/FCLK_CLK_unbuffered<1>'
-  Clock period: 4.927ns (frequency: 202.963MHz)
-  Total number of paths / destination ports: 105045 / 9105
+  Clock period: 7.718ns (frequency: 129.567MHz)
+  Total number of paths / destination ports: 12907030 / 9347
 -------------------------------------------------------------------------
-Delay:               4.927ns (Levels of Logic = 9)
-  Source:            xillybus_ins/xillybus_core_ins/unitw_7_ins/unitw_7_offset_limit_4 (FF)
-  Destination:       xillybus_ins/xillybus_core_ins/unitw_7_ins/unitw_7_active (FF)
+Delay:               7.718ns (Levels of Logic = 2)
+  Source:            sec_inst (DSP)
+  Destination:       sec_inst (DSP)
   Source Clock:      xillybus_ins/system_i/processing_system7_0/processing_system7_0/FCLK_CLK_unbuffered<1> rising
   Destination Clock: xillybus_ins/system_i/processing_system7_0/processing_system7_0/FCLK_CLK_unbuffered<1> rising
 
-  Data Path: xillybus_ins/xillybus_core_ins/unitw_7_ins/unitw_7_offset_limit_4 to xillybus_ins/xillybus_core_ins/unitw_7_ins/unitw_7_active
+  Data Path: sec_inst to sec_inst
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              3   0.282   0.649  unitw_7_ins/unitw_7_offset_limit_4 (unitw_7_ins/unitw_7_offset_limit[4])
-     LUT4:I0->O            1   0.053   0.413  unitw_7_ins/n0037111 (unitw_7_ins/n003711)
-     LUT6:I5->O            2   0.053   0.419  unitw_7_ins/n003713 (unitw_7_ins/n003713)
-     LUT3:I2->O            1   0.053   0.413  unitw_7_ins/n00372_SW0 (N444)
-     LUT6:I5->O            4   0.053   0.505  unitw_7_ins/n00372 (unitw_7_ins/n0037)
-     LUT5:I3->O            1   0.053   0.413  unitw_7_ins/unitw_7_flush_condition_unitw_7_wr_request_condition_AND_416_o5_SW0 (N360)
-     LUT6:I5->O           17   0.053   0.519  unitw_7_ins/unitw_7_flush_condition_unitw_7_wr_request_condition_AND_416_o5 (unitw_7_ins/unitw_7_flush_condition_unitw_7_wr_request_condition_AND_416_o)
-     LUT4:I3->O            1   0.053   0.413  unitw_7_ins/_n0387_inv_SW1 (N438)
-     LUT6:I5->O            1   0.053   0.413  unitw_7_ins/_n0387_inv (unitw_7_ins/_n0387_inv)
-     LUT6:I5->O            1   0.053   0.000  unitw_7_ins/unitw_7_active_glue_set (unitw_7_ins/unitw_7_active_glue_set)
-     FDR:D                     0.011          unitw_7_ins/unitw_7_active
+     SEC:CLK->out          1   2.500   0.000  sec_inst (sec_net)
+     SEC:in->out           1   1.713   0.000  sec_inst (sec_net)
+     SEC:in->out           1   1.713   0.000  sec_inst (sec_net)
+     SEC:in                    1.792          sec_inst
     ----------------------------------------
-    Total                      4.927ns (0.770ns logic, 4.157ns route)
-                                       (15.6% logic, 84.4% route)
+    Total                      7.718ns (7.718ns logic, 0.000ns route)
+                                       (100.0% logic, 0.0% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_100'
@@ -949,21 +1246,21 @@ Clock to Setup on destination clock xillybus_ins/system_i/processing_system7_0/p
 Source Clock                                                                          |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 --------------------------------------------------------------------------------------+---------+---------+---------+---------+
 clk_100                                                                               |    1.054|         |         |         |
-xillybus_ins/system_i/processing_system7_0/processing_system7_0/FCLK_CLK_unbuffered<1>|    4.927|         |         |         |
+xillybus_ins/system_i/processing_system7_0/processing_system7_0/FCLK_CLK_unbuffered<1>|    7.718|         |         |         |
 --------------------------------------------------------------------------------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 77.00 secs
-Total CPU time to Xst completion: 76.02 secs
+Total REAL time to Xst completion: 86.00 secs
+Total CPU time to Xst completion: 83.68 secs
  
 --> 
 
 
-Total memory usage is 601952 kilobytes
+Total memory usage is 605000 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   25 (   0 filtered)
-Number of infos    :   69 (   0 filtered)
+Number of warnings :  249 (   0 filtered)
+Number of infos    :   71 (   0 filtered)
 

@@ -9,14 +9,7 @@
 #define RAND ((double)rand()/RAND_MAX)
 #define PI 3.14159265358979323846  /* pi */
 
-double BlackScholes(char CallPutFlag, 
-		    double S, 
-		    double X, 
-		    double T, 
-		    double r, 
-		    double b 
-		    // double v,
-		    )
+double BlackScholes(char CallPutFlag, double S, double X, double T, double r, double b )
 {
 	double d1, d2, v1, v2, t1, t2, vc1, vc2, vc, vp1, vp2, vp;
 	
@@ -29,11 +22,11 @@ double BlackScholes(char CallPutFlag,
 	if (U < 1) {
 		v = U;
 	} else {
-#if 0
-		v = U * sqrtf (2.0 * logf (S) / S)/100000000000;
-#else
-		v = U * sqrt (2.0 * log (S) / S)/100000000000;
-#endif
+	#if 0
+			v = U * sqrtf (2.0 * logf (S) / S)/100000000000;
+	#else
+			v = U * sqrt (2.0 * log (S) / S)/100000000000;
+	#endif
 		if (v >= 1) {
 			v -= 0.5;
 		}

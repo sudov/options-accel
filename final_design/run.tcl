@@ -1,10 +1,13 @@
 ############################################################
 open_project hls.prj -reset
-set_top BlackScholes
+set_top dut 
+#set_top BlackScholes
 
-add_files BlackScholes.c
-add_files CND.c
-add_files mt19937ar.c
+add_files BlackScholes.cpp
+add_files CND.cpp
+add_files mt19937ar.cpp
+add_files BlackScholes_dut.cpp
+
 
 open_solution "solution1"
 set_part {xc7z020clg484-1}
@@ -22,8 +25,11 @@ promote_core DLog_meddsp
 
 # Config overall design throughput
 set_directive_pipeline -II 8 BlackScholes
+config_rtl -reset state
  
 #source "./directives.tcl"
 csynth_design
 
+
+export_design -format pcore -version 1.04.a
 #cosim_design

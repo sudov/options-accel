@@ -1,0 +1,54 @@
+================================================================
+  Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC
+  Version: 2012.3
+  Build date: Fri Oct 12 10:57:10 AM 2012
+  Copyright (C) 2012 Xilinx Inc. All rights reserved.
+================================================================
+@I [LIC-101] Checked out feature [HLS]
+@W [HLS-40] Vivado and/or ISE in the PATH variable are not from the same build as Vivado HLS. The mismatch may result in unexpected behaviors.
+@I [HLS-10] Running '/opt/xilinx/Vivado_HLS/2012.3/Linux_x86_64/bin/vivado_hls_bin'
+@I [HLS-10] On platform 'Linux_x86_64 version 2.6.18-371.8.1.el5'
+@I [HLS-10] Vivado HLS Tcl shell started on Sat Dec 06 15:41:02 EST 2014 for user 'vff6' at host 'amdpool-03'
+@I [HLS-10] Current directory: /home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/vhls-dut-template
+@I [HLS-10] Creating and opening project '/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/vhls-dut-template/fifo.prj'.
+@I [HLS-10] Adding design file 'fifo.cpp' to the project.
+@I [HLS-10] Creating and opening solution '/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/vhls-dut-template/fifo.prj/sol'.
+@I [HLS-10] Cleaning up the solution database.
+@I [HLS-10] Setting target device to 'xc7z020clg484-1'
+@I [HLS-10] Importing design file 'fifo.cpp' ... 
+@I [HLS-10] Analyzing the design file ...
+@I [HLS-10] Validating synthesis directives ...
+@I [HLS-10] Checking synthesizability ...
+@I [HLS-10] Starting code transformations ...
+@I [HLS-111] Elapsed time: 1.51 seconds; current memory usage: 22.9 MB.
+@I [HLS-10] Starting hardware synthesis ...
+@I [HLS-10] Synthesizing 'dut' ...
+@I [SYN-201] Setting up clock with a period of 10ns.
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Scheduling module 'dut' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [SCHED-11] Starting scheduling ...
+@I [SCHED-11] Finished scheduling.
+@I [HLS-111] Elapsed time: 0.02 seconds; current memory usage: 23.2 MB.
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Exploring micro-architecture for module 'dut' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [BIND-100] Starting micro-architecture binding ...
+@I [BIND-101] Performing variable lifetime analysis.
+@I [BIND-101] Exploring resource sharing.
+@I [BIND-101] Binding resource limited operations ...
+@I [BIND-100] Finished micro-architecture binding.
+@I [HLS-111] Elapsed time: 0 seconds; current memory usage: 23.3 MB.
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Generating RTL for module 'dut' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [RTGEN-500] Setting IO mode on port 'dut|in_fifo_V' to 'ap_fifo'.
+@I [RTGEN-500] Setting IO mode on port 'dut|out_fifo_V' to 'ap_fifo'.
+@I [RTGEN-100] Finished creating RTL model for 'dut'.
+@I [HLS-111] Elapsed time: 0.01 seconds; current memory usage: 23.4 MB.
+@I [WSYSC-301] Generating RTL SystemC for 'dut'.
+@I [WVHDL-304] Generating RTL VHDL for 'dut'.
+@I [WVLOG-307] Generating RTL Verilog for 'dut'.
+@I [HLS-10] Finished generating all RTL models.
+@I [HLS-112] Total elapsed time: 24.462 seconds; peak memory usage: 23.4 MB.
+@I [LIC-101] Checked in feature [HLS]

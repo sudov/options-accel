@@ -15,7 +15,7 @@ run
 -rtlview Yes
 -glob_opt AllClockNets
 -read_cores YES
--sd {"../runonce" "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/system/implementation" "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/cores" "/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-eval-zedboard-1.1/runonce"  }
+-sd {"../runonce" "src/dut" "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/system/implementation" "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/cores" "/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/runonce"  }
 -write_timing_constraints NO
 -cross_clock_analysis NO
 -hierarchy_separator /

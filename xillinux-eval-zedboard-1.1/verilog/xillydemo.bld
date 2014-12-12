@@ -2,12 +2,13 @@ Release 14.3 ngdbuild P.40xd (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
 Command Line: /opt/xilinx/14.3/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild -intstyle
-ise -dd _ngo -sd ../runonce -sd ../system/implementation -sd ../cores -nt
-timestamp -uc src/xillydemo.ucf -p xc7z020-clg484-1 xillydemo.ngc xillydemo.ngd
+ise -dd _ngo -sd ../runonce -sd src/dut -sd ../system/implementation -sd
+../cores -nt timestamp -uc src/xillydemo.ucf -p xc7z020-clg484-1 xillydemo.ngc
+xillydemo.ngd
 
 Reading NGO file
-"/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/xillinux-ev
-al-zedboard-1.1/verilog/xillydemo.ngc" ...
+"/home/student/cw444/Fall2014/ece5775/options-accel/xillinux-eval-zedboard-1.1/v
+erilog/xillydemo.ngc" ...
 Loading design module "../runonce/fifo_32x512.ngc"...
 Loading design module "../runonce/fifo_8x2048.ngc"...
 Loading design module "../runonce/fifo_std_32x512.ngc"...
@@ -29,6 +30,7 @@ Loading design module
 "../system/implementation/system_axi4lite_0_wrapper.ngc"...
 Loading design module
 "../system/implementation/system_axi_interconnect_1_wrapper.ngc"...
+Loading design module "src/dut/dut_ap_dmul_4_max_dsp.ngc"...
 Applying constraints in
 "../system/implementation/system_processing_system7_0_wrapper.ncf" to module
 "xillybus_ins/system_i/processing_system7_0"...
@@ -92,10 +94,6 @@ INFO:ConstraintSystem:178 - TNM 'TN_gclk', used in period specification
 Done...
 
 Checking expanded design ...
-WARNING:NgdBuild:452 - logical net 'N212' has no driver
-WARNING:NgdBuild:452 - logical net 'N213' has no driver
-WARNING:NgdBuild:452 - logical net 'N214' has no driver
-WARNING:NgdBuild:452 - logical net 'N215' has no driver
 WARNING:NgdBuild:452 - logical net 'N216' has no driver
 WARNING:NgdBuild:452 - logical net 'N217' has no driver
 WARNING:NgdBuild:452 - logical net 'N218' has no driver
@@ -274,6 +272,10 @@ WARNING:NgdBuild:452 - logical net 'N390' has no driver
 WARNING:NgdBuild:452 - logical net 'N391' has no driver
 WARNING:NgdBuild:452 - logical net 'N392' has no driver
 WARNING:NgdBuild:452 - logical net 'N393' has no driver
+WARNING:NgdBuild:452 - logical net 'N394' has no driver
+WARNING:NgdBuild:452 - logical net 'N395' has no driver
+WARNING:NgdBuild:452 - logical net 'N396' has no driver
+WARNING:NgdBuild:452 - logical net 'N397' has no driver
 
 Partition Implementation Status
 -------------------------------
@@ -286,10 +288,10 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings: 187
 
-Total memory usage is 577876 kilobytes
+Total memory usage is 584464 kilobytes
 
 Writing NGD file "xillydemo.ngd" ...
 Total REAL time to NGDBUILD completion: 1 min  21 sec
-Total CPU time to NGDBUILD completion:  1 min  20 sec
+Total CPU time to NGDBUILD completion:  1 min  18 sec
 
 Writing NGDBUILD log file "xillydemo.bld"...
