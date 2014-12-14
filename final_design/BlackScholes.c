@@ -10,9 +10,9 @@
 double BlackScholes(char CallPutFlag, double S, double X, double T, double r, double b )
 {	
 	double rand_number = rand_uint32();
-	rand_number = rand_number / 1000000000 + b;
-	double norm = 100000000*CND(rand_number);
-	double sig = norm - (long)norm;
+	rand_number = rand_number / 1000000000;
+	rand_number = rand_number - (long)rand_number;
+	double sig = b + rand_number;
 
 	if (CallPutFlag == 'c') {
 		double vc = S * exp ((r-sig*sig/2)*T + sig * sqrt(T)*rand_number);
