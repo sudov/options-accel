@@ -26,11 +26,11 @@ main()
   double t = 1.0;
   double r = 5.0;
   double b = 1.5; 
-  double *a;
+  double a[NUM_PASSES];
   printf( "....done\nStarting test........\n" );
 
   before = clock();
-  a = BlackScholesWrapper(f, s, x, t, r, b);
+  BlackScholesWrapper(f, s, x, t, r, b, a);
   after = clock();
   
   // Mean, Variance and Confidence Calculations
