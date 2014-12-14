@@ -1,2 +1,0 @@
-
-g++ -lm fifo_test.cpp -o fifo_test
