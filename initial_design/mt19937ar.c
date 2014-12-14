@@ -63,16 +63,6 @@ void init_by_array(unsigned long init_key[], int key_length)
     }
 
     mt_kk[0] = 0x80000000UL; /* MSB is 1; assuring non-zero initial array */
-
-    // uint32 tmp; 
-
-    // // Manually shadow the state
-    // for(i = 0; i < N; i++) {
-    // 	#pragma HLS unroll
-    // 	tmp = mt_kk[i];
-    // 	mt_kkp1[i] = tmp;
-    // 	mt_kkpm[i] = tmp;
-    // } 
 }
 
 /* shadow state */

@@ -137,6 +137,5 @@ main (int argc, char* argv[])
   
   printf ("Total simulation time: %g seconds\n", time_sum_runs);
   printf ("Avg time per valuation: %g seconds\n", time_average_runs);
-
   return 0;
 }

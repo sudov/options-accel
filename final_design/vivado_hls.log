@@ -6,49 +6,113 @@
 ================================================================
 @I [LIC-101] Checked out feature [HLS]
 @I [HLS-10] Running '/opt/xilinx/Vivado_HLS/2014.2/bin/unwrapped/lnx64.o/vivado_hls'
-            for user 'cw444' on host 'amdpool-01.ece.cornell.edu' (Linux_x86_64 version 2.6.18-371.6.1.el5) on Thu Dec 11 23:56:25 EST 2014
-            in directory '/home/student/cw444/Fall2014/ece5775/options-accel/final_design'
-@I [HLS-10] Opening and resetting project '/home/student/cw444/Fall2014/ece5775/options-accel/final_design/fifo.prj'.
-@I [HLS-10] Adding design file 'fifo_test.cpp' to the project
-@I [HLS-10] Opening and resetting solution '/home/student/cw444/Fall2014/ece5775/options-accel/final_design/fifo.prj/sol'.
+            for user 'vff6' on host 'amdpool-02' (Linux_x86_64 version 2.6.18-371.8.1.el5) on Sat Dec 13 21:23:30 EST 2014
+            in directory '/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/final_design'
+@I [HLS-10] Creating and opening project '/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/final_design/hls.prj'.
+@I [HLS-10] Adding design file 'BlackScholes.c' to the project
+@I [HLS-10] Adding design file 'CND.c' to the project
+@I [HLS-10] Adding design file 'mt19937ar.c' to the project
+@I [HLS-10] Creating and opening solution '/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/final_design/hls.prj/solution1'.
 @I [HLS-10] Cleaning up the solution database.
 @I [HLS-10] Setting target device to 'xc7z020clg484-1'
-@I [HLS-10] Analyzing design file 'fifo_test.cpp' ... 
+@I [SYN-201] Setting up clock 'default' with a period of 10ns.
+@I [HLS-10] Analyzing design file 'mt19937ar.c' ... 
+@I [HLS-10] Analyzing design file 'CND.c' ... 
+@I [HLS-10] Analyzing design file 'BlackScholes.c' ... 
 @I [HLS-10] Validating synthesis directives ...
 @I [HLS-10] Starting code transformations ...
+@I [XFORM-603] Inlining function 'ap_fixed_base<168, 116, false, (ap_q_mode)5, (ap_o_mode)3, 0>::operator<<' into 'hls::cast_IEEE754<long, double>' (/proj/buildscratch/builds/2014.2/continuous/20140611121610/src/products/hls/hls_lib/src/hls/hls_round.h:371).
+@I [XFORM-603] Inlining function 'ap_fixed_base<1, 65, false, (ap_q_mode)5, (ap_o_mode)0, 0>::overflow_adjust' into 'ap_fixed_base<1, 65, false, (ap_q_mode)5, (ap_o_mode)0, 0>::ap_fixed_base<116, 116, false, (ap_q_mode)5, (ap_o_mode)3, 0>' ().
 @I [HLS-10] Checking synthesizability ...
-@I [HLS-111] Elapsed time: 2.12 seconds; current memory usage: 48 MB.
+@I [XFORM-602] Inlining function 'mod_N' into 'rand_uint32' (mt19937ar.c:141) automatically.
+@I [XFORM-602] Inlining function 'mod_N_p1' into 'rand_uint32' (mt19937ar.c:142) automatically.
+@I [XFORM-602] Inlining function 'mod_N_pm' into 'rand_uint32' (mt19937ar.c:143) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::data' into 'fp_struct<double>::to_double' (/proj/buildscratch/builds/2014.2/continuous/20140611121610/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:504) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::to_double' into 'fp_struct<double>::to_ieee' (/proj/buildscratch/builds/2014.2/continuous/20140611121610/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:518) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::to_ieee' into 'hls::copysign' (/proj/buildscratch/builds/2014.2/continuous/20140611121610/src/products/hls/hls_lib/src/hls_math.h:254) automatically.
+@I [XFORM-602] Inlining function 'hls::copysign' into 'hls::fabs' (/proj/buildscratch/builds/2014.2/continuous/20140611121610/src/products/hls/hls_lib/src/hls_math.h:276) automatically.
+@I [XFORM-602] Inlining function 'hls::fabs' into 'fabs' (/proj/buildscratch/builds/2014.2/continuous/20140611121610/src/products/hls/hls_lib/src/lib_hlsm.cpp:134) automatically.
+@I [XFORM-602] Inlining function 'fabs' into 'CND' (CND.c:21) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::mantissa' into 'hls::cast_IEEE754<long, double>' (/proj/buildscratch/builds/2014.2/continuous/20140611121610/src/products/hls/hls_lib/src/hls/hls_round.h:368) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::expv' into 'hls::cast_IEEE754<long, double>' (/proj/buildscratch/builds/2014.2/continuous/20140611121610/src/products/hls/hls_lib/src/hls/hls_round.h:371) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::__signbit' into 'hls::cast_IEEE754<long, double>' (/proj/buildscratch/builds/2014.2/continuous/20140611121610/src/products/hls/hls_lib/src/hls/hls_round.h:383) automatically.
+@I [XFORM-602] Inlining function 'hls::cast_IEEE754<long, double>' into '__hls_fptosi_double_i64' (/proj/buildscratch/builds/2014.2/continuous/20140611121610/src/products/hls/hls_lib/src/lib_floatconversion.cpp:44) automatically.
+@I [XFORM-602] Inlining function 'CND' into 'BlackScholes' (BlackScholes.c:14) automatically.
+@I [XFORM-602] Inlining function '__hls_fptosi_double_i64' into 'BlackScholes' (BlackScholes.c:15) automatically.
+@I [XFORM-401] Performing if-conversion on hyperblock to (BlackScholes.c:55:1) in function 'BlackScholes'... converting 9 basic blocks.
+@I [ANALYSIS-51] Setting 'None' inter dependency for variable 'mt_kk' in region (mt19937ar.c:87).
+@I [ANALYSIS-51] Setting 'None' inter dependency for variable 'mt_kkp1' in region (mt19937ar.c:87).
+@I [ANALYSIS-51] Setting 'None' inter dependency for variable 'mt_kkpm' in region (mt19937ar.c:87).
+@I [HLS-111] Elapsed time: 15.1 seconds; current memory usage: 387 MB.
 @I [HLS-10] Starting hardware synthesis ...
-@I [HLS-10] Synthesizing 'dut' ...
-@I [SYN-201] Setting up clock 'default' with a period of 10ns.
+@I [HLS-10] Synthesizing 'BlackScholes' ...
 @I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Scheduling module 'dut' 
+@I [HLS-10] -- Scheduling module 'rand_uint32' 
 @I [HLS-10] ----------------------------------------------------------------
 @I [SCHED-11] Starting scheduling ...
+@I [SCHED-61] Pipelining function 'rand_uint32'.
+@I [SCHED-61] Pipelining result: Target II: 1, Final II: 1, Depth: 3.
 @I [SCHED-11] Finished scheduling.
-@I [HLS-111] Elapsed time: 0.25 seconds; current memory usage: 48.4 MB.
+@I [HLS-111] Elapsed time: 0.18 seconds; current memory usage: 387 MB.
 @I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Exploring micro-architecture for module 'dut' 
+@I [HLS-10] -- Exploring micro-architecture for module 'rand_uint32' 
 @I [HLS-10] ----------------------------------------------------------------
 @I [BIND-100] Starting micro-architecture generation ...
 @I [BIND-101] Performing variable lifetime analysis.
 @I [BIND-101] Exploring resource sharing.
 @I [BIND-101] Binding ...
 @I [BIND-100] Finished micro-architecture generation.
-@I [HLS-111] Elapsed time: 0.01 seconds; current memory usage: 48.5 MB.
+@I [HLS-111] Elapsed time: 0.06 seconds; current memory usage: 388 MB.
 @I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Generating RTL for module 'dut' 
+@I [HLS-10] -- Scheduling module 'BlackScholes' 
 @I [HLS-10] ----------------------------------------------------------------
-@I [RTGEN-500] Setting interface mode on port 'dut/in_fifo_V' to 'ap_fifo'.
-@I [RTGEN-500] Setting interface mode on port 'dut/out_fifo_V' to 'ap_fifo'.
-@I [RTGEN-500] Setting interface mode on function 'dut' to 'ap_ctrl_none'.
-@I [RTGEN-100] Generating core module 'dut_dmul_64ns_64ns_64_6_max_dsp': 1 instance(s).
-@I [RTGEN-100] Finished creating RTL model for 'dut'.
-@I [HLS-111] Elapsed time: 0.04 seconds; current memory usage: 48.7 MB.
+@I [SCHED-11] Starting scheduling ...
+@I [SCHED-61] Pipelining function 'BlackScholes'.
+@I [SCHED-61] Pipelining result: Target II: 16, Final II: 16, Depth: 228.
+@I [SCHED-11] Finished scheduling.
+@I [HLS-111] Elapsed time: 0.46 seconds; current memory usage: 389 MB.
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Exploring micro-architecture for module 'BlackScholes' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [BIND-100] Starting micro-architecture generation ...
+@I [BIND-101] Performing variable lifetime analysis.
+@I [BIND-101] Exploring resource sharing.
+@I [BIND-101] Binding ...
+@I [BIND-100] Finished micro-architecture generation.
+@I [HLS-111] Elapsed time: 0.2 seconds; current memory usage: 390 MB.
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Generating RTL for module 'rand_uint32' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [RTGEN-100] Finished creating RTL model for 'rand_uint32'.
+@I [HLS-111] Elapsed time: 0.19 seconds; current memory usage: 391 MB.
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Generating RTL for module 'BlackScholes' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [RTGEN-500] Setting interface mode on port 'BlackScholes/CallPutFlag' to 'ap_none'.
+@I [RTGEN-500] Setting interface mode on port 'BlackScholes/S' to 'ap_none'.
+@I [RTGEN-500] Setting interface mode on port 'BlackScholes/X' to 'ap_none'.
+@I [RTGEN-500] Setting interface mode on port 'BlackScholes/T' to 'ap_none'.
+@I [RTGEN-500] Setting interface mode on port 'BlackScholes/r' to 'ap_none'.
+@I [RTGEN-500] Setting interface mode on port 'BlackScholes/b' to 'ap_none'.
+@I [RTGEN-500] Setting interface mode on function 'BlackScholes' to 'ap_ctrl_hs'.
+@W [RTGEN-101] Global scalar 'kk' will not be exposed as RTL port.
+@W [RTGEN-101] Global scalar 'kk_p1' will not be exposed as RTL port.
+@W [RTGEN-101] Global scalar 'kk_pm' will not be exposed as RTL port.
+@I [RTGEN-100] Generating core module 'BlackScholes_dadddsub_64ns_64ns_64_5_full_dsp': 1 instance(s).
+@I [RTGEN-100] Generating core module 'BlackScholes_dcmp_64ns_64ns_1_3': 1 instance(s).
+@I [RTGEN-100] Generating core module 'BlackScholes_ddiv_64ns_64ns_64_31': 1 instance(s).
+@I [RTGEN-100] Generating core module 'BlackScholes_dexp_64ns_64ns_64_18_full_dsp': 1 instance(s).
+@I [RTGEN-100] Generating core module 'BlackScholes_dmul_64ns_64ns_64_6_max_dsp': 2 instance(s).
+@I [RTGEN-100] Generating core module 'BlackScholes_drecip_64ns_64ns_64_11': 1 instance(s).
+@I [RTGEN-100] Generating core module 'BlackScholes_dsqrt_64ns_64ns_64_31': 1 instance(s).
+@I [RTGEN-100] Generating core module 'BlackScholes_sitodp_64ns_64_6': 1 instance(s).
+@I [RTGEN-100] Generating core module 'BlackScholes_uitodp_64ns_64_6': 1 instance(s).
+@I [RTGEN-100] Finished creating RTL model for 'BlackScholes'.
+@I [HLS-111] Elapsed time: 0.3 seconds; current memory usage: 393 MB.
+@I [RTMG-278] Implementing memory 'rand_uint32_mt_kk_ram' using block RAMs with reset.
 @I [HLS-10] Finished generating all RTL models.
-@I [WSYSC-301] Generating RTL SystemC for 'dut'.
-@I [WVHDL-304] Generating RTL VHDL for 'dut'.
-@I [WVLOG-307] Generating RTL Verilog for 'dut'.
-@I [IMPL-8] Exporting the design as a Pcore for EDK.
-@I [HLS-112] Total elapsed time: 70.803 seconds; peak memory usage: 48.7 MB.
+@I [WSYSC-301] Generating RTL SystemC for 'BlackScholes'.
+@I [WVHDL-304] Generating RTL VHDL for 'BlackScholes'.
+@I [WVLOG-307] Generating RTL Verilog for 'BlackScholes'.
+@I [HLS-112] Total elapsed time: 109.870 seconds; peak memory usage: 393 MB.
 @I [LIC-101] Checked in feature [HLS]

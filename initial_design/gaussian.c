@@ -52,40 +52,12 @@ double gaussrand2 (gaussrand_state_t* gaussrand_state)
         if (S >= 1 || S == 0) {
           a1 = rand_uint32()>>5; 
           b1 = rand_uint32()>>6;
-          double temp_U1 = (a1*67108864.0+b1);
-          for (j = 0; j<1000;j++) {
-            #pragma HLS unroll
-            if (temp_U1 > 9007199254740992) {
-              temp_U1 -= 9007199254740992;
-            }
-            else {
-              break;
-            }
-          }
-          const double U1 = CND(19.0);
-          // printf("U1 prev is :%f\n", temp_U1);
-          printf("U1 post is :%f\n", U1);
-          // const double U1 = 0.25;
-          // const double U1 = (a1*67108864.0+b1)*(1.0/9007199254740992.0);
+          const double U1 = (a1*67108864.0+b1)*(1.0/9007199254740992.0);
 
           a2 = rand_uint32()>>5;
           b2 = rand_uint32()>>6;
-          double temp_U2 = (a2*67108864.0+b2); 
-          for (k = 0; k<1000;k++) {
-            #pragma HLS unroll
-            if (temp_U2 > 9007199254740992) {
-              temp_U2 -= 9007199254740992;
-            }
-            else {
-              break;
-            }
-          }
-          const double U2 = CND(20.0);
-          // printf("U2 prev is :%f\n", temp_U2);
-          printf("U2 post is :%f\n", U2);
-          // const double U2 = 0.90;
-          // const double U2 = (a2*67108864.0+b2)*(1.0/9007199254740992.0);
-          
+          const double U2 = (a2*67108864.0+b2)*(1.0/9007199254740992.0);
+
           V1 = 2 * U1 - 1;
           V2 = 2 * U2 - 1;
           S = V1 * V1 + V2 * V2;
