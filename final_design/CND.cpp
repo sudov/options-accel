@@ -25,11 +25,7 @@ double CND(double X)
       a4*pow(K,4) + 
       a5*pow(K,5));
 #else
-           (K*(a1 + 
-         K*(a2 + 
-            K*(a3 + 
-               K*(a4 +
-                        K*a5))))); 
+    (K*(a1 + K*(a2 + K*(a3 + K*(a4 + K*a5))))); 
 #endif
 
   return (X < 0.0) ? w : 1.0 - w; 

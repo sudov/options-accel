@@ -27,8 +27,8 @@ promote_core DLog_meddsp
 #set_directive_inline CND -off
 
 # Config overall design throughput
-set_directive_pipeline -II 1 BlackScholesWrapper/loop
-set_directive_pipeline -II 1 BlackScholes
+set_directive_pipeline -II 4 BlackScholesWrapper/loop
+set_directive_pipeline -II 4 BlackScholes
 config_rtl -reset state
  
 #source "./directives.tcl"
