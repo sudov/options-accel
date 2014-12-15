@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define NUM_PASSES 1000000
+#define NUM_PASSES 5
 #define RAND ((double)rand()/RAND_MAX) 
 #define PI 3.14159265358979323846  /* pi */
 

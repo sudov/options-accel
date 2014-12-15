@@ -4,9 +4,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define NUM_INPUTS 20000
-#define NUM_PASSES 50
-#define RAND ((double)rand()/RAND_MAX)
 #define PI 3.14159265358979323846  /* pi */
 
 double CND(double X)
