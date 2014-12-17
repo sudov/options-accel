@@ -1,4 +1,0 @@
-rand_uint32_mt_kk
-rand_uint32
-BlackScholes
-dut
