@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'BlackScholes'" level="0">
-<item name = "Date">Mon Dec 15 17:26:12 2014
+<item name = "Date">Wed Dec 17 05:27:33 2014
 </item>
 <item name = "Version">2014.2 (Build 932637 on Wed Jun 11 12:38:34 PM 2014)</item>
 <item name = "Project">hls.prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="default">10.00, 8.62, 1.25</column>
+<column name="default">10.00, 7.52, 1.25</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">210, 210, 4, 4, function</column>
+<column name="">2, 2, 3, 3, function</column>
 </table>
 </item>
 <item name = "Detail">

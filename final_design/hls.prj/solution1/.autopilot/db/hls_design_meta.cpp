@@ -2,19 +2,9 @@
 const Port_Property HLS_Design_Meta::port_props[]={
 	Port_Property("ap_clk", 1, hls_in, -1, "", "", 1),
 	Port_Property("ap_rst", 1, hls_in, -1, "", "", 1),
-	Port_Property("ap_start", 1, hls_in, -1, "", "", 1),
-	Port_Property("ap_done", 1, hls_out, -1, "", "", 1),
-	Port_Property("ap_idle", 1, hls_out, -1, "", "", 1),
-	Port_Property("ap_ready", 1, hls_out, -1, "", "", 1),
-	Port_Property("CallPutFlag", 8, hls_in, 0, "ap_none", "in_data", 1),
-	Port_Property("S", 64, hls_in, 1, "ap_none", "in_data", 1),
-	Port_Property("X", 64, hls_in, 2, "ap_none", "in_data", 1),
-	Port_Property("T", 64, hls_in, 3, "ap_none", "in_data", 1),
-	Port_Property("r", 64, hls_in, 4, "ap_none", "in_data", 1),
-	Port_Property("b", 64, hls_in, 5, "ap_none", "in_data", 1),
-	Port_Property("a_address0", 17, hls_out, 6, "ap_memory", "mem_address", 1),
-	Port_Property("a_ce0", 1, hls_out, 6, "ap_memory", "mem_ce", 1),
-	Port_Property("a_we0", 1, hls_out, 6, "ap_memory", "mem_we", 1),
-	Port_Property("a_d0", 64, hls_out, 6, "ap_memory", "mem_din", 1),
+	Port_Property("in_fifo_V_dout", 32, hls_in, 0, "ap_fifo", "fifo_data", 10),
+	Port_Property("in_fifo_V_empty_n", 1, hls_in, 0, "ap_fifo", "fifo_status", 10),
+	Port_Property("in_fifo_V_read", 1, hls_out, 0, "ap_fifo", "fifo_update", 10),
+	Port_Property("out_fifo_V", 32, hls_in, 1, "ap_none", "in_data", 1),
 };
-const char* HLS_Design_Meta::dut_name = "BlackScholesWrapper";
+const char* HLS_Design_Meta::dut_name = "dut";

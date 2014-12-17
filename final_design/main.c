@@ -1,5 +1,6 @@
-#include "BlackScholesWrapper.h"
+//#include "BlackScholesWrapper.h"
 //#include "mt19937ar.h"
+#include "BlackScholes_dut.h"
 #include "math.h"
 #include <time.h>
 #include <stdlib.h>
@@ -33,6 +34,11 @@ main()
   a = BlackScholesWrapper(f, s, x, t, r, b);
   after = clock();
   
+  //hls::stream mystream;
+
+  //mystream..write()
+
+
   // Mean, Variance and Confidence Calculations
   double sum = 0;
   double mean = 0;

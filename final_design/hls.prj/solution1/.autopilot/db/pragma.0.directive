@@ -1,9 +1,18 @@
 <AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
 <sourceFile name="">
-<directive functionLabel="" functionName="dut" label="">
-<pragma name="INTERFACE">
-<option name="ap_ctrl_none" positionalBoolean="mode" value=""/>
-<option name="port" positionalBoolean="4" value="return"/>
+<directive functionLabel="" functionName="shadow_state" label="">
+<pragma name="UNROLL"/>
+</directive>
+<directive functionLabel="" functionName="rand_uint32" label="">
+<pragma name="PIPELINE">
+<option name="II" value="1"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="rand_uint32" label="">
+<pragma name="DEPENDENCE">
+<option name="array" positionalBoolean="class" value=""/>
+<option name="inter" positionalBoolean="type" value=""/>
+<option name="false" positionalBoolean="dependent" value=""/>
 </pragma>
 </directive>
 </sourceFile>

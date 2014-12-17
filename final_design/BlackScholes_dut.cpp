@@ -1,36 +1,35 @@
-#include "hls_stream.h"
-#include "BlackScholes.h"
+#include "BlackScholes_dut.h"
 
 
-#define NUM_INPUTS 20000
-#define NUM_PASSES 50
+
+#define NUM_PASSES 100000
 #define RAND ((double)rand()/RAND_MAX)
 #define PI 3.14159265358979323846  /* pi */
+// typedef union
+// {
+//     long long myint64;
+//     double mydouble;
+// } my_type ;
 
 
-typedef union
+void dut(hls::stream<int> in_fifo, hls::stream<int> out_fifo) 
 {
-    long long myint64;
-    double mydouble;
-} my_type ;
-
-
-void dut(hls::stream<int>& in_fifo, hls::stream<int>& out_fifo) 
-{
-    //#pragma HLS pipeline II=8
+    //#pragma HLS pipeline II=4
     //#pragma HLS dependence variable=rand_number inter false
     #pragma HLS interface ap_ctrl_none port=return
     //static int cnt;
 
+    int i;
+
+    //fifo tmp variables
     int data1; 
     int data2;
     long long full;
     my_type cvt;
     my_type ret;
 
-
-
-    char CallPutFlag;
+    //BS parameters
+    char CallPutFlag = 'c';
     double S;
     double X;
     double T;
@@ -38,9 +37,8 @@ void dut(hls::stream<int>& in_fifo, hls::stream<int>& out_fifo)
     double b;
     double result;
 
-    //CallPutFlag
-    CallPutFlag = (char) in_fifo.read();
 
+//======================Initialize BlackSchole parameters though FIFO=====================
     //S
     data1 = in_fifo.read();
     data2 = in_fifo.read();
@@ -76,14 +74,19 @@ void dut(hls::stream<int>& in_fifo, hls::stream<int>& out_fifo)
     cvt.myint64 = full;
     b = cvt.mydouble;
 
-    result = BlackScholes( CallPutFlag, S, X, T, r, b );
-    ret.mydouble = result;
 
-    data1 = (int)(ret.myint64>>32);
-    data2 = (int)(0xffff&(ret.myint64));
+//======================Starting MC Iterations for BS=====================
 
-    out_fifo.write(data1);
-    out_fifo.write(data2);
+
+    loop: for (i = 0; i < NUM_PASSES; i++) {
+        // shadow_state();
+        result = BlackScholes(CallPutFlag, S, X, T, r, b);
+        ret.mydouble = result;
+        //data1 = (int)(ret.myint64>>32);
+        //data2 = (int)(0xffffffff&(ret.myint64));
+        //out_fifo.write(data1);
+        //out_fifo.write(data2);
+    }
 
 }
 

@@ -17,7 +17,7 @@
     </clockList>
     <config>
         <config_rtl reset="state"/>
-        <schedule model="BlackScholesWrapper"/>
+        <schedule model="dut"/>
     </config>
 </AutoPilot:solution>
 

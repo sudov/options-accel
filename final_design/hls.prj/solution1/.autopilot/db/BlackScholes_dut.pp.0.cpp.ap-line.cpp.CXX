@@ -10,226 +10,228 @@
 #pragma line 8 "<command line>" 2 ::: 198
 #pragma line 1 "<built-in>" 2 ::: 199
 #pragma line 1 "BlackScholes_dut.cpp" 2 ::: 200
-#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/common/technology/autopilot/hls_stream.h" 1 ::: 201
-#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/common/technology/autopilot/etc/autopilot_enum.h" 1 ::: 268
-#pragma line 67 "/opt/xilinx/Vivado_HLS/2014.2/common/technology/autopilot/hls_stream.h" 2 ::: 397
-#pragma line 2 "BlackScholes_dut.cpp" 2 ::: 492
-#pragma line 1 "./BlackScholes.h" 1 ::: 493
-#pragma line 1 "/usr/include/math.h" 1 3 4 ::: 494
-#pragma line 1 "/usr/include/features.h" 1 3 4 ::: 523
-#pragma line 115 "/usr/include/features.h" 3 4 ::: 616
-#pragma line 139 "/usr/include/features.h" 3 4 ::: 633
-#pragma line 169 "/usr/include/features.h" 3 4 ::: 643
-#pragma line 179 "/usr/include/features.h" 3 4 ::: 646
-#pragma line 294 "/usr/include/features.h" 3 4 ::: 658
-#pragma line 1 "/usr/include/sys/cdefs.h" 1 3 4 ::: 695
-#pragma line 72 "/usr/include/sys/cdefs.h" 3 4 ::: 741
-#pragma line 98 "/usr/include/sys/cdefs.h" 3 4 ::: 759
-#pragma line 111 "/usr/include/sys/cdefs.h" 3 4 ::: 765
-#pragma line 123 "/usr/include/sys/cdefs.h" 3 4 ::: 769
-#pragma line 155 "/usr/include/sys/cdefs.h" 3 4 ::: 787
-#pragma line 178 "/usr/include/sys/cdefs.h" 3 4 ::: 797
-#pragma line 222 "/usr/include/sys/cdefs.h" 3 4 ::: 834
-#pragma line 275 "/usr/include/sys/cdefs.h" 3 4 ::: 875
-#pragma line 313 "/usr/include/sys/cdefs.h" 3 4 ::: 899
-#pragma line 1 "/usr/include/bits/wordsize.h" 1 3 4 ::: 900
-#pragma line 314 "/usr/include/sys/cdefs.h" 2 3 4 ::: 902
-#pragma line 330 "/usr/include/features.h" 2 3 4 ::: 903
-#pragma line 1 "/usr/include/gnu/stubs.h" 1 3 4 ::: 927
-#pragma line 1 "/usr/include/bits/wordsize.h" 1 3 4 ::: 932
-#pragma line 5 "/usr/include/gnu/stubs.h" 2 3 4 ::: 934
-#pragma line 1 "/usr/include/gnu/stubs-64.h" 1 3 4 ::: 939
-#pragma line 10 "/usr/include/gnu/stubs.h" 2 3 4 ::: 944
-#pragma line 353 "/usr/include/features.h" 2 3 4 ::: 945
-#pragma line 29 "/usr/include/math.h" 2 3 4 ::: 946
-#pragma line 1 "/usr/include/bits/huge_val.h" 1 3 4 ::: 953
-#pragma line 35 "/usr/include/math.h" 2 3 4 ::: 980
-#pragma line 1 "/usr/include/bits/huge_valf.h" 1 3 4 ::: 982
-#pragma line 37 "/usr/include/math.h" 2 3 4 ::: 1009
-#pragma line 1 "/usr/include/bits/huge_vall.h" 1 3 4 ::: 1010
-#pragma line 38 "/usr/include/math.h" 2 3 4 ::: 1030
-#pragma line 1 "/usr/include/bits/inf.h" 1 3 4 ::: 1034
-#pragma line 41 "/usr/include/math.h" 2 3 4 ::: 1059
-#pragma line 1 "/usr/include/bits/nan.h" 1 3 4 ::: 1063
-#pragma line 44 "/usr/include/math.h" 2 3 4 ::: 1089
-#pragma line 1 "/usr/include/bits/mathdef.h" 1 3 4 ::: 1094
-#pragma line 26 "/usr/include/bits/mathdef.h" 3 4 ::: 1112
-#pragma line 1 "/usr/include/bits/wordsize.h" 1 3 4 ::: 1113
-#pragma line 27 "/usr/include/bits/mathdef.h" 2 3 4 ::: 1115
-#pragma line 44 "/usr/include/bits/mathdef.h" 3 4 ::: 1123
-#pragma line 48 "/usr/include/math.h" 2 3 4 ::: 1125
-#pragma line 71 "/usr/include/math.h" 3 4 ::: 1131
-#pragma line 1 "/usr/include/bits/mathcalls.h" 1 3 4 ::: 1132
-#pragma line 72 "/usr/include/math.h" 2 3 4 ::: 1497
-#pragma line 94 "/usr/include/math.h" 3 4 ::: 1508
-#pragma line 1 "/usr/include/bits/mathcalls.h" 1 3 4 ::: 1509
-#pragma line 95 "/usr/include/math.h" 2 3 4 ::: 1874
-#pragma line 141 "/usr/include/math.h" 3 4 ::: 1875
-#pragma line 1 "/usr/include/bits/mathcalls.h" 1 3 4 ::: 1876
-#pragma line 142 "/usr/include/math.h" 2 3 4 ::: 2241
-#pragma line 156 "/usr/include/math.h" 3 4 ::: 2242
-#pragma line 224 "/usr/include/math.h" 3 4 ::: 2300
-#pragma line 236 "/usr/include/math.h" 3 4 ::: 2302
-#pragma line 248 "/usr/include/math.h" 3 4 ::: 2304
-#pragma line 264 "/usr/include/math.h" 3 4 ::: 2310
-#pragma line 276 "/usr/include/math.h" 3 4 ::: 2312
-#pragma line 348 "/usr/include/math.h" 3 4 ::: 2373
-#pragma line 365 "/usr/include/math.h" 3 4 ::: 2375
-#pragma line 385 "/usr/include/math.h" 3 4 ::: 2379
-#pragma line 407 "/usr/include/math.h" 3 4 ::: 2394
-#pragma line 465 "/usr/include/math.h" 3 4 ::: 2444
-#pragma line 2 "./BlackScholes.h" 2 ::: 2446
-#pragma line 1 "/usr/include/time.h" 1 3 4 ::: 2447
-#pragma line 31 "/usr/include/time.h" 3 4 ::: 2470
-#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 2480
-#pragma line 56 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 2516
-#pragma line 40 "/usr/include/time.h" 2 3 4 ::: 2519
-#pragma line 1 "/usr/include/bits/time.h" 1 3 4 ::: 2524
-#pragma line 45 "/usr/include/bits/time.h" 3 4 ::: 2558
-#pragma line 44 "/usr/include/time.h" 2 3 4 ::: 2569
-#pragma line 57 "/usr/include/time.h" 3 4 ::: 2572
-#pragma line 1 "/usr/include/bits/types.h" 1 3 4 ::: 2573
-#pragma line 1 "/usr/include/bits/wordsize.h" 1 3 4 ::: 2602
-#pragma line 29 "/usr/include/bits/types.h" 2 3 4 ::: 2604
-#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 2607
-#pragma line 56 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 2632
-#pragma line 32 "/usr/include/bits/types.h" 2 3 4 ::: 2635
-#pragma line 73 "/usr/include/bits/types.h" 3 4 ::: 2662
-#pragma line 129 "/usr/include/bits/types.h" 3 4 ::: 2691
-#pragma line 1 "/usr/include/bits/typesizes.h" 1 3 4 ::: 2698
-#pragma line 27 "/usr/include/bits/typesizes.h" 3 4 ::: 2717
-#pragma line 62 "/usr/include/bits/typesizes.h" 3 4 ::: 2720
-#pragma line 135 "/usr/include/bits/types.h" 2 3 4 ::: 2722
-#pragma line 58 "/usr/include/time.h" 2 3 4 ::: 2784
-#pragma line 76 "/usr/include/time.h" 3 4 ::: 2789
-#pragma line 92 "/usr/include/time.h" 3 4 ::: 2792
-#pragma line 104 "/usr/include/time.h" 3 4 ::: 2795
-#pragma line 119 "/usr/include/time.h" 3 4 ::: 2798
-#pragma line 1 "/usr/include/xlocale.h" 1 3 4 ::: 2897
-#pragma line 217 "/usr/include/time.h" 2 3 4 ::: 2938
-#pragma line 3 "./BlackScholes.h" 2 ::: 3139
-#pragma line 1 "/usr/include/stdlib.h" 1 3 4 ::: 3140
-#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 3174
-#pragma line 56 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 3199
-#pragma line 34 "/usr/include/stdlib.h" 2 3 4 ::: 3202
-#pragma line 1 "/usr/include/bits/waitflags.h" 1 3 4 ::: 3212
-#pragma line 43 "/usr/include/stdlib.h" 2 3 4 ::: 3242
-#pragma line 1 "/usr/include/bits/waitstatus.h" 1 3 4 ::: 3243
-#pragma line 65 "/usr/include/bits/waitstatus.h" 3 4 ::: 3300
-#pragma line 1 "/usr/include/endian.h" 1 3 4 ::: 3301
-#pragma line 1 "/usr/include/bits/endian.h" 1 3 4 ::: 3339
-#pragma line 38 "/usr/include/endian.h" 2 3 4 ::: 3341
-#pragma line 66 "/usr/include/bits/waitstatus.h" 2 3 4 ::: 3345
-#pragma line 44 "/usr/include/stdlib.h" 2 3 4 ::: 3379
-#pragma line 58 "/usr/include/stdlib.h" 3 4 ::: 3385
-#pragma line 84 "/usr/include/stdlib.h" 3 4 ::: 3390
-#pragma line 97 "/usr/include/stdlib.h" 3 4 ::: 3392
-#pragma line 426 "/usr/include/stdlib.h" 3 4 ::: 3615
-#pragma line 1 "/usr/include/sys/types.h" 1 3 4 ::: 3629
-#pragma line 105 "/usr/include/sys/types.h" 3 4 ::: 3725
-#pragma line 137 "/usr/include/sys/types.h" 3 4 ::: 3745
-#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 3757
-#pragma line 56 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 3782
-#pragma line 148 "/usr/include/sys/types.h" 2 3 4 ::: 3785
-#pragma line 187 "/usr/include/sys/types.h" 3 4 ::: 3795
-#pragma line 1 "/usr/include/sys/select.h" 1 3 4 ::: 3830
-#pragma line 1 "/usr/include/bits/select.h" 1 3 4 ::: 3862
-#pragma line 32 "/usr/include/sys/select.h" 2 3 4 ::: 3888
-#pragma line 1 "/usr/include/bits/sigset.h" 1 3 4 ::: 3892
-#pragma line 35 "/usr/include/sys/select.h" 2 3 4 ::: 3933
-#pragma line 1 "/usr/include/bits/time.h" 1 3 4 ::: 3946
-#pragma line 67 "/usr/include/bits/time.h" 3 4 ::: 3969
-#pragma line 47 "/usr/include/sys/select.h" 2 3 4 ::: 3977
-#pragma line 221 "/usr/include/sys/types.h" 2 3 4 ::: 4060
-#pragma line 1 "/usr/include/sys/sysmacros.h" 1 3 4 ::: 4064
-#pragma line 224 "/usr/include/sys/types.h" 2 3 4 ::: 4128
-#pragma line 262 "/usr/include/sys/types.h" 3 4 ::: 4149
-#pragma line 1 "/usr/include/bits/pthreadtypes.h" 1 3 4 ::: 4159
-#pragma line 1 "/usr/include/bits/wordsize.h" 1 3 4 ::: 4183
-#pragma line 24 "/usr/include/bits/pthreadtypes.h" 2 3 4 ::: 4185
-#pragma line 48 "/usr/include/bits/pthreadtypes.h" 3 4 ::: 4186
-#pragma line 74 "/usr/include/bits/pthreadtypes.h" 3 4 ::: 4205
-#pragma line 101 "/usr/include/bits/pthreadtypes.h" 3 4 ::: 4224
-#pragma line 187 "/usr/include/bits/pthreadtypes.h" 3 4 ::: 4293
-#pragma line 271 "/usr/include/sys/types.h" 2 3 4 ::: 4324
-#pragma line 439 "/usr/include/stdlib.h" 2 3 4 ::: 4328
-#pragma line 588 "/usr/include/stdlib.h" 3 4 ::: 4470
-#pragma line 1 "/usr/include/alloca.h" 1 3 4 ::: 4496
-#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 4522
-#pragma line 56 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 4547
-#pragma line 26 "/usr/include/alloca.h" 2 3 4 ::: 4550
-#pragma line 613 "/usr/include/stdlib.h" 2 3 4 ::: 4565
-#pragma line 719 "/usr/include/stdlib.h" 3 4 ::: 4663
-#pragma line 977 "/usr/include/stdlib.h" 3 4 ::: 4912
-#pragma line 4 "./BlackScholes.h" 2 ::: 4914
-#pragma line 1 "/usr/include/stdio.h" 1 3 4 ::: 4915
-#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 4950
-#pragma line 56 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 4975
-#pragma line 35 "/usr/include/stdio.h" 2 3 4 ::: 4978
-#pragma line 45 "/usr/include/stdio.h" 3 4 ::: 4979
-#pragma line 61 "/usr/include/stdio.h" 3 4 ::: 4982
-#pragma line 72 "/usr/include/stdio.h" 3 4 ::: 4985
-#pragma line 1 "/usr/include/libio.h" 1 3 4 ::: 4986
-#pragma line 1 "/usr/include/_G_config.h" 1 3 4 ::: 5019
-#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 5034
-#pragma line 56 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 5059
-#pragma line 15 "/usr/include/_G_config.h" 2 3 4 ::: 5066
-#pragma line 24 "/usr/include/_G_config.h" 3 4 ::: 5067
-#pragma line 1 "/usr/include/wchar.h" 1 3 4 ::: 5068
-#pragma line 48 "/usr/include/wchar.h" 3 4 ::: 5091
-#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 5092
-#pragma line 56 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 5117
-#pragma line 49 "/usr/include/wchar.h" 2 3 4 ::: 5120
-#pragma line 1 "/usr/include/bits/wchar.h" 1 3 4 ::: 5122
-#pragma line 51 "/usr/include/wchar.h" 2 3 4 ::: 5141
-#pragma line 62 "/usr/include/wchar.h" 3 4 ::: 5145
-#pragma line 75 "/usr/include/wchar.h" 3 4 ::: 5148
-#pragma line 25 "/usr/include/_G_config.h" 2 3 4 ::: 5165
-#pragma line 44 "/usr/include/_G_config.h" 3 4 ::: 5177
-#pragma line 1 "/usr/include/gconv.h" 1 3 4 ::: 5178
-#pragma line 1 "/usr/include/wchar.h" 1 3 4 ::: 5207
-#pragma line 48 "/usr/include/wchar.h" 3 4 ::: 5230
-#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 5231
-#pragma line 56 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 5256
-#pragma line 49 "/usr/include/wchar.h" 2 3 4 ::: 5259
-#pragma line 62 "/usr/include/wchar.h" 3 4 ::: 5265
-#pragma line 89 "/usr/include/wchar.h" 3 4 ::: 5268
-#pragma line 29 "/usr/include/gconv.h" 2 3 4 ::: 5271
-#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 5274
-#pragma line 56 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 5299
-#pragma line 32 "/usr/include/gconv.h" 2 3 4 ::: 5302
-#pragma line 45 "/usr/include/_G_config.h" 2 3 4 ::: 5449
-#pragma line 84 "/usr/include/_G_config.h" 3 4 ::: 5469
-#pragma line 33 "/usr/include/libio.h" 2 3 4 ::: 5476
-#pragma line 51 "/usr/include/libio.h" 3 4 ::: 5478
-#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdarg.h" 1 3 4 ::: 5482
-#pragma line 54 "/usr/include/libio.h" 2 3 4 ::: 5531
-#pragma line 74 "/usr/include/libio.h" 3 4 ::: 5532
-#pragma line 114 "/usr/include/libio.h" 3 4 ::: 5534
-#pragma line 147 "/usr/include/libio.h" 3 4 ::: 5540
-#pragma line 167 "/usr/include/libio.h" 3 4 ::: 5542
-#pragma line 200 "/usr/include/libio.h" 3 4 ::: 5566
-#pragma line 268 "/usr/include/libio.h" 3 4 ::: 5577
-#pragma line 316 "/usr/include/libio.h" 3 4 ::: 5618
-#pragma line 325 "/usr/include/libio.h" 3 4 ::: 5620
-#pragma line 357 "/usr/include/libio.h" 3 4 ::: 5642
-#pragma line 451 "/usr/include/libio.h" 3 4 ::: 5705
-#pragma line 481 "/usr/include/libio.h" 3 4 ::: 5720
-#pragma line 543 "/usr/include/libio.h" 3 4 ::: 5732
-#pragma line 73 "/usr/include/stdio.h" 2 3 4 ::: 5734
-#pragma line 1 "/usr/include/bits/stdio_lim.h" 1 3 4 ::: 5801
-#pragma line 139 "/usr/include/stdio.h" 2 3 4 ::: 5819
-#pragma line 181 "/usr/include/stdio.h" 3 4 ::: 5853
-#pragma line 271 "/usr/include/stdio.h" 3 4 ::: 5930
-#pragma line 695 "/usr/include/stdio.h" 3 4 ::: 6340
-#pragma line 719 "/usr/include/stdio.h" 3 4 ::: 6351
-#pragma line 1 "/usr/include/bits/sys_errlist.h" 1 3 4 ::: 6388
-#pragma line 755 "/usr/include/stdio.h" 2 3 4 ::: 6421
-#pragma line 832 "/usr/include/stdio.h" 3 4 ::: 6489
-#pragma line 844 "/usr/include/stdio.h" 3 4 ::: 6492
-#pragma line 5 "./BlackScholes.h" 2 ::: 6494
-#pragma line 1 "./mt19937ar.h" 1 ::: 6495
-#pragma line 6 "./BlackScholes.h" 2 ::: 6554
-#pragma line 1 "./CND.h" 1 ::: 6555
-#pragma line 7 "./BlackScholes.h" 2 ::: 6562
-#pragma line 3 "BlackScholes_dut.cpp" 2 ::: 6565
+#pragma line 1 "./BlackScholes_dut.h" 1 ::: 201
+#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/common/technology/autopilot/hls_stream.h" 1 ::: 202
+#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/common/technology/autopilot/etc/autopilot_enum.h" 1 ::: 269
+#pragma line 67 "/opt/xilinx/Vivado_HLS/2014.2/common/technology/autopilot/hls_stream.h" 2 ::: 398
+#pragma line 2 "./BlackScholes_dut.h" 2 ::: 493
+#pragma line 1 "./BlackScholes.h" 1 ::: 494
+#pragma line 1 "/usr/include/math.h" 1 3 4 ::: 495
+#pragma line 1 "/usr/include/features.h" 1 3 4 ::: 524
+#pragma line 115 "/usr/include/features.h" 3 4 ::: 617
+#pragma line 139 "/usr/include/features.h" 3 4 ::: 634
+#pragma line 169 "/usr/include/features.h" 3 4 ::: 644
+#pragma line 179 "/usr/include/features.h" 3 4 ::: 647
+#pragma line 294 "/usr/include/features.h" 3 4 ::: 659
+#pragma line 1 "/usr/include/sys/cdefs.h" 1 3 4 ::: 696
+#pragma line 72 "/usr/include/sys/cdefs.h" 3 4 ::: 742
+#pragma line 98 "/usr/include/sys/cdefs.h" 3 4 ::: 760
+#pragma line 111 "/usr/include/sys/cdefs.h" 3 4 ::: 766
+#pragma line 123 "/usr/include/sys/cdefs.h" 3 4 ::: 770
+#pragma line 155 "/usr/include/sys/cdefs.h" 3 4 ::: 788
+#pragma line 178 "/usr/include/sys/cdefs.h" 3 4 ::: 798
+#pragma line 222 "/usr/include/sys/cdefs.h" 3 4 ::: 835
+#pragma line 275 "/usr/include/sys/cdefs.h" 3 4 ::: 876
+#pragma line 313 "/usr/include/sys/cdefs.h" 3 4 ::: 900
+#pragma line 1 "/usr/include/bits/wordsize.h" 1 3 4 ::: 901
+#pragma line 314 "/usr/include/sys/cdefs.h" 2 3 4 ::: 903
+#pragma line 330 "/usr/include/features.h" 2 3 4 ::: 904
+#pragma line 1 "/usr/include/gnu/stubs.h" 1 3 4 ::: 928
+#pragma line 1 "/usr/include/bits/wordsize.h" 1 3 4 ::: 933
+#pragma line 5 "/usr/include/gnu/stubs.h" 2 3 4 ::: 935
+#pragma line 1 "/usr/include/gnu/stubs-64.h" 1 3 4 ::: 940
+#pragma line 10 "/usr/include/gnu/stubs.h" 2 3 4 ::: 945
+#pragma line 353 "/usr/include/features.h" 2 3 4 ::: 946
+#pragma line 29 "/usr/include/math.h" 2 3 4 ::: 947
+#pragma line 1 "/usr/include/bits/huge_val.h" 1 3 4 ::: 954
+#pragma line 35 "/usr/include/math.h" 2 3 4 ::: 981
+#pragma line 1 "/usr/include/bits/huge_valf.h" 1 3 4 ::: 983
+#pragma line 37 "/usr/include/math.h" 2 3 4 ::: 1010
+#pragma line 1 "/usr/include/bits/huge_vall.h" 1 3 4 ::: 1011
+#pragma line 38 "/usr/include/math.h" 2 3 4 ::: 1031
+#pragma line 1 "/usr/include/bits/inf.h" 1 3 4 ::: 1035
+#pragma line 41 "/usr/include/math.h" 2 3 4 ::: 1060
+#pragma line 1 "/usr/include/bits/nan.h" 1 3 4 ::: 1064
+#pragma line 44 "/usr/include/math.h" 2 3 4 ::: 1090
+#pragma line 1 "/usr/include/bits/mathdef.h" 1 3 4 ::: 1095
+#pragma line 26 "/usr/include/bits/mathdef.h" 3 4 ::: 1113
+#pragma line 1 "/usr/include/bits/wordsize.h" 1 3 4 ::: 1114
+#pragma line 27 "/usr/include/bits/mathdef.h" 2 3 4 ::: 1116
+#pragma line 44 "/usr/include/bits/mathdef.h" 3 4 ::: 1124
+#pragma line 48 "/usr/include/math.h" 2 3 4 ::: 1126
+#pragma line 71 "/usr/include/math.h" 3 4 ::: 1132
+#pragma line 1 "/usr/include/bits/mathcalls.h" 1 3 4 ::: 1133
+#pragma line 72 "/usr/include/math.h" 2 3 4 ::: 1498
+#pragma line 94 "/usr/include/math.h" 3 4 ::: 1509
+#pragma line 1 "/usr/include/bits/mathcalls.h" 1 3 4 ::: 1510
+#pragma line 95 "/usr/include/math.h" 2 3 4 ::: 1875
+#pragma line 141 "/usr/include/math.h" 3 4 ::: 1876
+#pragma line 1 "/usr/include/bits/mathcalls.h" 1 3 4 ::: 1877
+#pragma line 142 "/usr/include/math.h" 2 3 4 ::: 2242
+#pragma line 156 "/usr/include/math.h" 3 4 ::: 2243
+#pragma line 224 "/usr/include/math.h" 3 4 ::: 2301
+#pragma line 236 "/usr/include/math.h" 3 4 ::: 2303
+#pragma line 248 "/usr/include/math.h" 3 4 ::: 2305
+#pragma line 264 "/usr/include/math.h" 3 4 ::: 2311
+#pragma line 276 "/usr/include/math.h" 3 4 ::: 2313
+#pragma line 348 "/usr/include/math.h" 3 4 ::: 2374
+#pragma line 365 "/usr/include/math.h" 3 4 ::: 2376
+#pragma line 385 "/usr/include/math.h" 3 4 ::: 2380
+#pragma line 407 "/usr/include/math.h" 3 4 ::: 2395
+#pragma line 465 "/usr/include/math.h" 3 4 ::: 2445
+#pragma line 2 "./BlackScholes.h" 2 ::: 2447
+#pragma line 1 "/usr/include/time.h" 1 3 4 ::: 2448
+#pragma line 31 "/usr/include/time.h" 3 4 ::: 2471
+#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 2481
+#pragma line 56 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 2517
+#pragma line 40 "/usr/include/time.h" 2 3 4 ::: 2520
+#pragma line 1 "/usr/include/bits/time.h" 1 3 4 ::: 2525
+#pragma line 45 "/usr/include/bits/time.h" 3 4 ::: 2559
+#pragma line 44 "/usr/include/time.h" 2 3 4 ::: 2570
+#pragma line 57 "/usr/include/time.h" 3 4 ::: 2573
+#pragma line 1 "/usr/include/bits/types.h" 1 3 4 ::: 2574
+#pragma line 1 "/usr/include/bits/wordsize.h" 1 3 4 ::: 2603
+#pragma line 29 "/usr/include/bits/types.h" 2 3 4 ::: 2605
+#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 2608
+#pragma line 56 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 2633
+#pragma line 32 "/usr/include/bits/types.h" 2 3 4 ::: 2636
+#pragma line 73 "/usr/include/bits/types.h" 3 4 ::: 2663
+#pragma line 129 "/usr/include/bits/types.h" 3 4 ::: 2692
+#pragma line 1 "/usr/include/bits/typesizes.h" 1 3 4 ::: 2699
+#pragma line 27 "/usr/include/bits/typesizes.h" 3 4 ::: 2718
+#pragma line 62 "/usr/include/bits/typesizes.h" 3 4 ::: 2721
+#pragma line 135 "/usr/include/bits/types.h" 2 3 4 ::: 2723
+#pragma line 58 "/usr/include/time.h" 2 3 4 ::: 2785
+#pragma line 76 "/usr/include/time.h" 3 4 ::: 2790
+#pragma line 92 "/usr/include/time.h" 3 4 ::: 2793
+#pragma line 104 "/usr/include/time.h" 3 4 ::: 2796
+#pragma line 119 "/usr/include/time.h" 3 4 ::: 2799
+#pragma line 1 "/usr/include/xlocale.h" 1 3 4 ::: 2898
+#pragma line 217 "/usr/include/time.h" 2 3 4 ::: 2939
+#pragma line 3 "./BlackScholes.h" 2 ::: 3140
+#pragma line 1 "/usr/include/stdlib.h" 1 3 4 ::: 3141
+#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 3175
+#pragma line 56 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 3200
+#pragma line 34 "/usr/include/stdlib.h" 2 3 4 ::: 3203
+#pragma line 1 "/usr/include/bits/waitflags.h" 1 3 4 ::: 3213
+#pragma line 43 "/usr/include/stdlib.h" 2 3 4 ::: 3243
+#pragma line 1 "/usr/include/bits/waitstatus.h" 1 3 4 ::: 3244
+#pragma line 65 "/usr/include/bits/waitstatus.h" 3 4 ::: 3301
+#pragma line 1 "/usr/include/endian.h" 1 3 4 ::: 3302
+#pragma line 1 "/usr/include/bits/endian.h" 1 3 4 ::: 3340
+#pragma line 38 "/usr/include/endian.h" 2 3 4 ::: 3342
+#pragma line 66 "/usr/include/bits/waitstatus.h" 2 3 4 ::: 3346
+#pragma line 44 "/usr/include/stdlib.h" 2 3 4 ::: 3380
+#pragma line 58 "/usr/include/stdlib.h" 3 4 ::: 3386
+#pragma line 84 "/usr/include/stdlib.h" 3 4 ::: 3391
+#pragma line 97 "/usr/include/stdlib.h" 3 4 ::: 3393
+#pragma line 426 "/usr/include/stdlib.h" 3 4 ::: 3616
+#pragma line 1 "/usr/include/sys/types.h" 1 3 4 ::: 3630
+#pragma line 105 "/usr/include/sys/types.h" 3 4 ::: 3726
+#pragma line 137 "/usr/include/sys/types.h" 3 4 ::: 3746
+#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 3758
+#pragma line 56 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 3783
+#pragma line 148 "/usr/include/sys/types.h" 2 3 4 ::: 3786
+#pragma line 187 "/usr/include/sys/types.h" 3 4 ::: 3796
+#pragma line 1 "/usr/include/sys/select.h" 1 3 4 ::: 3831
+#pragma line 1 "/usr/include/bits/select.h" 1 3 4 ::: 3863
+#pragma line 32 "/usr/include/sys/select.h" 2 3 4 ::: 3889
+#pragma line 1 "/usr/include/bits/sigset.h" 1 3 4 ::: 3893
+#pragma line 35 "/usr/include/sys/select.h" 2 3 4 ::: 3934
+#pragma line 1 "/usr/include/bits/time.h" 1 3 4 ::: 3947
+#pragma line 67 "/usr/include/bits/time.h" 3 4 ::: 3970
+#pragma line 47 "/usr/include/sys/select.h" 2 3 4 ::: 3978
+#pragma line 221 "/usr/include/sys/types.h" 2 3 4 ::: 4061
+#pragma line 1 "/usr/include/sys/sysmacros.h" 1 3 4 ::: 4065
+#pragma line 224 "/usr/include/sys/types.h" 2 3 4 ::: 4129
+#pragma line 262 "/usr/include/sys/types.h" 3 4 ::: 4150
+#pragma line 1 "/usr/include/bits/pthreadtypes.h" 1 3 4 ::: 4160
+#pragma line 1 "/usr/include/bits/wordsize.h" 1 3 4 ::: 4184
+#pragma line 24 "/usr/include/bits/pthreadtypes.h" 2 3 4 ::: 4186
+#pragma line 48 "/usr/include/bits/pthreadtypes.h" 3 4 ::: 4187
+#pragma line 74 "/usr/include/bits/pthreadtypes.h" 3 4 ::: 4206
+#pragma line 101 "/usr/include/bits/pthreadtypes.h" 3 4 ::: 4225
+#pragma line 187 "/usr/include/bits/pthreadtypes.h" 3 4 ::: 4294
+#pragma line 271 "/usr/include/sys/types.h" 2 3 4 ::: 4325
+#pragma line 439 "/usr/include/stdlib.h" 2 3 4 ::: 4329
+#pragma line 588 "/usr/include/stdlib.h" 3 4 ::: 4471
+#pragma line 1 "/usr/include/alloca.h" 1 3 4 ::: 4497
+#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 4523
+#pragma line 56 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 4548
+#pragma line 26 "/usr/include/alloca.h" 2 3 4 ::: 4551
+#pragma line 613 "/usr/include/stdlib.h" 2 3 4 ::: 4566
+#pragma line 719 "/usr/include/stdlib.h" 3 4 ::: 4664
+#pragma line 977 "/usr/include/stdlib.h" 3 4 ::: 4913
+#pragma line 4 "./BlackScholes.h" 2 ::: 4915
+#pragma line 1 "/usr/include/stdio.h" 1 3 4 ::: 4916
+#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 4951
+#pragma line 56 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 4976
+#pragma line 35 "/usr/include/stdio.h" 2 3 4 ::: 4979
+#pragma line 45 "/usr/include/stdio.h" 3 4 ::: 4980
+#pragma line 61 "/usr/include/stdio.h" 3 4 ::: 4983
+#pragma line 72 "/usr/include/stdio.h" 3 4 ::: 4986
+#pragma line 1 "/usr/include/libio.h" 1 3 4 ::: 4987
+#pragma line 1 "/usr/include/_G_config.h" 1 3 4 ::: 5020
+#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 5035
+#pragma line 56 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 5060
+#pragma line 15 "/usr/include/_G_config.h" 2 3 4 ::: 5067
+#pragma line 24 "/usr/include/_G_config.h" 3 4 ::: 5068
+#pragma line 1 "/usr/include/wchar.h" 1 3 4 ::: 5069
+#pragma line 48 "/usr/include/wchar.h" 3 4 ::: 5092
+#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 5093
+#pragma line 56 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 5118
+#pragma line 49 "/usr/include/wchar.h" 2 3 4 ::: 5121
+#pragma line 1 "/usr/include/bits/wchar.h" 1 3 4 ::: 5123
+#pragma line 51 "/usr/include/wchar.h" 2 3 4 ::: 5142
+#pragma line 62 "/usr/include/wchar.h" 3 4 ::: 5146
+#pragma line 75 "/usr/include/wchar.h" 3 4 ::: 5149
+#pragma line 25 "/usr/include/_G_config.h" 2 3 4 ::: 5166
+#pragma line 44 "/usr/include/_G_config.h" 3 4 ::: 5178
+#pragma line 1 "/usr/include/gconv.h" 1 3 4 ::: 5179
+#pragma line 1 "/usr/include/wchar.h" 1 3 4 ::: 5208
+#pragma line 48 "/usr/include/wchar.h" 3 4 ::: 5231
+#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 5232
+#pragma line 56 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 5257
+#pragma line 49 "/usr/include/wchar.h" 2 3 4 ::: 5260
+#pragma line 62 "/usr/include/wchar.h" 3 4 ::: 5266
+#pragma line 89 "/usr/include/wchar.h" 3 4 ::: 5269
+#pragma line 29 "/usr/include/gconv.h" 2 3 4 ::: 5272
+#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 5275
+#pragma line 56 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 5300
+#pragma line 32 "/usr/include/gconv.h" 2 3 4 ::: 5303
+#pragma line 45 "/usr/include/_G_config.h" 2 3 4 ::: 5450
+#pragma line 84 "/usr/include/_G_config.h" 3 4 ::: 5470
+#pragma line 33 "/usr/include/libio.h" 2 3 4 ::: 5477
+#pragma line 51 "/usr/include/libio.h" 3 4 ::: 5479
+#pragma line 1 "/opt/xilinx/Vivado_HLS/2014.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdarg.h" 1 3 4 ::: 5483
+#pragma line 54 "/usr/include/libio.h" 2 3 4 ::: 5532
+#pragma line 74 "/usr/include/libio.h" 3 4 ::: 5533
+#pragma line 114 "/usr/include/libio.h" 3 4 ::: 5535
+#pragma line 147 "/usr/include/libio.h" 3 4 ::: 5541
+#pragma line 167 "/usr/include/libio.h" 3 4 ::: 5543
+#pragma line 200 "/usr/include/libio.h" 3 4 ::: 5567
+#pragma line 268 "/usr/include/libio.h" 3 4 ::: 5578
+#pragma line 316 "/usr/include/libio.h" 3 4 ::: 5619
+#pragma line 325 "/usr/include/libio.h" 3 4 ::: 5621
+#pragma line 357 "/usr/include/libio.h" 3 4 ::: 5643
+#pragma line 451 "/usr/include/libio.h" 3 4 ::: 5706
+#pragma line 481 "/usr/include/libio.h" 3 4 ::: 5721
+#pragma line 543 "/usr/include/libio.h" 3 4 ::: 5733
+#pragma line 73 "/usr/include/stdio.h" 2 3 4 ::: 5735
+#pragma line 1 "/usr/include/bits/stdio_lim.h" 1 3 4 ::: 5802
+#pragma line 139 "/usr/include/stdio.h" 2 3 4 ::: 5820
+#pragma line 181 "/usr/include/stdio.h" 3 4 ::: 5854
+#pragma line 271 "/usr/include/stdio.h" 3 4 ::: 5931
+#pragma line 695 "/usr/include/stdio.h" 3 4 ::: 6341
+#pragma line 719 "/usr/include/stdio.h" 3 4 ::: 6352
+#pragma line 1 "/usr/include/bits/sys_errlist.h" 1 3 4 ::: 6389
+#pragma line 755 "/usr/include/stdio.h" 2 3 4 ::: 6422
+#pragma line 832 "/usr/include/stdio.h" 3 4 ::: 6490
+#pragma line 844 "/usr/include/stdio.h" 3 4 ::: 6493
+#pragma line 5 "./BlackScholes.h" 2 ::: 6495
+#pragma line 1 "./mt19937ar.h" 1 ::: 6496
+#pragma line 6 "./BlackScholes.h" 2 ::: 6555
+#pragma line 1 "./CND.h" 1 ::: 6556
+#pragma line 7 "./BlackScholes.h" 2 ::: 6563
+#pragma line 3 "./BlackScholes_dut.h" 2 ::: 6566
+#pragma line 2 "BlackScholes_dut.cpp" 2 ::: 6583

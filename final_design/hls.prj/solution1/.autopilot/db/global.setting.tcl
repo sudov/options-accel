@@ -1,5 +1,5 @@
 
-set TopModule "BlackScholesWrapper"
+set TopModule "dut"
 set ClockPeriod "10.000000"
 set ClockList {ap_clk}
 set multiClockList {}
@@ -9,7 +9,7 @@ set PipelineFlag 0
 set DataflowTaskPipelineFlag  1
 set TrivialPipelineFlag 0
 set noPortSwitchingFlag 0
-set FloatingPointFlag 1
+set FloatingPointFlag 0
 set FftOrFirFlag 0
 set ResetLevelFlag 1
 set ResetStyle "state"
@@ -35,9 +35,9 @@ set SCTraceFileName "mytrace"
 set SCTraceFileFormat "vcd"
 set SCTraceOption "all"
 set TargetInfo "xc7z020:clg484:-1"
-set SourceFiles {sc {} c {../../BlackScholes_dut.cpp ../../mt19937ar.cpp ../../CND.cpp ../../BlackScholes.cpp ../../BlackScholesWrapper.cpp}}
-set SourceFlags {sc {} c {{} {} {} {} {}}}
-set DirectiveFile {/home/student/vff6/ece5775/assignments/HighLevelSynth/options-accel/final_design/hls.prj/solution1/solution1.directive}
+set SourceFiles {sc {} c {../../mt19937ar.cpp ../../CND.cpp ../../BlackScholes.cpp ../../BlackScholes_dut.cpp}}
+set SourceFlags {sc {} c {{} {} {} {}}}
+set DirectiveFile {/home/student/cw444/Fall2014/ece5775/options-accel/final_design/hls.prj/solution1/solution1.directive}
 set TBFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

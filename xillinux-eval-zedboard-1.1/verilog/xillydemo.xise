@@ -69,7 +69,7 @@
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="65"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="65"/>
     </file>
-    <file xil_pn:name="src/dut/dut_ap_dmul_4_max_dsp.xise" xil_pn:type="FILE_COREGENISE">
+    <file xil_pn:name="src/dut/dut_ap_dmul_4_max_dsp.xise" xil_pn:type="FILE_ISE">
       <association xil_pn:name="Implementation" xil_pn:seqID="66"/>
     </file>
   </files>

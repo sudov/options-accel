@@ -199,6 +199,7 @@ extern "C" {
 #8 "<command line>" 2
 #1 "<built-in>" 2
 #1 "BlackScholes_dut.cpp" 2
+#1 "./BlackScholes_dut.h" 1
 #1 "/opt/xilinx/Vivado_HLS/2014.2/common/technology/autopilot/hls_stream.h" 1
 /* -*- c++ -*-*/
 /*
@@ -490,7 +491,7 @@ class stream
 };
 
 } // namespace hls
-#2 "BlackScholes_dut.cpp" 2
+#2 "./BlackScholes_dut.h" 2
 #1 "./BlackScholes.h" 1
 #1 "/usr/include/math.h" 1 3 4
 /* Declarations for math functions.
@@ -6567,7 +6568,7 @@ double CND(double X);
 #7 "./BlackScholes.h" 2
 
 double BlackScholes(char CallPutFlag, double S, double X, double T, double r, double b);
-#3 "BlackScholes_dut.cpp" 2
+#3 "./BlackScholes_dut.h" 2
 
 
 
@@ -6583,22 +6584,39 @@ typedef union
 } my_type ;
 
 
-void dut(hls::stream<int>& in_fifo, hls::stream<int>& out_fifo)
+void dut(hls::stream<int> in_fifo, hls::stream<int> out_fifo);
+#2 "BlackScholes_dut.cpp" 2
+
+
+
+
+
+
+// typedef union
+// {
+//     long long myint64;
+//     double mydouble;
+// } my_type ;
+
+
+void dut(hls::stream<int> in_fifo, hls::stream<int> out_fifo)
 {
-    //#pragma HLS pipeline II=8
+    //#pragma HLS pipeline II=4
     //#pragma HLS dependence variable=rand_number inter false
 #pragma HLS interface ap_ctrl_none port=return
  //static int cnt;
 
+    int i;
+
+    //fifo tmp variables
     int data1;
     int data2;
     long long full;
     my_type cvt;
     my_type ret;
 
-
-
-    char CallPutFlag;
+    //BS parameters
+    char CallPutFlag = 'c';
     double S;
     double X;
     double T;
@@ -6606,9 +6624,8 @@ void dut(hls::stream<int>& in_fifo, hls::stream<int>& out_fifo)
     double b;
     double result;
 
-    //CallPutFlag
-    CallPutFlag = (char) in_fifo.read();
 
+//======================Initialize BlackSchole parameters though FIFO=====================
     //S
     data1 = in_fifo.read();
     data2 = in_fifo.read();
@@ -6644,13 +6661,21 @@ void dut(hls::stream<int>& in_fifo, hls::stream<int>& out_fifo)
     cvt.myint64 = full;
     b = cvt.mydouble;
 
-    result = BlackScholes( CallPutFlag, S, X, T, r, b );
-    ret.mydouble = result;
 
-    data1 = (int)(ret.myint64>>32);
-    data2 = (int)(0xffff&(ret.myint64));
+//======================Starting MC Iterations for BS=====================
 
-    out_fifo.write(data1);
-    out_fifo.write(data2);
+
+    loop: for (i = 0; i < 100000; i++) {_ssdm_op_SpecLoopName("loop");_ssdm_RegionBegin("loop");
+#pragma HLS PIPELINE II=4
+#81 "BlackScholes_dut.cpp"
+
+        // shadow_state();
+        result = BlackScholes(CallPutFlag, S, X, T, r, b);
+        ret.mydouble = result;
+        //data1 = (int)(ret.myint64>>32);
+        //data2 = (int)(0xffffffff&(ret.myint64));
+        //out_fifo.write(data1);
+        //out_fifo.write(data2);
+    _ssdm_RegionEnd("loop");}
 
 }
