@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define NUM_PASSES 100000
 #define RAND ((double)rand()/RAND_MAX) 
 #define PI 3.14159265358979323846  /* pi */
 
@@ -18,7 +17,7 @@ main()
   unsigned long init[4]={0x123, 0x234, 0x345, 0x456}, length=4; //***Mod
   init_by_array(init, length);        //***Mod
 
-  printf( "Initialization...." );
+  // printf( "Initialization...." );
   char   f = 'c';
   double s = 3.0;
   double x = 1.0;
@@ -26,7 +25,7 @@ main()
   double r = 5.0;
   double b = 1.5; 
   double a[NUM_PASSES];
-  printf( "....done\nStarting test........\n" );
+  // printf( "....done\nStarting test........\n" );
 
   before = clock();
   BlackScholesWrapper(f, s, x, t, r, b, a);
@@ -46,16 +45,16 @@ main()
 
   double conf_width = 1.96 * sqrt(variance) / sqrt ((double) NUM_PASSES);
 
-  printf ("Black-Scholes benchmark:\n"
-    "------------------------\n"
-    "S        %.2f\n"
-    "T        %.2f\n"
-    "r        %.2f\n"
-    "b        %.2f\n",
-    3.0, 1, 5.0, 1.5);
+  // printf ("Black-Scholes benchmark:\n"
+  //   "------------------------\n"
+  //   "S        %.2f\n"
+  //   "T        %.2f\n"
+  //   "r        %.2f\n"
+  //   "b        %.2f\n",
+  //   3.0, 1, 5.0, 1.5);
 
-  printf("Mean: %f\nVariance: %f\nConfidence Interval: (%f, %f)\n", mean, variance, mean-conf_width, mean+conf_width);
-  printf( "Simulation Time in secs: %f\n", ((double)(after-before))/CLOCKS_PER_SEC );
+  printf("Run#: %d, Mean: %f, Variance: %f, Confidence Interval: (%f, %f)\n", NUM_PASSES, mean, variance, mean-conf_width, mean+conf_width);
+  // printf( "Simulation Time in secs: %f\n", ((double)(after-before))/CLOCKS_PER_SEC );
 
   return(0);
 }
